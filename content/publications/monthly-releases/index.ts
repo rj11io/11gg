@@ -21,6 +21,7 @@ export const monthlyReleases: Publication = {
   isFeatured: true,
   isDraft: false,
   tags: ["Releases", "Calendar", "Gaming"],
+  sectionId: "gaming",
   synopsis:
     "A release calendar written as a monthly post rather than a database. Every month lists what came out, what is out now and what is dated next, sorted by date, with a note on what mattered and a record of every date that moved. Dates are checked in two sources at the time of writing; the Dates that moved section is what keeps the record honest afterwards.",
   posts: [releases202609, releases202610],

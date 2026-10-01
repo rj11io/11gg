@@ -31,18 +31,19 @@ Two directories matter:
 
 The dependency runs one way. **Never import from `v0/www` inside `content/`.**
 
-A second, unrelated `AGENTS.md` sits at `v0/www/AGENTS.md`. It warns that this Next.js version differs from your training data and tells you to check `node_modules/next/dist/docs/` before writing framework code. Heed it.
+Pages live under `v0/www/app/(main)/`, the route group that carries the header and footer; the root layout is the shell. A second, unrelated `AGENTS.md` sits at `v0/www/AGENTS.md`. It warns that this Next.js version differs from your training data and tells you to check `node_modules/next/dist/docs/` before writing framework code. Heed it.
 
 ## The documentation lives in the blog itself
 
 The Blog platform docs publication documents this platform. It is the source of truth, written for whoever maintains the repo. Read the post covering a thing before changing that thing.
 
-All twenty-one live in `content/publications/blog-platform-docs/posts/`. New here: start with Working with the platform. The table puts that entry post first, then follows editorial order.
+All twenty-two live in `content/publications/blog-platform-docs/posts/`. New here: start with Working with the platform. The table puts that entry post first, then follows editorial order.
 
 | If you are… | Read | Published at |
 | --- | --- | --- |
 | New to the platform | `working-with-the-platform.ts` | `/blog/blog-platform-docs/working-with-the-platform` |
 | Changing types, the registry, or the boundary | `content-contract.ts` | `/blog/blog-platform-docs/content-contract` |
+| Adding a section, a resources list, or a tool | `sections-and-modules.ts` | `/blog/blog-platform-docs/sections-and-modules` |
 | Adding a component, or wondering what runs where | `rendering-model.ts` | `/blog/blog-platform-docs/rendering-model` |
 | Adding Markdown syntax | `extending-the-renderer.ts` | `/blog/blog-platform-docs/extending-the-renderer` |
 | Touching colours, spacing, or theming | `design-tokens.ts` | `/blog/blog-platform-docs/design-tokens` |
@@ -125,6 +126,7 @@ Meaningful means it alters what someone else would need to know:
 | Where assets live, or how covers and link previews work | `adding-content.ts` |
 | A validation rule or its message | `content-validation.ts`, including its message table |
 | A route, slug, or redirect | `urls-and-redirects.ts` |
+| The section tree, a module, or the (main) route group | `sections-and-modules.ts`, and `urls-and-redirects.ts` for addresses |
 | Markdown syntax or a renderer component | `markdown-reference/` **and** `extending-the-renderer.ts` |
 | A block component or its JSON shape (`content/blocks/`) | that block's own post, plus `markdown-reference/` and `content-validation.ts` |
 | A design token, or theming behaviour | `design-tokens.ts` |

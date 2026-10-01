@@ -171,5 +171,5 @@ Same policy as every block: the build stops and names the post and the block, th
 
 ## Under the hood
 
-The parser is content/blocks/flow.ts. The drawing is v0/www/app/blog/components/blocks/flow-canvas.tsx, loaded through flow-block.tsx so it never runs on the server. Layout without positions comes from dagre, a small graph layout library; it places nodes by rank and the component centres them. The block mechanism itself is in [Extending the renderer](/blog/blog-platform-docs/extending-the-renderer).
+The parser is content/blocks/flow.ts. The drawing is v0/www/app/(main)/blog/components/blocks/flow-canvas.tsx, loaded through flow-block.tsx so it never runs on the server. Layout without positions comes from dagre, a small graph layout library; it places nodes by rank and the component centres them. The block mechanism itself is in [Extending the renderer](/blog/blog-platform-docs/extending-the-renderer).
 `

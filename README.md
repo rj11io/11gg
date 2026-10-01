@@ -11,7 +11,7 @@ The repository is public, under the Apache License 2.0. The platform manual it c
 
 The dependency runs one way. Never import from `v0/www` inside `content/`.
 
-`content/registry.ts` holds two publications: Monthly gaming releases, published, and Blog platform docs, a draft shown in development only.
+`content/registry.ts` holds five publications: Monthly gaming releases under gaming, Chapter 7: Season 4 under fortnite/br, World of Warcraft: Forever under world-of-warcraft/forever, Pokémon Champions updates under pokemon/champions, and Blog platform docs, a draft shown in development only.
 
 ## Run the site
 
@@ -21,7 +21,7 @@ npm install
 npm run dev
 ```
 
-Open the URL it prints. Every blog address lives under `/blog`; the root redirects there until a landing page exists. Checks, all from `v0/www`:
+Open the URL it prints. The root is the gg landing; every section lives at its own path, with its blog under `/blog`. Checks, all from `v0/www`:
 
 ```bash
 npm run lint

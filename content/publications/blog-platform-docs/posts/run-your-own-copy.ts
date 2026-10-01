@@ -50,6 +50,7 @@ One environment variable matters: SHOW_DRAFTS=1 publishes drafts on a deployment
 ## What to leave alone
 
 - The registry and the validator: they make a broken post a failed build instead of a broken page.
+- content/sections.ts: one root is a plain blog. Add sections to host several games or topics on one site, each with its own blog, resources and tools; see [Sections and modules](/blog/blog-platform-docs/sections-and-modules).
 - content/routes.ts: change only for different URL shapes, and read [URLs, slugs, and redirects](/blog/blog-platform-docs/urls-and-redirects) first.
 - The plugin order in .releaserc.js and in the Markdown renderer: both load-bearing, both commented where they live.
 

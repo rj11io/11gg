@@ -132,7 +132,7 @@ The one-way dependency makes a different front end bounded work, not a rewrite. 
 
 - **A way to import a .md file as a string.** content/markdown.d.ts already declares the shape; the bundler needs a loader that produces it. The current one is three lines.
 - **A way to import an image file and read its source, width, and height.** Post image modules rely on this; it is the only other build-time capability the content assumes. Caveat: the type declaration that makes those image imports check today comes from Next.js, through the global reference in v0/www/next-env.d.ts, not from the content directory. A replacement front end must supply its own equivalent declaration.
-- **The five routes.** Landing, browse, publication, post, author. content/routes.ts owns their addresses through its link builders; the shape of each page is the front end's to design.
+- **The five routes, per section.** Landing, browse, publication, post, author, under every section of the tree in content/sections.ts, plus a section landing, a resources list and a tools index. A plain blog is the root section alone. content/routes.ts owns their addresses through its link builders; the shape of each page is the front end's to design.
 - **A Markdown renderer** handling standard Markdown, the GitHub extensions, the three custom shortcodes, the accordion container, and the bare YouTube URL form. See [Extending the renderer](/blog/blog-platform-docs/extending-the-renderer).
 
 Everything else, including all validation, comes with the content.

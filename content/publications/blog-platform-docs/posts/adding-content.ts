@@ -13,7 +13,10 @@ content/
 ├── drafts.ts
 ├── markdown.d.ts
 ├── registry.ts
+├── resources.ts
 ├── routes.ts
+├── section-tree.ts
+├── sections.ts
 ├── types.ts
 ├── validation.ts
 └── publications/
@@ -65,6 +68,7 @@ export const publicationName: Publication = {
   isFeatured: false,
   isDraft: false,
   tags: ["Topic", "Practice"],
+  sectionId: "root",
   synopsis: "A longer description shown on the publication page.",
   editorNotes: "Optional editorial context for this publication.",
   coverImage: "/static/path/to-cover.png",
@@ -78,6 +82,7 @@ Required publication fields: relId, pubId, title, description, created, isNSFW, 
 - pubId: unique, URL-safe.
 - Dates: YYYY-MM-DD. updated cannot be earlier than created.
 - isDraft: true while unfinished (see Drafts below).
+- sectionId: optional, the section whose blog this is, from content/sections.ts. Left out, the root. See [Sections and modules](/blog/blog-platform-docs/sections-and-modules).
 
 Add the publication to the authoredPublications array in content/registry.ts, in editorial listing position:
 

@@ -17,7 +17,7 @@ A shortcode is a paragraph containing only an at sign, a name in square brackets
 
 Already valid Markdown. A parser reads it as two nodes: plain text "@", then a link with label "image" and address "workspace-overview". No parser changes needed. All the work is recognising that pair and swapping it for something else.
 
-Recognition happens in a remark plugin. Remark is the blog's Markdown parser; a plugin is a function that walks the parsed document and edits it before it becomes HTML. All plugins live in one file: v0/www/app/blog/components/markdown-utils.ts.
+Recognition happens in a remark plugin. Remark is the blog's Markdown parser; a plugin is a function that walks the parsed document and edits it before it becomes HTML. All plugins live in one file: v0/www/app/(main)/blog/components/markdown-utils.ts.
 
 ## The five steps
 
@@ -225,7 +225,7 @@ A shortcode carries one short argument. A directive wraps Markdown. Neither carr
 Markdown already parses it as a code block with the language chart. No new parser rule. Two places decide what happens next:
 
 - **content/blocks/**: one parser per language, pure TypeScript, no React. It turns the string into a typed spec or throws a message. blocks/index.ts lists the languages. The content validator runs every parser over every post at build time, so bad data fails the build with the post and the block number, the same message the dev server shows in a red box.
-- **v0/www/app/blog/components/blocks/**: fenced-block.tsx routes a language to its component; the pre element handler in markdown.tsx hands it any code block whose language is in that list. The component that draws is a client component when the library needs the browser, wrapped in block-frame.tsx, a server-rendered figure with the caption.
+- **v0/www/app/(main)/blog/components/blocks/**: fenced-block.tsx routes a language to its component; the pre element handler in markdown.tsx hands it any code block whose language is in that list. The component that draws is a client component when the library needs the browser, wrapped in block-frame.tsx, a server-rendered figure with the caption.
 
 Adding a block: a parser file in content/blocks with its entry in blocks/index.ts, a component in the blocks folder with its case in fenced-block.tsx, a reference post like [Charts](/blog/blog-platform-docs/charts), and a line in the Markdown reference. The parser is the contract: keep it strict, keep the data JSON, and let the build do the checking.
 

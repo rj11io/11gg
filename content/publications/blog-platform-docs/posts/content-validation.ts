@@ -238,6 +238,11 @@ Everything else appears verbatim:
 | blog-platform-docs/420: pokepaste block 1 set 2 has an unreadable line "Jolly" | A line that is not a known field, a move, or a nature | Check the format table in the Pokepaste post |
 | blog-platform-docs/421: map block 1 markers[2] lat must be a number from -90 to 90 | A coordinate is out of range or not a number. lng says -180 to 180 | Check the coordinate, latitude comes first |
 | blog-platform-docs/421: map block 1 needs a center, or at least one marker, circle, line or area to fit | Nothing on the map and no centre to frame | Add a point, or a center |
+| sections must have exactly one root section with id root | Two roots, none, or a root with another id | One entry with kind root and id root |
+| champions: an edition must sit under a game | An edition's parent is not a game section | Change the parent, or the kind |
+| champions: segment blog is reserved for a module or a site route | A section segment that a module or site route owns | Pick another segment |
+| updates: sectionId champions is not a section | A publication names a section that does not exist | Add the section, or fix the id |
+| champions-site: resource id must be a URL-safe slug | Capitals or spaces in a resource id. Resources are also checked for section, kind, title and url shape | Lowercase and hyphens |
 | Example post title references unknown author assistant-id | The registry's later author lookup failed; the author was removed while a post still referenced them | Restore the author, or update the post's authorIds |
 
 ## Fixing a failing build

@@ -1,7 +1,7 @@
 export const workingWithThePlatform = `
 # Working with the platform
 
-This publication documents 11blog, the platform this site runs on. Twenty-one posts. This one is the map: what the platform is, what it is not, which post to read for each job.
+This publication documents 11blog, the platform this site runs on. Twenty-two posts. This one is the map: what the platform is, what it is not, which post to read for each job.
 
 Want your own blog rather than to work on this one: start with [Build your own blog](/blog/online-presence/build-your-own-blog).
 
@@ -45,6 +45,7 @@ For evaluating the approach, or changing its shape.
 
 - [The content contract](/blog/blog-platform-docs/content-contract): why the writing sits outside the application, what the boundary guarantees, what a replacement front end must provide.
 - [How pages are rendered](/blog/blog-platform-docs/rendering-model): static generation, the few components that run in the browser and why, the trades taken on images.
+- [Sections and modules](/blog/blog-platform-docs/sections-and-modules): the section tree a site is built on, the addresses it makes, and the blog, resources and tools modules each section can carry.
 
 ### Extending
 

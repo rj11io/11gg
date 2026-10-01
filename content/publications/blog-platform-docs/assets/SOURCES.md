@@ -153,3 +153,15 @@ post lands; the run folder keeps the other three until then.
 | `flow-charts-og-cover-v1.png` | `flow-charts-og-content.png` | Flow charts |
 | `pokepaste-og-cover-v1.png` | `pokepaste-og-content.png` | Pokepaste |
 | `maps-og-cover-v1.png` | `maps-og-content.png` | Maps |
+
+## Sections and modules cover, 2026-10-02
+
+One cover, same style and generator as the block component covers above.
+
+- Brand: `11blog`
+- Run: `v1/integrations/20261001-172528/11blog/og-content/`
+- Dimensions: 1200 × 630, PNG
+
+| Consumer file | Source file | Title drawn |
+| --- | --- | --- |
+| `sections-and-modules-og-cover-v1.png` | `sections-and-modules-og-content.png` | Sections and modules |

@@ -33,7 +33,7 @@ Order: updated date when set, created date otherwise, so a revised post resurfac
 
 Both use the framework's file conventions: v0/www/app/sitemap.ts and v0/www/app/robots.ts export a description, the build turns each into the file crawlers expect.
 
-Sitemap lists: the blog landing page at /blog, the three browse indexes, every publication, every post, every author page. Posts and publications carry a last-modified date: the updated field when set, created otherwise. One more reason to set updated when revising a post.
+Sitemap lists: every section's landing, its blog landing and three browse indexes, its resources and tools pages when it has them, every publication, every post, every tool, every author page. A single-section site lists the blog at /blog with its indexes. Posts and publications carry a last-modified date: the updated field when set, created otherwise. One more reason to set updated when revising a post.
 
 Robots file: allows everything, points at the sitemap. Nothing to hide, a draft has no address at all. Stronger guarantee than asking crawlers to stay away.
 

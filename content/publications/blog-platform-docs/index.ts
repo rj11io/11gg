@@ -14,6 +14,7 @@ import { charts } from "./posts/charts"
 import { flowCharts } from "./posts/flow-charts"
 import { pokepaste } from "./posts/pokepaste"
 import { maps } from "./posts/maps"
+import { sectionsAndModules } from "./posts/sections-and-modules"
 import { renderingModel } from "./posts/rendering-model"
 import { runningTheBlog } from "./posts/running-the-blog"
 import { runYourOwnCopy } from "./posts/run-your-own-copy"
@@ -42,6 +43,7 @@ import chartsCover from "./assets/charts-og-cover-v1.png"
 import flowChartsCover from "./assets/flow-charts-og-cover-v1.png"
 import pokepasteCover from "./assets/pokepaste-og-cover-v1.png"
 import mapsCover from "./assets/maps-og-cover-v1.png"
+import sectionsAndModulesCover from "./assets/sections-and-modules-og-cover-v1.png"
 
 export const blogPlatformDocs: Publication = {
   relId: 4,
@@ -58,7 +60,7 @@ export const blogPlatformDocs: Publication = {
   isDraft: true,
   tags: ["Blog", "Technology", "Publishing", "Documentation"],
   synopsis:
-    "Twenty-one posts, the platform end to end: adding content, every Markdown form the renderer supports, the rules the build enforces, why the writing lives outside the web application, how pages render, and how to extend, theme, operate, copy, and contribute. Start with Working with the platform: it maps the rest by task. The 11blog repository is public, so everything here applies to a copy you fork and run yourself.",
+    "Twenty-two posts, the platform end to end: adding content, every Markdown form the renderer supports, the rules the build enforces, why the writing lives outside the web application, how pages render, and how to extend, theme, operate, copy, and contribute. Start with Working with the platform: it maps the rest by task. The 11blog repository is public, so everything here applies to a copy you fork and run yourself.",
   editorNotes:
     "Written inside the system it describes: every post renders on the platform it documents, so a broken claim is a broken page. Read the post covering a thing before changing that thing. Update it in the same commit.",
   // Editorial order, which is what the previous and next links follow. It runs
@@ -282,12 +284,28 @@ export const blogPlatformDocs: Publication = {
       coverImage: mapsCover.src,
     },
     {
+      postId: 422,
+      slug: "sections-and-modules",
+      title: "Sections and modules",
+      excerpt:
+        "The section tree a site is built on, the addresses it produces, and the blog, resources and tools modules every section can carry.",
+      created: "2026-07-15",
+      authorIds: ["rj11io"],
+      isNSFW: false,
+      isNew: false,
+      isFeatured: false,
+      isDraft: false,
+      tags: ["Architecture", "Routing", "Documentation"],
+      content: sectionsAndModules,
+      coverImage: sectionsAndModulesCover.src,
+    },
+    {
       postId: 402,
       slug: "adding-content",
       title: "Adding a publication or post",
       excerpt:
         "Adding a publication or post in the blog's content format. Both post layouts, every required field, a checklist for each.",
-      created: "2026-07-15",
+      created: "2026-07-16",
       authorIds: ["rj11io"],
       isNSFW: false,
       isNew: false,
@@ -303,7 +321,7 @@ export const blogPlatformDocs: Publication = {
       title: "Authors and bylines",
       excerpt:
         "The author record, the two jobs displayName does, and what happens when you rename or remove one.",
-      created: "2026-07-16",
+      created: "2026-07-17",
       authorIds: ["rj11io"],
       isNSFW: false,
       isNew: false,
@@ -319,7 +337,7 @@ export const blogPlatformDocs: Publication = {
       title: "Search, tags, and discovery",
       excerpt:
         "What the blog's searches actually match, why post bodies are not among them, and how tags behave.",
-      created: "2026-07-17",
+      created: "2026-07-18",
       authorIds: ["rj11io"],
       isNSFW: false,
       isNew: false,
@@ -335,7 +353,7 @@ export const blogPlatformDocs: Publication = {
       title: "Run your own copy",
       excerpt:
         "Forking the public 11blog repository and making it yours: what to replace, what to configure, what to leave alone.",
-      created: "2026-07-18",
+      created: "2026-07-19",
       authorIds: ["rj11io"],
       isNSFW: false,
       isNew: false,
@@ -351,7 +369,7 @@ export const blogPlatformDocs: Publication = {
       title: "Contribute to the platform",
       excerpt:
         "Contributing a post or a platform change: fork, add yourself as an author, run the checks, open a pull request.",
-      created: "2026-07-19",
+      created: "2026-07-20",
       authorIds: ["rj11io"],
       isNSFW: false,
       isNew: false,

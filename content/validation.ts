@@ -1,5 +1,6 @@
-import type { Author, PostImage, Publication } from "./types"
+import type { Author, PostImage, Publication, Resource, Section } from "./types"
 import { validateContentBlocks } from "./blocks"
+import { rootSectionId, validateSections } from "./section-tree"
 
 const isoDatePattern = /^\d{4}-\d{2}-\d{2}$/
 const pubIdPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
@@ -96,10 +97,40 @@ function assertPostImage(image: PostImage, label: string) {
   }
 }
 
+const resourceKinds = new Set(["link", "doc", "video", "file", "community"])
+
+export function validateResources(
+  resources: readonly Resource[],
+  sections: readonly Section[]
+) {
+  const sectionIds = new Set(sections.map((section) => section.id))
+  const ids = new Set<string>()
+  for (const resource of resources) {
+    if (!pubIdPattern.test(resource.id)) {
+      throw new Error(`${resource.id}: resource id must be a URL-safe slug`)
+    }
+    if (ids.has(resource.id)) throw new Error(`Duplicate resource id: ${resource.id}`)
+    ids.add(resource.id)
+    if (!sectionIds.has(resource.sectionId)) {
+      throw new Error(`${resource.id}: sectionId ${resource.sectionId} is not a section`)
+    }
+    if (!resourceKinds.has(resource.kind)) {
+      throw new Error(`${resource.id}: kind must be one of ${[...resourceKinds].join(", ")}`)
+    }
+    assertNonEmpty(resource.title, `${resource.id}.title`)
+    assertImageSource(resource.url, `${resource.id}.url`)
+    if (resource.description !== undefined) assertNonEmpty(resource.description, `${resource.id}.description`)
+    if (resource.tags) assertTags(resource.tags, `${resource.id}.tags`)
+  }
+}
+
 export function validatePublications(
   publications: Publication[],
-  authors: Author[]
+  authors: Author[],
+  sections: readonly Section[]
 ) {
+  validateSections(sections)
+  const sectionIds = new Set(sections.map((section) => section.id))
   const relIds = new Set<number>()
   const pubIds = new Set<string>()
   const authorIds = new Set<string>()
@@ -145,6 +176,11 @@ export function validatePublications(
       throw new Error(`Duplicate publication pubId: ${publication.pubId}`)
     }
     pubIds.add(publication.pubId)
+
+    const sectionId = publication.sectionId ?? rootSectionId
+    if (!sectionIds.has(sectionId)) {
+      throw new Error(`${publication.pubId}: sectionId ${sectionId} is not a section`)
+    }
 
     assertNonEmpty(publication.title, `${publication.pubId}.title`)
     assertNonEmpty(publication.description, `${publication.pubId}.description`)

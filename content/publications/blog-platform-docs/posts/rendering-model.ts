@@ -18,7 +18,7 @@ export function generateStaticParams() {
 }
 ~~~
 
-Publication, author, and browse routes do the same with their own lists. dynamicParams false: an unlisted address is a 404, never rendered on demand. See [URLs, slugs, and redirects](/blog/blog-platform-docs/urls-and-redirects). Each route also exports generateMetadata, building the page title, description, and link-preview tags from the same registry data at the same time.
+Publication, author, and browse routes do the same with their own lists. Those are the root section's pages; every other section's pages come from one dynamic route, v0/www/app/(main)/[...path], whose list is built from the section tree. The (main) route group carries the header and footer; the root layout holds only the shell. See [Sections and modules](/blog/blog-platform-docs/sections-and-modules). dynamicParams false: an unlisted address is a 404, never rendered on demand. See [URLs, slugs, and redirects](/blog/blog-platform-docs/urls-and-redirects). Each route also exports generateMetadata, building the page title, description, and link-preview tags from the same registry data at the same time.
 
 Possible because content is imported code, not fetched data. The registry assembles and validates everything before any page function runs, so a page is a function from in-memory data to markup.
 

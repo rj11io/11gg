@@ -8,30 +8,34 @@ One file builds every address. Every address that ever worked keeps working. Thi
 content/routes.ts is the only place that knows the site's address shapes:
 
 ~~~ts
-export const blogHref = "/blog"
-
-export const browseContentTypes = ["posts", "publications", "authors"] as const
-export const defaultBrowseContentType: BrowseContentType = "posts"
-export const browseHref = \`\${blogHref}/browse\`
-
-export function browseContentHref(contentType: BrowseContentType) {
-  return \`\${browseHref}/\${contentType}\`
+export function sectionHref(path: SectionPath = []) {
+  return path.length ? \`/\${path.map(encodeURIComponent).join("/")}\` : "/"
 }
 
-export function publicationHref(pubId: string) {
-  return \`\${blogHref}/\${encodeURIComponent(pubId)}\`
+export function blogHrefFor(path: SectionPath = []) {
+  return path.length ? \`\${sectionHref(path)}/blog\` : "/blog"
+}
+
+export const blogHref = blogHrefFor()
+
+export function browseContentHref(contentType: BrowseContentType, path: SectionPath = []) {
+  return \`\${blogHrefFor(path)}/browse/\${contentType}\`
+}
+
+export function publicationHref(pubId: string, path: SectionPath = []) {
+  return \`\${blogHrefFor(path)}/\${encodeURIComponent(pubId)}\`
 }
 
 export function authorHref(authorId: string) {
   return \`\${blogHref}/authors/\${encodeURIComponent(authorId)}\`
 }
 
-export function postHref(pubId: string, post: Pick<Post, "postId" | "slug">) {
-  return \`\${publicationHref(pubId)}/\${encodeURIComponent(post.slug ?? String(post.postId))}\`
+export function postHref(pubId: string, post: Pick<Post, "postId" | "slug">, path: SectionPath = []) {
+  return \`\${publicationHref(pubId, path)}/\${encodeURIComponent(post.slug ?? String(post.postId))}\`
 }
 ~~~
 
-Pages, cards, breadcrumbs, next-and-previous links, the header's home link: all call these functions or use blogHref. One exception: redirect sources in next.config.ts (historical addresses, plain strings, never rebuilt by a helper). Changing a live address shape is a one-file change; the compiler finds every caller. Moving the whole blog under /blog on 2026-10-01 was exactly that: blogHref appeared, three helpers gained the prefix, and nothing else in the app changed.
+Every helper takes a section path, the segments from the site root, and defaults to the root, so a single-section site calls them without one. Pages, cards, breadcrumbs, next-and-previous links, the header's home link: all call these functions or use blogHref. One exception: redirect sources in next.config.ts (historical addresses, plain strings, never rebuilt by a helper). Changing a live address shape is a one-file change; the compiler finds every caller. Moving the whole blog under /blog on 2026-10-01 was exactly that: blogHref appeared, three helpers gained the prefix, and nothing else in the app changed.
 
 Two properties:
 
@@ -42,7 +46,7 @@ The addresses on the site:
 
 | Address | What it shows |
 | --- | --- |
-| / | The site root. Redirects to /blog until a landing page for the whole site exists |
+| / | The site root. On a single-section site it forwards to /blog; on a sectioned site it is the root landing |
 | /blog | The blog landing page |
 | /blog/browse/posts | The searchable index of posts |
 | /blog/browse/publications | The searchable index of publications |
@@ -50,6 +54,7 @@ The addresses on the site:
 | /blog/{pubId} | One publication and its posts |
 | /blog/{pubId}/{slug} | One post |
 | /blog/authors/{authorId} | One author and everything they have written |
+| /{section}/... | The same blog shapes under a section's path, plus the section landing, /{section}/resources and /{section}/tools. See [Sections and modules](/blog/blog-platform-docs/sections-and-modules) |
 
 Everything the blog serves sits under /blog. The site root and any other top-level path are free for a landing page, tools, or resources, so a copy of this platform is a blog section inside a site rather than the whole site. Inside /blog, publications sit directly under the prefix with no further nesting. Reason for the reserved-word rule below.
 
@@ -95,6 +100,8 @@ A publication using one would be shadowed by the same-name route and unreachable
 
 New route directly under /blog: add its name to reservedPublicationIds in content/validation.ts in the same change. Forgotten, it surfaces much later as a publication that will not open.
 
+Section segments have a reserved list of their own, in content/section-tree.ts: blog, resources, tools, games, authors, browse, publications and the site's files. A section cannot take a name a module or a site route owns.
+
 ## Only known addresses exist
 
 The four content routes (publication, post, author, browse) each list their addresses ahead of time and refuse everything else. Post page:
@@ -110,7 +117,7 @@ export function generateStaticParams() {
 }
 ~~~
 
-generateStaticParams lists every address to build. dynamicParams false: anything off the list is a 404, never rendered on demand.
+generateStaticParams lists every address to build. dynamicParams false: anything off the list is a 404, never rendered on demand. Pages under a section come from one dynamic route, v0/www/app/(main)/[...path], that lists every section address the same way.
 
 Three consequences:
 
@@ -120,7 +127,7 @@ Three consequences:
 
 ## Internal and external links in prose
 
-The renderer sorts links into three kinds in v0/www/app/blog/components/markdown.tsx, test defined in markdown-utils.ts:
+The renderer sorts links into three kinds in v0/www/app/(main)/blog/components/markdown.tsx, test defined in markdown-utils.ts:
 
 - Starts with a hash: plain anchor, browser handles it, jumps within the page.
 - Starts with a single forward slash: internal, app navigation, no page reload.
@@ -205,7 +212,7 @@ The tempting rule is one catch-all, /:pubId to /blog/:pubId. It is wrong. Redire
 A publication created after the move never had a root address, so the list never grows. Two more decisions in that change:
 
 - Every older rule whose destination named a live address was edited to carry the prefix, so an old link still lands in one hop. The chaining rule above was not broken: rules pointing at an already-redirected address were left alone.
-- The site root forwards to /blog with permanent false, a 307. The root will become a landing page for the whole site; a cached 308 would keep sending readers past it.
+- The site root forwards to /blog from the root page itself, with a temporary redirect, so a sectioned site can render a landing page there instead without fighting a cached permanent one.
 
 ### Moving a query parameter into the path
 

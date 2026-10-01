@@ -1,15 +1,22 @@
 import type { MetadataRoute } from "next"
 
+import { getSectionTools, tools } from "@/lib/tools"
 import {
   allPosts,
   blogAuthors,
+  getSectionResources,
   publicationPreviews,
+  rootSection,
+  sectionTree,
 } from "@content/registry"
 import {
   authorHref,
-  blogHref,
+  blogHrefFor,
   browseContentTypes,
   browseContentHref,
+  resourcesHrefFor,
+  sectionHref,
+  toolsHrefFor,
 } from "@content/routes"
 import { absoluteUrl } from "@/lib/site"
 
@@ -32,16 +39,32 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .at(-1)
 
   return [
-    { url: absoluteUrl(blogHref), lastModified: newest },
-    ...browseContentTypes.map((contentType) => ({
-      url: absoluteUrl(browseContentHref(contentType)),
-      lastModified: newest,
-    })),
+    // Every section: its landing (not the root, which redirects), its blog
+    // and its browse indexes. A single-section site lists only the root blog.
+    ...sectionTree.all.flatMap((section) => {
+      const path = sectionTree.path(section.id)
+      return [
+        // The root is listed only when it is a landing page, which is when it
+        // has children; otherwise it redirects to the blog listed next.
+        ...(section.id === rootSection.id && sectionTree.children(section.id).length === 0
+          ? []
+          : [{ url: absoluteUrl(sectionHref(path)), lastModified: newest }]),
+        ...(getSectionResources(section.id).length ? [{ url: absoluteUrl(resourcesHrefFor(path)), lastModified: newest }] : []),
+        ...(getSectionTools(section.id).length ? [{ url: absoluteUrl(toolsHrefFor(path)), lastModified: newest }] : []),
+        { url: absoluteUrl(blogHrefFor(path)), lastModified: newest },
+        ...browseContentTypes.map((contentType) => ({
+          url: absoluteUrl(browseContentHref(contentType, path)),
+          lastModified: newest,
+        })),
+      ]
+    }),
     ...publicationPreviews.map((publication) => ({
       url: absoluteUrl(publication.href),
       lastModified: publication.updated ?? publication.created,
     })),
+    ...(sectionTree.byKind("game").length ? [{ url: absoluteUrl("/games"), lastModified: newest }] : []),
     ...postEntries,
+    ...tools.map((tool) => ({ url: absoluteUrl(tool.href) })),
     ...blogAuthors.map((author) => ({
       url: absoluteUrl(authorHref(author.id)),
     })),

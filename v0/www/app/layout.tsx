@@ -3,8 +3,6 @@ import { Geist_Mono, Inter } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 
 import "./globals.css"
-import { SiteFooter } from "./components/footer"
-import { SiteHeader } from "./components/header"
 import { ThemeProvider } from "@/components/theme-provider"
 import { siteOrigin } from "@/lib/site"
 import { cn } from "@/lib/utils"
@@ -51,6 +49,12 @@ const fontMono = Geist_Mono({
   variable: "--font-mono",
 })
 
+/**
+ * The root layout carries only what every page needs: fonts, theme, analytics,
+ * the metadata base. The header and footer live one level down in the (main)
+ * route group, the first custom point, so a page that needs a different frame
+ * can sit outside the group without fighting this one.
+ */
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -69,11 +73,7 @@ export default function RootLayout({
       )}
     >
       <body>
-        <ThemeProvider>
-          <SiteHeader />
-          {children}
-          <SiteFooter />
-        </ThemeProvider>
+        <ThemeProvider>{children}</ThemeProvider>
         <Analytics />
       </body>
     </html>

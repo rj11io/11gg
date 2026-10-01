@@ -1,3 +1,38 @@
+/**
+ * The section tree. See content/sections.ts for what each kind means.
+ */
+export type SectionKind = "root" | "category" | "game" | "edition"
+
+export type Section = {
+  id: string
+  kind: SectionKind
+  /** One path segment. Empty for the root, which lives at the site root. */
+  segment: string
+  title: string
+  description?: string
+  /** Every section but the root has one. */
+  parentId?: string
+  /** For games: ids of the category sections that list it. */
+  categories?: string[]
+}
+
+/**
+ * A curated link or file a section points its readers at. Content, not code:
+ * the resources module of a section is this list filtered by sectionId.
+ */
+export type ResourceKind = "link" | "doc" | "video" | "file" | "community"
+
+export type Resource = {
+  id: string
+  sectionId: string
+  kind: ResourceKind
+  title: string
+  /** Absolute HTTPS address, or root-relative for a file in public. */
+  url: string
+  description?: string
+  tags?: string[]
+}
+
 export type AuthorLink = {
   label: string
   url: string
@@ -90,11 +125,16 @@ export type Publication = {
   synopsis?: string
   editorNotes?: string
   coverImage?: string
+  /** The section whose blog this publication belongs to. Defaults to the root. */
+  sectionId?: string
   posts: Post[]
 }
 
 export type PostListItem = Post & {
   authors: AuthorPreview[]
+  sectionId: string
+  /** Segments from the root, empty at the root. */
+  sectionPath: string[]
   publicationId: string
   publicationTitle: string
   publicationHref: string
@@ -108,6 +148,8 @@ export type PostPreview = Omit<
 >
 
 export type PublicationPreview = Omit<Publication, "posts"> & {
+  sectionId: string
+  sectionPath: string[]
   href: string
   postCount: number
   /** Everyone with a byline on at least one of its posts. Derived, never authored. */
