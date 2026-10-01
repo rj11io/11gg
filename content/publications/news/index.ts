@@ -10,10 +10,10 @@ import { roadToLaunch } from "./posts/road-to-launch"
  * post is the date of the news it covers. Array order is editorial order,
  * oldest first.
  *
- * Naming: Blizzard's trademark guidelines ask that its marks are not combined
- * with a site's own name or domain. The publication names the game to refer
- * to it, with the credit line on every post. The operator decides whether to
- * keep this title; see the 11brain task 11wow-001 notes.
+ * Naming: the title names the game as a reference, the way a news desk names
+ * its subject. No credit line on posts since 2026-10-01: a disclaimer is added
+ * per page, only where a reader could mistake a post for the publisher's.
+ * Whether the title stays is the operator's call.
  */
 export const wowForever: Publication = {
   relId: 3,

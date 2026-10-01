@@ -1,6 +1,6 @@
 # 11gg
 
-The gaming and esports vertical of rj11.io, at gg.rj11.io. Built on the 11blog platform: the writing lives in TypeScript under `content/`, a Next.js app in `v0/www/` imports it and builds every page ahead of time. No database, no CMS. Publishing is a commit and a build.
+The gaming and esports site of rj11.io, at gg.rj11.io. Built on the 11blog platform: the writing lives in TypeScript under `content/`, a Next.js app in `v0/www/` imports it and builds every page ahead of time. No database, no CMS. Publishing is a commit and a build.
 
 The repository is public, under the Apache License 2.0. The platform manual it carries is a draft, shown in development and preview builds only.
 

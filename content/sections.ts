@@ -12,9 +12,9 @@ export const sections: Section[] = [
     kind: "root",
     segment: "",
     title: "11gg",
-    description: "The gaming and esports vertical of rj11.io.",
+    description: "Games followed update by update, by someone who plays them.",
     body:
-      "Games written about by someone who plays them, one site with a section per game. Each section carries its own blog, a short list of resources worth opening, and tools built here. Start with the releases calendar under Gaming, or pick a game.",
+      "One site, a section per game. Each section carries its own blog, a short list of resources worth opening, and tools built here. Start with the monthly releases calendar under Gaming, or pick a game.",
   },
   {
     id: "gaming",
@@ -24,7 +24,7 @@ export const sections: Section[] = [
     title: "Gaming",
     description: "Games as games: releases, updates, what is worth playing.",
     body:
-      "Games as games. The monthly releases calendar lives here: what came out last month, what is out now, what is dated next, and the dates that moved. The game sections below hold the per-game writing.",
+      "The monthly releases calendar lives here: what came out last month, what is out now, what is dated next, and which dates moved. The game sections below hold the writing on each game.",
   },
   {
     id: "esports",
@@ -34,7 +34,7 @@ export const sections: Section[] = [
     title: "Esports",
     description: "The competitive side: formats, seasons, championships.",
     body:
-      "The competitive side of the games on this site: formats, seasons, regulations, championships. Nothing is published here yet; the game sections tagged with esports carry what exists so far.",
+      "The competitive side of the games on this site: formats, seasons, regulations, championships. Nothing is published here yet. The game sections listed below carry what exists so far.",
   },
   {
     id: "fortnite",
