@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/rj11io/11gg/compare/v1.1.0...v1.2.0) (2026-10-01)
+
+
+### Features
+
+* **11gg-008:** resync, hub copy, no fallback preview image ([5998299](https://github.com/rj11io/11gg/commit/5998299d00021ec4a763b5b34db3db5acfca5d29))
+
 # [1.1.0](https://github.com/rj11io/11gg/compare/v1.0.0...v1.1.0) (2026-10-01)
 
 
