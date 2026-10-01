@@ -1,17 +1,17 @@
 # 11gg
 
-The gaming and esports site of rj11.io, at gg.rj11.io. Built on the 11blog platform: the writing lives in TypeScript under `content/`, a Next.js app in `v0/www/` imports it and builds every page ahead of time. No database, no CMS. Publishing is a commit and a build.
+The gaming and esports site of rj11.io, at gg.rj11.io. Built on the 11blog platform: the writing lives in TypeScript under `v0/content/`, a Next.js app in `v0/www/` imports it and builds every page ahead of time. No database, no CMS. Publishing is a commit and a build.
 
 The repository is public, under the Apache License 2.0. The platform manual it carries is a draft, shown in development and preview builds only.
 
 ## Repository layout
 
-- `content/`: authors, publications, posts, routes, validation. Depends on nothing in `v0/www`.
-- `v0/www/`: the Next.js web application. Imports `content/` through the `@content/*` path alias.
+- `v0/content/`: authors, publications, posts, routes, validation. Depends on nothing in `v0/www`.
+- `v0/www/`: the Next.js web application. Imports `v0/content/` through the `@content/*` path alias.
 
-The dependency runs one way. Never import from `v0/www` inside `content/`.
+The dependency runs one way. Never import from `v0/www` inside `v0/content/`.
 
-`content/registry.ts` holds five publications: Monthly gaming releases under gaming, Chapter 7: Season 4 under fortnite/br, World of Warcraft: Forever under world-of-warcraft/forever, Pokémon Champions updates under pokemon/champions, and Blog platform docs, a draft shown in development only.
+`v0/content/registry.ts` holds five publications: Monthly gaming releases under gaming, Chapter 7: Season 4 under fortnite/br, World of Warcraft: Forever under world-of-warcraft/forever, Pokémon Champions updates under pokemon/champions, and Blog platform docs, a draft shown in development only.
 
 ## Run the site
 
@@ -33,6 +33,6 @@ Run all three before committing. Only `build` runs the content validator.
 
 ## Documentation
 
-The platform documents itself in the Blog platform docs publication under `content/publications/blog-platform-docs/`. Where a post names 11blog or blog.rj11.io, read it as the example it is. Start with Working with the platform.
+The platform documents itself in the Blog platform docs publication under `v0/content/publications/blog-platform-docs/`. Where a post names 11blog or blog.rj11.io, read it as the example it is. Start with Working with the platform.
 
 Working in this repo as a person or an agent: read [AGENTS.md](./AGENTS.md) first.
