@@ -10,7 +10,7 @@ export const metadata: Metadata = sectionMetadata(rootSection)
 
 /**
  * The site root. A single-section site is its blog, so the root forwards to
- * /blog with a temporary redirect: nothing lives here yet and a cached
+ * `/blog` with a temporary redirect: nothing lives here yet and a cached
  * permanent one would fight a landing page added later. A sectioned site
  * renders the root section's landing: its categories and games, its own
  * modules, the latest posts from everywhere below.
