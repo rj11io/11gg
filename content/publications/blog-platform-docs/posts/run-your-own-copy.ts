@@ -11,6 +11,10 @@ The cost of that: a fork arrives carrying this site's publications, so replacing
 
 Two halves, per [The content contract](/blog/blog-platform-docs/content-contract): a content directory for the writing, a website that renders it. The licence asks almost nothing. Replacing the writing and the branding is expected, not merely allowed.
 
+## Two scripts do most of this
+
+v0/scripts/propagate.py makes a new site from this platform: it copies the code, gives it a name and an address, keeps this manual as a draft and removes every other publication. v0/scripts/resync.py brings an existing copy up to the current platform without touching its writing, sections, tools or redirects. Both print the command to run next. The sections below are what the scripts do, written out, for when you want to do one step by hand.
+
 ## Get it running first
 
 Fork or clone the repository, then start the dev server:
