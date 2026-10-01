@@ -20,6 +20,18 @@ export const siteOrigin = "https://gg.rj11.io"
  */
 export const siteName = "11gg"
 
+type SiteImage = { url: string; width: number; height: number; alt: string }
+
+/**
+ * The link preview for any page without a cover of its own: the landing, the
+ * browse indexes, author pages, a post or publication with no cover. A file
+ * under public, 1200 by 630, kept as a plain file so the address social
+ * networks cache stays stable. undefined means those pages carry no preview
+ * image at all, which is how a copy of the platform starts: our assets or
+ * none. One line on purpose, the copy scripts rewrite it.
+ */
+export const siteOgImage: SiteImage | undefined = undefined
+
 /**
  * Turns a root-relative path into a full address.
  *

@@ -8,7 +8,7 @@ import { parseMapBlock } from "./map"
  * Fenced code blocks whose language names a component instead of a syntax.
  * The renderer routes them to a component; the validator parses every one at
  * build time with the same parser. Adding a block: a parser file beside this
- * one, an entry here, a component in v0/www/app/blog/components/blocks.
+ * one, an entry here, a component in v0/www/app/(main)/blog/components/blocks.
  */
 export const blockParsers = {
   chart: parseChartBlock,

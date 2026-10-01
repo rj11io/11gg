@@ -64,7 +64,7 @@ Browse has three addresses, content type as a path segment, not a query paramete
 
 ## How a post URL is resolved
 
-Request for /blog/blog-platform-docs/adding-content: the registry looks up the publication by ID, then searches its posts for a match on slug or numeric ID as text:
+Request for /blog/blog-platform-docs/adding-content: the registry looks up the publication by section and id, then searches its posts for a match on slug or numeric ID as text:
 
 ~~~ts
 const postIndex = publication.posts.findIndex(

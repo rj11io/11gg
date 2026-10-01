@@ -42,11 +42,17 @@ export function resolveSectionRoute(segments: string[]): SectionRoute | undefine
     if (!child) break
     section = child
   }
-  if (section.id === rootSection.id) return undefined
-
   const path = segments.slice(0, depth)
   const rest = segments.slice(depth)
   const base = { section, path }
+
+  // The root's landing and blog are static routes; only its two module
+  // indexes come through here, and only when they have something to show.
+  if (section.id === rootSection.id) {
+    if (rest.length === 1 && rest[0] === "resources" && getSectionResources(section.id).length) return { ...base, kind: "resources" }
+    if (rest.length === 1 && rest[0] === "tools" && getSectionTools(section.id).length) return { ...base, kind: "tools" }
+    return undefined
+  }
 
   if (rest.length === 0) return { ...base, kind: "landing" }
   if (rest.length === 1 && rest[0] === "resources") return { ...base, kind: "resources" }
@@ -67,11 +73,11 @@ export function resolveSectionRoute(segments: string[]): SectionRoute | undefine
 export function sectionStaticParams(): { path: string[] }[] {
   const params: { path: string[] }[] = []
   for (const section of sectionTree.all) {
-    if (section.id === rootSection.id) continue
     const path = sectionTree.path(section.id)
-    params.push({ path })
     if (getSectionResources(section.id).length) params.push({ path: [...path, "resources"] })
     if (getSectionTools(section.id).length) params.push({ path: [...path, "tools"] })
+    if (section.id === rootSection.id) continue
+    params.push({ path })
     if (getSectionPublications(section.id).length === 0) continue
     params.push({ path: [...path, "blog"] })
     for (const content of browseContentTypes) params.push({ path: [...path, "blog", "browse", content] })

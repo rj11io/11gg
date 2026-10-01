@@ -136,7 +136,7 @@ Three options were on the table.
 
 - **PokeAPI.** The obvious source, with a clear fair use policy: cache what you request, keep request counts low, no formal rate limit since it moved to static hosting. Its sprites live in a GitHub repository addressed by national dex number, so showing a form such as Landorus-Therian means a name to number lookup first, and the newest items are missing. A runtime call per page would also go against the caching rule.
 - **pokepast.es itself.** Its images are renders scraped from a service that no longer exists, with no licence. Not reused.
-- **Pokémon Showdown's sprite host, addressed by name.** The animated sprites every battle simulator shows, with the newest forms, no number lookup, and a small library, @pkmn/img, that knows the filename rules. This is what the block uses. The ecosystem asks heavy users to host their own copy of the sprites to spare the volunteer-run host; a docs page with one team is light use, and the host is a single build-time setting, POKEPASTE_SPRITE_HOST, so a mirror with the same layout is a one-line change.
+- **Pokémon Showdown's sprite host, addressed by name.** The animated sprites every battle simulator shows, with the newest forms, no number lookup, and a small library, @pkmn/img, that knows the filename rules. This is what the block uses. The ecosystem asks heavy users to host their own copy of the sprites to spare the volunteer-run host; a docs page with one team is light use, and the host is a single build-time setting, NEXT_PUBLIC_POKEPASTE_SPRITE_HOST, so a mirror with the same layout is a one-line change.
 
 Zero runtime calls to any API: every image address is computed at build time from the species name, and the browser fetches images the way it fetches any image.
 

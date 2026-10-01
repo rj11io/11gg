@@ -22,7 +22,7 @@ Working notes for agents and new contributors. Find your task in the routing tab
 
 ## What this repository is
 
-11gg is the gaming and esports vertical of rj11.io, built on the 11blog platform. The writing lives in TypeScript under `content/`. A Next.js app in `v0/www/` imports it and builds every page ahead of time. No database, no CMS. Publishing is a commit and a build. Hosted on Vercel. The repository is public, under the Apache License 2.0.
+11gg is built on the 11blog platform. The writing lives in TypeScript under `content/`. A Next.js app in `v0/www/` imports it and builds every page ahead of time. No database, no CMS. Publishing is a commit and a build. Hosted on Vercel. The repository is public, under the Apache License 2.0.
 
 Two directories matter:
 
@@ -80,13 +80,17 @@ npm run lint
 npm run build
 ```
 
+```bash
+npm test
+```
+
 Dev server, from the repository root, serving on port 3000 (the Next.js default):
 
 ```bash
 npm --prefix v0/www run dev
 ```
 
-**Run all three checks before committing.** They fail for different reasons, none covers another.
+**Run all four checks before committing.** They fail for different reasons, none covers another. `test` covers the block parsers and the section tree, the pure functions a build only exercises with the content it has.
 
 **A passing `typecheck` proves nothing about content.** It checks types, never runs your code. The validator executes when the registry is imported: during `build`, and when the dev server renders a page. A date written as `2026-02-30` is a valid string, so `typecheck` passes and `build` fails.
 

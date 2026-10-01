@@ -14,6 +14,8 @@ export type Section = {
   parentId?: string
   /** For games: ids of the category sections that list it. */
   categories?: string[]
+  /** Markdown shown on the landing under the title. The hub's own words. */
+  body?: string
 }
 
 /**

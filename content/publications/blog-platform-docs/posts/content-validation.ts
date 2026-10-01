@@ -129,7 +129,7 @@ Link problems name the list position, counting from zero: rj11io.links[1].url is
 Per publication:
 
 - relId: whole number greater than zero, unique across publications.
-- pubId: valid identifier, unique across publications.
+- pubId: valid identifier, unique within its section.
 - pubId must not be one of the reserved words authors, browse, or publications. Those three are real routes; a publication using them would be unreachable.
 - title and description must have text.
 - created must be a real date. updated, if present, must be a real date and not before created.
@@ -206,7 +206,7 @@ Everything else appears verbatim:
 | Duplicate publication relId: 3 | Two publications share a relId | Give the new publication an unused number |
 | example-publication: pubId must be a URL-safe slug | Capitals or underscores in the publication ID | Use lowercase and hyphens |
 | browse: pubId conflicts with a reserved route | The publication ID is authors, browse, or publications | Pick a different ID |
-| Duplicate publication pubId: example-publication | Two publications share an ID | Rename one, and add redirects for the old URL |
+| Duplicate publication pubId: example-publication in section root | Two publications in one section share an ID | Rename one, and add redirects for the old URL |
 | example-publication.description must not be empty | A required text field is blank | Write a short description |
 | example-publication.created must use YYYY-MM-DD format | The date is written some other way | Rewrite it year first |
 | example-publication.created must be a real ISO date | The date is correctly shaped but does not exist | Correct the day or month |

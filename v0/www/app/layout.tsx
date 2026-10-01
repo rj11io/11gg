@@ -4,7 +4,7 @@ import { Analytics } from "@vercel/analytics/next"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { siteName, siteOrigin } from "@/lib/site"
+import { siteName, siteOgImage, siteOrigin } from "@/lib/site"
 import { cn } from "@/lib/utils"
 
 // Every page builds its Open Graph image from a post or publication cover, and
@@ -14,20 +14,10 @@ import { cn } from "@/lib/utils"
 // that is not on the internet. The origin itself lives in lib/site.ts, because
 // share links need the same value and two copies would drift apart.
 //
-// The image below is the site-wide fallback, used by any page that does not set
-// an Open Graph image of its own: the landing page, the browse page, and author
-// pages. A post or publication with a cover overrides it, because those pages
-// declare their own openGraph block. Copied from the versioned set of record at
-// v0/branding/images/og/11blog-favicon-style-og-v5.png. Kept as a plain file in
-// public rather than an import so the address stays stable and readable, which
-// matters for something social networks cache. Note that nothing verifies this
-// path, so open a page and read the tag after changing it.
-//
-// Moved from v4 to v5 on 2026-08-02, so the fallback matches the post and
-// publication covers, which gained a second signal square the same day. The v4
-// file is still in public alongside it: social networks cache an image against
-// the address they first saw, and deleting it would blank the preview on
-// anything already shared. It costs 44KB to leave it there.
+// The site-wide fallback image lives there too, as siteOgImage, and is only
+// spread in when set: a page with no cover and no fallback carries no preview
+// image rather than a wrong one. Setting the key to undefined would not do:
+// it replaces an inherited value instead of deferring to it.
 export const metadata: Metadata = {
   metadataBase: new URL(siteOrigin),
   // Every page title ends with the site name; a page that is the site itself
@@ -37,16 +27,7 @@ export const metadata: Metadata = {
     default: siteName,
     template: `%s · ${siteName}`,
   },
-  openGraph: {
-    images: [
-      {
-        url: "/static/og/11blog-default-og-v5.png",
-        width: 1200,
-        height: 630,
-        alt: "11blog",
-      },
-    ],
-  },
+  ...(siteOgImage ? { openGraph: { images: [siteOgImage] } } : {}),
 }
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })

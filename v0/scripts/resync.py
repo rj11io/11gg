@@ -8,7 +8,8 @@ Replaces v0/www and the content core (blocks, types, validation, routes,
 section-tree, markdown.d.ts, drafts, scripts) with this platform's, refreshes
 the platform manual as a draft, then re-applies the site's identity. Keeps
 the copy's publications, sections, resources, authors, redirects, tools
-registry and every tool folder. Run npm ci, typecheck, lint and build after.
+registry, every tool folder and its public/static/og folder. The fallback
+preview image is none unless --og names the copy's own. Run npm ci, typecheck, lint and build after.
 """
 import argparse
 import os
@@ -18,13 +19,14 @@ import subprocess
 from lib_identity import apply_identity, draft_docs_publication
 
 SRC = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-EXCLUDES = ["node_modules", ".next", "tsconfig.tsbuildinfo", ".DS_Store", ".env*"]
+EXCLUDES = ["node_modules", ".next", "tsconfig.tsbuildinfo", ".DS_Store", ".env*", "public/static/og"]
 KEEP_IN_WWW = ["lib/tools.ts", "next.config.ts"]
 CORE = ["types.ts", "validation.ts", "routes.ts", "section-tree.ts", "markdown.d.ts", "drafts.ts"]
 
 parser = argparse.ArgumentParser()
 for name in ["dest", "code", "domain", "feed", "landing", "eyebrow", "title", "hero"]:
     parser.add_argument(f"--{name}", required=True)
+parser.add_argument("--og", help="root-relative path of the copy's own fallback preview image, 1200 by 630. Omitted: none.")
 args = parser.parse_args()
 dest = os.path.abspath(args.dest)
 www = os.path.join(dest, "v0", "www")
@@ -61,7 +63,7 @@ for d in tool_dirs:
     shutil.copytree(os.path.join(backup, os.path.relpath(d, main)), d, dirs_exist_ok=True)
 shutil.rmtree(backup, ignore_errors=True)
 
-apply_identity(dest, args.code, args.domain, args.feed, args.landing, {"eyebrow": args.eyebrow, "title": args.title, "description": args.hero}, keep_redirects=True)
+apply_identity(dest, args.code, args.domain, args.feed, args.landing, {"eyebrow": args.eyebrow, "title": args.title, "description": args.hero}, keep_redirects=True, og=args.og)
 draft_docs_publication(dest)
 p = os.path.join(dest, "AGENTS.md")
 s = open(p, encoding="utf-8").read()

@@ -10,8 +10,8 @@
 
 Copies the platform without node_modules, builds and env files, then makes it
 the named site: addresses, names, feed, landing copy, an empty redirect list,
-the platform manual kept as a draft and every other publication removed. The
-section tree stays the root alone; edit content/sections.ts afterwards. Run
+the platform manual kept as a draft and every other publication removed, no
+fallback preview image. The section tree stays the root alone; edit content/sections.ts afterwards. Run
 npm ci, typecheck, lint and build in v0/www when it is done.
 """
 import argparse
@@ -38,6 +38,7 @@ subprocess.run(["rsync", "-a", *ex, os.path.join(SRC, "v0", "www"), os.path.join
 subprocess.run(["rsync", "-a", os.path.join(SRC, "v0", "scripts"), os.path.join(dest, "v0") + "/"], check=True)
 
 apply_identity(dest, args.code, args.domain, args.feed, args.landing, {"eyebrow": args.eyebrow, "title": args.title, "description": args.hero})
+shutil.rmtree(os.path.join(dest, "v0", "www", "public", "static", "og"), ignore_errors=True)
 
 p = os.path.join(dest, "package.json")
 s = open(p, encoding="utf-8").read().replace('"name": "@rj11io/11blog"', f'"name": "@rj11io/{args.code}"')

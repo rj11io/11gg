@@ -61,15 +61,17 @@ Four commands, all from v0/www:
 | npm run typecheck | Checks types across the whole project without producing files. Fast. |
 | npm run lint | Runs ESLint with the Next.js configuration. |
 | npm run build | Produces the production site, generating every page. |
+| npm test | Runs the unit tests: the block parsers and the section tree, pure functions with exact error messages. |
 | npm run start | Serves an already-built site, for checking the production output. |
 
 Also npm run format: rewrites files with Prettier, including the Tailwind class-sorting plugin.
 
-**Run typecheck, lint, and build before committing.** Different failure modes, no overlap:
+**Run typecheck, lint, build and test before committing.** Different failure modes, no overlap:
 
 - typecheck catches type errors. Runs none of your code.
 - lint catches the rules the Next.js configuration enforces.
 - build is the only command that executes the content and generates every page. Only one that catches a content validation failure, a publication missing from the registry, or a post that cannot render.
+- test exercises the parsers with inputs the content does not happen to contain: the error paths. A new parser gets a test file in v0/www/tests.
 
 Easy to get wrong: the content validator runs when the registry executes, meaning during a build and when the dev server renders a page. Not during typecheck. A date written as 2026-02-30 is a valid string: typecheck passes, build fails. A passing typecheck is not evidence content is valid. See [Content validation rules](/blog/blog-platform-docs/content-validation).
 
@@ -190,7 +192,8 @@ Forces one version of that package regardless of what any dependency asks for. A
 1. From v0/www: npm run typecheck.
 2. npm run lint.
 3. npm run build.
-4. Check the change in the running site, including one internal link if you added any.
+4. npm test.
+5. Check the change in the running site, including one internal link if you added any.
 5. If you drafted something already published, check nothing links to it in prose. Nothing validates those links; one pointing at a draft is a 404.
 6. Commit as fix: or feat: to produce a release, chore: or docs: to not.
 `

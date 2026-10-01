@@ -11,6 +11,7 @@ import {
 import { blogHrefFor, resourcesHrefFor, sectionHref, toolsHrefFor } from "@content/routes"
 import type { PostPreview, Section } from "@content/types"
 
+import { Markdown } from "../markdown"
 import { BreadcrumbJsonLd, SectionCrumbs, sectionCrumbItems } from "../section-breadcrumb"
 import { siteName } from "@/lib/site"
 
@@ -107,6 +108,12 @@ export function SectionLanding({ section }: { section: Section }) {
             <p className="mt-5 max-w-3xl text-lg leading-8 text-muted-foreground sm:text-xl sm:leading-9">{section.description}</p>
           ) : null}
         </header>
+
+        {section.body ? (
+          <div className="mt-2 max-w-3xl">
+            <Markdown content={section.body} />
+          </div>
+        ) : null}
 
         {children.length > 0 ? (
           <section aria-labelledby="sections-heading" className="mt-12">

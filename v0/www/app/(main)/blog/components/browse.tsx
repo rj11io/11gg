@@ -606,7 +606,7 @@ export function Browse({
         (!needle || searchText.includes(needle)) &&
         matchesTags(post.tags, activeSelectedTags) &&
         (!bookmarkFilterActive ||
-          bookmarkedKeys.has(postBookmarkKey(post.publicationId, post.postId)))
+          bookmarkedKeys.has(postBookmarkKey(post.publicationId, post.postId, post.sectionPath)))
       )
     })
     return sortContent(filtered, contentSort)
@@ -637,7 +637,7 @@ export function Browse({
         (!needle || searchText.includes(needle)) &&
         matchesTags(publication.tags, activeSelectedTags) &&
         (!bookmarkFilterActive ||
-          bookmarkedKeys.has(publicationBookmarkKey(publication.pubId)))
+          bookmarkedKeys.has(publicationBookmarkKey(publication.pubId, publication.sectionPath)))
       )
     })
     return sortContent(filtered, contentSort)

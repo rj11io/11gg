@@ -228,7 +228,7 @@ export function PostPage({
                 <div className="ml-auto">
                   <BookmarkButton
                     targetType="post"
-                    targetKey={postBookmarkKey(publication.pubId, post.postId)}
+                    targetKey={postBookmarkKey(publication.pubId, post.postId, path)}
                     href={postHref(publication.pubId, post, path)}
                     title={post.title}
                   />

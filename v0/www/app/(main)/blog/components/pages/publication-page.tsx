@@ -124,7 +124,7 @@ export function PublicationPage({ section, pubId }: { section: Section; pubId: s
               </p>
               <BookmarkButton
                 targetType="publication"
-                targetKey={publicationBookmarkKey(publication.pubId)}
+                targetKey={publicationBookmarkKey(publication.pubId, path)}
                 href={publicationHref(publication.pubId, path)}
                 title={publication.title}
               />

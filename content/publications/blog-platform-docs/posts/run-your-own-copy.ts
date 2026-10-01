@@ -40,7 +40,7 @@ With no published posts or publications, production remains valid: the landing p
 ## Configure the site's identity
 
 - Address: v0/www/lib/site.ts holds siteOrigin, the one place the site's own domain is written. Set it to yours first. Every share link and link preview builds from it; a copy still pointing at blog.rj11.io sends your readers here.
-- Link-preview fallback: the site-wide Open Graph image (shown when a page with no cover is shared) lives under v0/www/public/static/og/. Replace it, or coverless pages preview with this blog's branding.
+- Link-preview fallback: siteOgImage in v0/www/lib/site.ts names the image shown when a page with no cover is shared. A copy starts with none, so coverless pages carry no preview image rather than this blog's; set it when you have your own, 1200 by 630, under v0/www/public/static/og/.
 - Name: siteName in v0/www/lib/site.ts drives every page title and the breadcrumb data. The header wordmark and the footer carry it in their own files; search v0/www for the old name, replace what you find.
 
 ## Deploy and release

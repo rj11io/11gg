@@ -59,7 +59,7 @@ export function PublicationBrowser({
         (!needle || searchText.includes(needle)) &&
         selectedTags.every((tag) => post.tags.includes(tag)) &&
         (!bookmarkFilterActive ||
-          bookmarkedKeys.has(postBookmarkKey(post.publicationId, post.postId)))
+          bookmarkedKeys.has(postBookmarkKey(post.publicationId, post.postId, post.sectionPath)))
       )
     })
 

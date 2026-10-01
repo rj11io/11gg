@@ -79,7 +79,7 @@ export const publicationName: Publication = {
 Required publication fields: relId, pubId, title, description, created, isNSFW, isNew, isFeatured, isDraft, tags, posts. Rules:
 
 - relId: unique positive integer.
-- pubId: unique, URL-safe.
+- pubId: URL-safe, unique within its section. Two sections may each have a publication called updates; the section path tells them apart.
 - Dates: YYYY-MM-DD. updated cannot be earlier than created.
 - isDraft: true while unfinished (see Drafts below).
 - sectionId: optional, the section whose blog this is, from content/sections.ts. Left out, the root. See [Sections and modules](/blog/blog-platform-docs/sections-and-modules).

@@ -56,7 +56,7 @@ export const blogPlatformDocs: Publication = {
   isNew: false,
   isFeatured: false,
   // The platform manual travels with every copy as a draft: visible in
-  // development and preview builds, never on the live site of a vertical.
+  // development and preview builds, never on the live site.
   isDraft: true,
   tags: ["Blog", "Technology", "Publishing", "Documentation"],
   synopsis:

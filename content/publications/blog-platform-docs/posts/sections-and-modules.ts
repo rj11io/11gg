@@ -5,7 +5,7 @@ A site built on this platform is a tree of sections, and every section can carry
 
 ## The tree
 
-content/sections.ts is a list. Every entry has an id, a kind, one path segment, a title, and a parent. Exactly one entry is the root: kind root, an empty segment, no parent.
+content/sections.ts is a list. Every entry has an id, a kind, one path segment, a title, and a parent, plus an optional description for cards and an optional body, Markdown shown on the landing under the title. Exactly one entry is the root: kind root, an empty segment, no parent.
 
 ~~~ts
 export const sections: Section[] = [
@@ -40,7 +40,7 @@ A section's address is its ancestors' segments joined: /pokemon/champions. The r
 | /{section}/tools/{tool} | One tool |
 | /games | Every game section, with its categories, editions and post count. A 404 on a site with no games |
 
-The root section drops the prefix: /blog, /resources, /tools. The site root itself is the root section's landing when the tree has more than the root, and a redirect to /blog when it does not. Authors are site-wide, at /blog/authors/{authorId}. The feed, the sitemap and the robots file stay at the site root and cover every section.
+The root section drops the prefix: /blog, /resources, /tools, the last two only when the root has resources or tools. The site root itself is the root section's landing when the tree has more than the root, and a redirect to /blog when it does not. Authors are site-wide, at /blog/authors/{authorId}. The feed, the sitemap and the robots file stay at the site root and cover every section.
 
 Paths and slugs are references: a section about a game may use the game's full official name as its segment. The site's own name, domain and logo are the site's own; that rule lives outside this post.
 
@@ -56,7 +56,7 @@ export const champions: Publication = {
 }
 ~~~
 
-Everything a section's blog shows comes from publications that name it: the landing, the browse indexes, the counts. A game's landing also lists the latest posts of its editions, so a parent is never empty when its children have writing. A pubId is unique across the site, not per section, so two sections cannot both have a publication called updates. Give the id the section's name when that happens.
+Everything a section's blog shows comes from publications that name it: the landing, the browse indexes, the counts. A game's landing also lists the latest posts of its editions, so a parent is never empty when its children have writing. A pubId is unique within its section, so two sections may each have a publication called updates; the section path tells them apart, and the bookmark keys carry it too.
 
 ## The resources module
 

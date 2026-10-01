@@ -10,9 +10,11 @@ import { CopyCodeButton } from "../copy-code-button"
  * Where sprites come from. The default is the Pokémon Showdown sprite host,
  * addressed by name through @pkmn/img, which knows every form's filename.
  * Showdown asks heavy users to host their own copy; set this variable at
- * build time to a mirror with the same layout and nothing else changes.
+ * build time to a mirror with the same layout and nothing else changes. The
+ * NEXT_PUBLIC prefix makes Next inline it in the browser bundle too, where
+ * the team viewer tool renders these cards.
  */
-const spriteDomain = process.env.POKEPASTE_SPRITE_HOST ?? "play.pokemonshowdown.com"
+const spriteDomain = process.env.NEXT_PUBLIC_POKEPASTE_SPRITE_HOST ?? "play.pokemonshowdown.com"
 
 const statNames: Record<StatKey, string> = {
   hp: "HP",

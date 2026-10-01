@@ -172,15 +172,17 @@ export function validatePublications(
         `${publication.pubId}: pubId conflicts with a reserved route`
       )
     }
-    if (pubIds.has(publication.pubId)) {
-      throw new Error(`Duplicate publication pubId: ${publication.pubId}`)
-    }
-    pubIds.add(publication.pubId)
-
     const sectionId = publication.sectionId ?? rootSectionId
     if (!sectionIds.has(sectionId)) {
       throw new Error(`${publication.pubId}: sectionId ${sectionId} is not a section`)
     }
+    // A pubId is unique within its section: two sections may each have a
+    // publication called updates, the section path tells them apart.
+    const pubKey = `${sectionId}/${publication.pubId}`
+    if (pubIds.has(pubKey)) {
+      throw new Error(`Duplicate publication pubId: ${publication.pubId} in section ${sectionId}`)
+    }
+    pubIds.add(pubKey)
 
     assertNonEmpty(publication.title, `${publication.pubId}.title`)
     assertNonEmpty(publication.description, `${publication.pubId}.description`)

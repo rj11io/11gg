@@ -34,12 +34,16 @@ ROOT_REDIRECTS = '''  async redirects() {
 '''
 
 
-def apply_identity(dest, code, domain, feed, landing_description, hero, keep_redirects=False):
+def apply_identity(dest, code, domain, feed, landing_description, hero, keep_redirects=False, og=None):
     """Rewrite every place the web app names the site."""
     www = os.path.join(dest, "v0", "www")
     s = rd(f"{www}/lib/site.ts")
     s = re.sub(r'export const siteOrigin = "https://[^"]+"', f'export const siteOrigin = "https://{domain}"', s, count=1)
     s = re.sub(r'export const siteName = "[^"]+"', f'export const siteName = "{code}"', s, count=1)
+    # The fallback preview image is the platform's own asset. A copy starts
+    # with none, our assets or none, until it has a brand of its own.
+    value = f'{{ url: "{og}", width: 1200, height: 630, alt: "{code}" }}' if og else "undefined"
+    s = re.sub(r"export const siteOgImage: SiteImage \| undefined = .*", f"export const siteOgImage: SiteImage | undefined = {value}", s, count=1)
     wr(f"{www}/lib/site.ts", s)
 
     s = rd(f"{www}/app/components/header.tsx")
