@@ -6,8 +6,15 @@ import {
   rootSection,
   sectionTree,
 } from "@content/registry"
-import { browseContentTypes, type BrowseContentType } from "@content/routes"
+import { blogHref, browseContentTypes, sectionHref, type BrowseContentType } from "@content/routes"
 import type { Section } from "@content/types"
+
+/**
+ * Where the wordmark and the 404 page send a reader. A sectioned site has a
+ * landing at the root. A single-section site is its blog, and / would only
+ * forward there with an extra hop, so the link goes straight to /blog.
+ */
+export const homeHref = sectionTree.children(rootSection.id).length ? sectionHref() : blogHref
 
 /**
  * What a path under a section means. The catch-all route turns the URL

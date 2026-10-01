@@ -64,8 +64,17 @@ def apply_identity(dest, code, domain, feed, landing_description, hero, keep_red
 
     p = f"{www}/app/feed.xml/route.ts"
     s = rd(p)
-    s = re.sub(r"<title>[^<]+</title>", f"<title>{code}</title>", s, count=1)
-    s = re.sub(r"<description>[^<]+</description>", f"<description>{feed}</description>", s, count=1)
+    # The channel block only. The item template above it also carries a title
+    # and a description, and a first-match replace renamed every item after the
+    # site while the channel kept the platform's name: 11gg shipped that feed.
+    s, n = re.subn(r"(<channel>\n\s*<title>)[^<]+(</title>)", lambda m: m.group(1) + code + m.group(2), s, count=1)
+    if n != 1:
+        raise SystemExit("feed title: channel block not found")
+    s, n = re.subn(
+        r"(<channel>\n\s*<title>[^<]*</title>\n\s*<link>[^<]*</link>\n\s*<description>)[^<]+(</description>)",
+        lambda m: m.group(1) + feed + m.group(2), s, count=1)
+    if n != 1:
+        raise SystemExit("feed description: channel block not found")
     wr(p, s)
 
     p = f"{www}/app/(main)/blog/page.tsx"

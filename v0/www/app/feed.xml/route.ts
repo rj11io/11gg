@@ -33,11 +33,11 @@ export function GET() {
 
       return [
         "    <item>",
-        `      <title>11gg</title>`,
+        `      <title>${escapeXml(post.title)}</title>`,
         `      <link>${url}</link>`,
         `      <guid>${url}</guid>`,
         `      <pubDate>${rssDate(post.updated ?? post.created)}</pubDate>`,
-        description && `      <description>The gaming and esports vertical of rj11.io. Editorial content lives in TypeScript.</description>`,
+        description && `      <description>${description}</description>`,
         "    </item>",
       ]
         .filter(Boolean)
@@ -48,9 +48,9 @@ export function GET() {
   const feed = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>11blog</title>
+    <title>11gg</title>
     <link>${siteOrigin}</link>
-    <description>A personal blog whose editorial content lives in TypeScript.</description>
+    <description>Games followed update by update: a monthly releases calendar and a section per game, each with its own blog, resources and tools.</description>
     <language>en</language>
     <atom:link href="${absoluteUrl("/feed.xml")}" rel="self" type="application/rss+xml"/>
 ${items}

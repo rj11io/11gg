@@ -163,6 +163,6 @@ Post bodies are TypeScript template strings, which constrains the writing. Follo
 - Escape backslashes: write `\\d` to show `\d`.
 - Start the body with a first-level heading matching the post title. The page strips it and renders the title itself.
 - Use second- through fifth-level headings for sections. They become the table of contents.
-- Write in the register at the top of this file. It applies to published prose as much as to chat.
+- Write in the register at the top of this file. It applies to published prose as much as to chat, plus the copywriting rule for anything a reader sees: polished grammar, one cohesive voice, still concise. Shorthand that sacrifices grammar stays in chat, comments and agent notes.
 
 After writing, run `build` and open the page. Check the code blocks, the tables, and every internal link.

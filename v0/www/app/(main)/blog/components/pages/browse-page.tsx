@@ -2,9 +2,12 @@ import type { Metadata } from "next"
 
 import { BookmarksProvider } from "@/app/components/bookmarks-provider"
 import {
+  authorPreviews,
   getSectionAuthors,
   getSectionPosts,
   getSectionPublications,
+  publicationPreviews,
+  rootSection,
   sectionTree,
 } from "@content/registry"
 import { browseContentHref, browseContentTypes, type BrowseContentType } from "@content/routes"
@@ -13,9 +16,9 @@ import type { Section } from "@content/types"
 import { Browse } from "../browse"
 
 const descriptions: Record<BrowseContentType, string> = {
-  posts: "Search and filter every post across the collection.",
+  posts: "Search every post, filter by tag, sort by date.",
   publications:
-    "Every publication in the collection, with its subject and post count.",
+    "Every publication, with its subject and how many posts it holds.",
   authors: "Everyone who writes here, and what each of them has written.",
 }
 
@@ -31,9 +34,18 @@ export function browseMetadata(section: Section, content: BrowseContentType): Me
   }
 }
 
-/** The browse index of a section's blog. The root wrapper lives at app/blog/browse. */
+/**
+ * The browse index of a section's blog. The root wrapper lives at app/blog/browse.
+ *
+ * The root browse is the site's search, so on a sectioned site it covers every
+ * section below the root: a reader finds a post without knowing which section
+ * holds it, and the header's Browse link never lands on an empty index. A
+ * section's own browse stays scoped to that section. On a single-section site
+ * the two readings are the same list.
+ */
 export function BrowsePage({ section, content }: { section: Section; content: BrowseContentType }) {
   const path = sectionTree.path(section.id)
+  const wholeSite = section.id === rootSection.id
 
   return (
     <main className="min-h-svh bg-background">
@@ -42,9 +54,9 @@ export function BrowsePage({ section, content }: { section: Section; content: Br
           <Browse
             contentType={content}
             sectionPath={path}
-            authors={getSectionAuthors(section.id)}
-            posts={getSectionPosts(section.id)}
-            publications={getSectionPublications(section.id)}
+            authors={wholeSite ? authorPreviews : getSectionAuthors(section.id)}
+            posts={getSectionPosts(section.id, wholeSite)}
+            publications={wholeSite ? publicationPreviews : getSectionPublications(section.id)}
           />
         </BookmarksProvider>
       </div>

@@ -556,7 +556,7 @@ export function BlogLanding({ section, hero }: { section: Section; hero: BlogLan
               >
                 <p className="font-semibold">Nothing published yet.</p>
                 <p className="mt-1 text-sm leading-6 text-muted-foreground">
-                  Drafts are in progress. Check back later.
+                  The first posts are being written. Check back soon.
                 </p>
               </div>
             )}
@@ -660,7 +660,7 @@ export function BlogLanding({ section, hero }: { section: Section; hero: BlogLan
           >
             <SectionHeading
               id="latest-publications-heading"
-              eyebrow="The shelf"
+              eyebrow="More to read"
               title="Latest publications"
               actionHref={browseContentHref("publications", path)}
               actionLabel="All publications"

@@ -741,7 +741,7 @@ export function Browse({
             id="browse-heading"
             className="text-2xl font-semibold tracking-tight sm:text-3xl"
           >
-            Browse content
+            Browse
           </h2>
         </div>
 
@@ -936,7 +936,7 @@ export function Browse({
             <>
               <p className="font-medium">No {contentType} published yet.</p>
               <p className="mt-2 text-sm text-muted-foreground">
-                Check back after the first release.
+                Check back soon.
               </p>
             </>
           ) : (

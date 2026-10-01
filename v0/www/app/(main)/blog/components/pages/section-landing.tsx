@@ -88,7 +88,7 @@ export function SectionLanding({ section }: { section: Section }) {
   const publications = getSectionPublications(section.id)
   const postCount = getSectionPosts(section.id).length
   const resourceCount = getSectionResources(section.id).length
-  const toolCount = getSectionTools(section.id).length
+  const tools = getSectionTools(section.id)
   const latest = byNewest(getSectionPosts(section.id, true)).slice(0, 6)
 
   return (
@@ -134,32 +134,38 @@ export function SectionLanding({ section }: { section: Section }) {
           </section>
         ) : null}
 
-        {publications.length > 0 || resourceCount > 0 || toolCount > 0 ? (
+        {publications.length > 0 || resourceCount > 0 || tools.length > 0 ? (
           <section aria-labelledby="modules-heading" className="mt-12">
-            <h2 id="modules-heading" className="text-2xl font-semibold tracking-tight">Here</h2>
+            <h2 id="modules-heading" className="text-2xl font-semibold tracking-tight">
+              {section.kind === "root" ? "On this site" : "In this section"}
+            </h2>
             <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {publications.length > 0 ? (
                 <Card
                   href={blogHrefFor(path)}
                   eyebrow="Blog"
-                  title={`${publications.length} ${publications.length === 1 ? "publication" : "publications"}`}
-                  description={`${postCount} ${postCount === 1 ? "post" : "posts"} so far.`}
+                  title={publications.length === 1 ? publications[0].title : "Publications"}
+                  description={
+                    publications.length === 1
+                      ? publications[0].description
+                      : `${publications.map((publication) => publication.title).join(", ")}. ${postCount} ${postCount === 1 ? "post" : "posts"} in all.`
+                  }
                 />
               ) : null}
               {resourceCount > 0 ? (
                 <Card
                   href={resourcesHrefFor(path)}
                   eyebrow="Resources"
-                  title={`${resourceCount} ${resourceCount === 1 ? "resource" : "resources"}`}
-                  description="Curated links, documentation and files."
+                  title="Links, documentation and files"
+                  description={`${resourceCount} ${resourceCount === 1 ? "entry" : "entries"}, kept to what is worth opening.`}
                 />
               ) : null}
-              {toolCount > 0 ? (
+              {tools.length > 0 ? (
                 <Card
                   href={toolsHrefFor(path)}
                   eyebrow="Tools"
-                  title={`${toolCount} ${toolCount === 1 ? "tool" : "tools"}`}
-                  description="Built here, free to use."
+                  title={tools.length === 1 ? tools[0].title : "Built here"}
+                  description={tools.length === 1 ? tools[0].description : `${tools.length} tools, free to use.`}
                 />
               ) : null}
             </div>
@@ -168,7 +174,7 @@ export function SectionLanding({ section }: { section: Section }) {
 
         {latest.length > 0 ? (
           <section aria-labelledby="latest-heading" className="mt-12">
-            <h2 id="latest-heading" className="text-2xl font-semibold tracking-tight">Latest</h2>
+            <h2 id="latest-heading" className="text-2xl font-semibold tracking-tight">Latest posts</h2>
             <ul className="mt-2 divide-y divide-border">
               {latest.map((post) => (
                 <PostRow key={`${post.publicationId}-${post.postId}`} post={post} />

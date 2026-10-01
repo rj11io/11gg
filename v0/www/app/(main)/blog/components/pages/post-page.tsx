@@ -296,10 +296,10 @@ export function PostPage({
               ) : (
                 <div className="border border-border bg-muted/40 p-8 text-center">
                   <h2 className="text-xl font-semibold">
-                    This post requires access
+                    Nothing to read here yet
                   </h2>
                   <p className="mt-2 text-muted-foreground">
-                    No public content is available for this post.
+                    This post has a title and a summary, and no public body.
                   </p>
                 </div>
               )}

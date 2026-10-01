@@ -48,9 +48,9 @@ The addresses on the site:
 | --- | --- |
 | / | The site root. On a single-section site it forwards to /blog; on a sectioned site it is the root landing |
 | /blog | The blog landing page |
-| /blog/browse/posts | The searchable index of posts |
-| /blog/browse/publications | The searchable index of publications |
-| /blog/browse/authors | The searchable index of authors |
+| /blog/browse/posts | The searchable index of posts, across every section |
+| /blog/browse/publications | The searchable index of publications, across every section |
+| /blog/browse/authors | The searchable index of authors, with site-wide post counts |
 | /blog/{pubId} | One publication and its posts |
 | /blog/{pubId}/{slug} | One post |
 | /blog/authors/{authorId} | One author and everything they have written |

@@ -35,9 +35,9 @@ export function ToolsPage({ section }: { section: Section }) {
         </nav>
         <header className="mt-8 border-b border-border pb-8">
           <p className="text-xs font-semibold tracking-[0.18em] text-primary uppercase">Tools</p>
-          <h1 className="mt-4 text-4xl font-semibold tracking-[-0.04em] sm:text-5xl">{section.title}</h1>
+          <h1 className="mt-4 text-4xl font-semibold tracking-[-0.04em] sm:text-5xl">{section.title} tools</h1>
           <p className="mt-4 max-w-3xl leading-8 text-muted-foreground">
-            {items.length} {items.length === 1 ? "tool" : "tools"}, built here, free to use.
+            {items.length === 1 ? "One tool" : `${items.length} tools`} built here, free to use.
           </p>
         </header>
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

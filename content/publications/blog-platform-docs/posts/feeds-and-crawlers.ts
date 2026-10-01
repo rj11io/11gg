@@ -49,7 +49,7 @@ Robots file: allows everything, points at the sitemap. Nothing to hide, a draft 
 
 ## The 404 page
 
-Every content route refuses unknown addresses. Mistyped path, drafted post, removed page: all land on v0/www/app/not-found.tsx. Styled page with two ways onward (blog landing page, browse index), not the framework's unstyled default.
+Every content route refuses unknown addresses. Mistyped path, drafted post, removed page: all land on v0/www/app/not-found.tsx. Styled page with two ways onward (the site's landing page, the site-wide browse index), not the framework's unstyled default.
 
 This page can quietly receive real traffic. Nothing validates links written in post prose, so a broken internal link sends readers here instead of failing the build. 404 page showing in analytics usually means a missing redirect. Fix: [URLs, slugs, and redirects](/blog/blog-platform-docs/urls-and-redirects).
 

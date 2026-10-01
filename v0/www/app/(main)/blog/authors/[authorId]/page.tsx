@@ -133,7 +133,7 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
             <dl className="mt-6 flex flex-wrap gap-x-8 gap-y-3 text-sm">
               <div>
                 <dt className="text-xs tracking-[0.14em] text-muted-foreground uppercase">
-                  Display
+                  Goes by
                 </dt>
                 <dd className="mt-1 font-semibold">{author.displayName}</dd>
               </div>
@@ -236,7 +236,7 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
             </div>
           ) : (
             <p className="mt-4 max-w-2xl leading-7 text-muted-foreground">
-              Draft work is not listed on the production site.
+              Drafts are not listed here.
             </p>
           )}
         </section>

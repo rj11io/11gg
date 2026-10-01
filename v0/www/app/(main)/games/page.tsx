@@ -26,7 +26,7 @@ export default function GamesPage() {
           <p className="text-xs font-semibold tracking-[0.18em] text-primary uppercase">Browse</p>
           <h1 className="mt-4 text-4xl font-semibold tracking-[-0.04em] sm:text-5xl">Games</h1>
           <p className="mt-4 max-w-3xl leading-8 text-muted-foreground">
-            {games.length} {games.length === 1 ? "game" : "games"}, each with its editions, blog, resources and tools.
+            Every game on this site, each with its editions, blog, resources and tools.
           </p>
         </header>
         <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

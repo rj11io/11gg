@@ -32,7 +32,7 @@ A section's address is its ancestors' segments joined: /pokemon/champions. The r
 | --- | --- |
 | /{section} | The section's landing: what is below it, which modules it has, the latest posts from it and everything under it |
 | /{section}/blog | That section's blog landing |
-| /{section}/blog/browse/posts | Its searchable indexes, also publications and authors |
+| /{section}/blog/browse/posts | Its searchable indexes, also publications and authors. The root's indexes cover the whole site |
 | /{section}/blog/{pubId} | One publication |
 | /{section}/blog/{pubId}/{slug} | One post |
 | /{section}/resources | Its curated resources |
@@ -40,7 +40,7 @@ A section's address is its ancestors' segments joined: /pokemon/champions. The r
 | /{section}/tools/{tool} | One tool |
 | /games | Every game section, with its categories, editions and post count. A 404 on a site with no games |
 
-The root section drops the prefix: /blog, /resources, /tools, the last two only when the root has resources or tools. The site root itself is the root section's landing when the tree has more than the root, and a redirect to /blog when it does not. Authors are site-wide, at /blog/authors/{authorId}. The feed, the sitemap and the robots file stay at the site root and cover every section.
+The root section drops the prefix: /blog, /resources, /tools, the last two only when the root has resources or tools. The site root itself is the root section's landing when the tree has more than the root, and a redirect to /blog when it does not. The root browse is the site's search: it lists every post, publication and author below the root, while a section's browse lists that section alone. Authors are site-wide, at /blog/authors/{authorId}. The feed, the sitemap and the robots file stay at the site root and cover every section.
 
 Paths and slugs are references: a section about a game may use the game's full official name as its segment. The site's own name, domain and logo are the site's own; that rule lives outside this post.
 
@@ -109,7 +109,7 @@ The root layout holds only the shell: fonts, theme, analytics, the metadata base
 2. Give each publication its sectionId. Publications without one stay at the root.
 3. Add resources and tools as the sections earn them.
 4. Build. Every section's addresses appear, the landing cards follow what exists, the sitemap lists it all.
-5. Point the header's home link and wordmark at what the site is now. Nothing else in the app knows about sections.
+5. Nothing to point. The wordmark and the 404 page read homeHref from lib/section-routes.ts: the site root once the tree has more than the root, /blog before. Nothing else in the app knows about sections.
 
 Nothing changes for a single-section site: this post renders on one.
 `

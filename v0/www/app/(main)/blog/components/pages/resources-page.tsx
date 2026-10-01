@@ -46,9 +46,9 @@ export function ResourcesPage({ section }: { section: Section }) {
         </nav>
         <header className="mt-8 border-b border-border pb-8">
           <p className="text-xs font-semibold tracking-[0.18em] text-primary uppercase">Resources</p>
-          <h1 className="mt-4 text-4xl font-semibold tracking-[-0.04em] sm:text-5xl">{section.title}</h1>
+          <h1 className="mt-4 text-4xl font-semibold tracking-[-0.04em] sm:text-5xl">{section.title} resources</h1>
           <p className="mt-4 max-w-3xl leading-8 text-muted-foreground">
-            {items.length} {items.length === 1 ? "resource" : "resources"}, kept short on purpose: things worth opening, not everything that exists.
+            A short list, on purpose: {items.length} {items.length === 1 ? "pick" : "picks"} worth opening, not everything that exists.
           </p>
         </header>
         {groups.map((group) => (
