@@ -10,7 +10,7 @@ import {
   CONTENT_TITLE_ID,
 } from "../markdown-headings"
 import { Markdown } from "../markdown"
-import { SectionCrumbs } from "../section-breadcrumb"
+import { BreadcrumbJsonLd, SectionCrumbs, sectionCrumbItems } from "../section-breadcrumb"
 import { extractMarkdownHeadings } from "../markdown-headings"
 import { ShareActions } from "@/app/components/share-actions"
 import { CoverImage } from "@/components/media/cover-image"
@@ -66,6 +66,7 @@ export function postMetadata(section: Section, pubId: string, postId: string): M
   return {
     title: result.post.title,
     description: result.post.excerpt,
+    alternates: { canonical: postHref(pubId, result.post, sectionTree.path(section.id)) },
     authors: result.authors.map((author) => ({ name: author.name })),
     // Leave openGraph out entirely when the post has no cover, so the site
     // default in the root layout is inherited. Setting the key to undefined
@@ -103,6 +104,14 @@ export function PostPage({
   return (
     <main className="min-h-svh bg-background">
       <div className="mx-auto max-w-7xl px-5 py-4 sm:px-8 sm:py-6 lg:px-10 lg:py-8">
+        <BreadcrumbJsonLd
+          items={[
+            ...sectionCrumbItems(section),
+            { name: "Publications", href: browseContentHref("publications", path) },
+            { name: publication.title, href: publicationHref(publication.pubId, path) },
+            { name: post.title, href: postHref(publication.pubId, post, path) },
+          ]}
+        />
         <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">
           <ol className="flex flex-wrap items-center gap-2">
             <SectionCrumbs section={section} />

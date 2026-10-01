@@ -1,9 +1,10 @@
 import type { Metadata } from "next"
 
 import { getSectionResources, sectionTree } from "@content/registry"
+import { resourcesHrefFor } from "@content/routes"
 import type { Resource, Section } from "@content/types"
 
-import { SectionCrumbs } from "../section-breadcrumb"
+import { BreadcrumbJsonLd, SectionCrumbs, sectionCrumbItems } from "../section-breadcrumb"
 
 const kindLabel: Record<Resource["kind"], string> = {
   link: "Links",
@@ -17,6 +18,7 @@ const kindOrder: Resource["kind"][] = ["doc", "link", "video", "file", "communit
 
 export function resourcesMetadata(section: Section): Metadata {
   return {
+    alternates: { canonical: resourcesHrefFor(sectionTree.path(section.id)) },
     title: `${section.title} resources`,
     description: `Curated links, documentation and files for ${section.title}.`,
   }
@@ -33,6 +35,7 @@ export function ResourcesPage({ section }: { section: Section }) {
   return (
     <main className="min-h-svh bg-background">
       <div className="mx-auto max-w-7xl px-5 py-4 sm:px-8 sm:py-6 lg:px-10 lg:py-8">
+        <BreadcrumbJsonLd items={[...sectionCrumbItems(section), { name: "Resources", href: resourcesHrefFor(path) }]} />
         <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">
           <ol className="flex flex-wrap items-center gap-2">
             <SectionCrumbs section={section} />

@@ -4,7 +4,7 @@ import { Analytics } from "@vercel/analytics/next"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { siteOrigin } from "@/lib/site"
+import { siteName, siteOrigin } from "@/lib/site"
 import { cn } from "@/lib/utils"
 
 // Every page builds its Open Graph image from a post or publication cover, and
@@ -30,13 +30,20 @@ import { cn } from "@/lib/utils"
 // anything already shared. It costs 44KB to leave it there.
 export const metadata: Metadata = {
   metadataBase: new URL(siteOrigin),
+  // Every page title ends with the site name; a page that is the site itself
+  // sets an absolute title instead. Search results then show which site a
+  // post belongs to without every page spelling it out.
+  title: {
+    default: siteName,
+    template: `%s · ${siteName}`,
+  },
   openGraph: {
     images: [
       {
         url: "/static/og/11blog-default-og-v5.png",
         width: 1200,
         height: 630,
-        alt: "11gg",
+        alt: "11blog",
       },
     ],
   },

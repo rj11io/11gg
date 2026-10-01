@@ -4,7 +4,7 @@ import { notFound } from "next/navigation"
 
 import { AuthorByline } from "../author-byline"
 import { PublicationBrowser } from "../publication-browser"
-import { SectionCrumbs } from "../section-breadcrumb"
+import { BreadcrumbJsonLd, SectionCrumbs, sectionCrumbItems } from "../section-breadcrumb"
 import { BookmarkButton } from "@/app/components/bookmark-button"
 import { BookmarksProvider } from "@/app/components/bookmarks-provider"
 import { ShareActions } from "@/app/components/share-actions"
@@ -39,6 +39,7 @@ export function publicationMetadata(section: Section, pubId: string): Metadata {
   return {
     title: publication.title,
     description: publication.description,
+    alternates: { canonical: publicationHref(pubId, sectionTree.path(section.id)) },
     // Omitted rather than set to undefined when there is no cover, so the site
     // default in the root layout is inherited. See the post page for the full
     // reasoning.
@@ -61,6 +62,13 @@ export function PublicationPage({ section, pubId }: { section: Section; pubId: s
   return (
     <main className="min-h-svh bg-background">
       <div className="mx-auto max-w-7xl px-5 py-4 sm:px-8 sm:py-6 lg:px-10 lg:py-8">
+        <BreadcrumbJsonLd
+          items={[
+            ...sectionCrumbItems(section),
+            { name: "Publications", href: browseContentHref("publications", path) },
+            { name: publication.title, href: publicationHref(publication.pubId, path) },
+          ]}
+        />
         <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">
           <ol className="flex flex-wrap items-center gap-2">
             <SectionCrumbs section={section} />

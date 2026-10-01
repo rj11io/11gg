@@ -29,6 +29,16 @@ Per entry: title, address, date, excerpt. No body. Excerpts are the summary ever
 
 Order: updated date when set, created date otherwise, so a revised post resurfaces. Addresses built by the same route helpers as every link on the site, wrapped in absoluteUrl (feed entries need full addresses). See [URLs, slugs, and redirects](/blog/blog-platform-docs/urls-and-redirects).
 
+## Canonical links, titles and breadcrumb data
+
+Three small things every page carries for search engines, none of them needing maintenance:
+
+- A canonical link, the page's own address made absolute through the metadata base. On a site with sections it is the section address, so a post that moves keeps one address of record.
+- A title ending in the site name, from the root layout's title template. The site's own pages, the root and the blog landing, use the name alone.
+- A BreadcrumbList in JSON-LD on publication, post, section, resources and tools pages, the same items the visual breadcrumb shows, so a result can show the path a page sits on.
+
+The site name lives in v0/www/lib/site.ts beside the origin. Change it there once.
+
 ## The sitemap and the robots file
 
 Both use the framework's file conventions: v0/www/app/sitemap.ts and v0/www/app/robots.ts export a description, the build turns each into the file crawlers expect.

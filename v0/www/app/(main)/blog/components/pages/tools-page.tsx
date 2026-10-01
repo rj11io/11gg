@@ -3,12 +3,14 @@ import Link from "next/link"
 
 import { getSectionTools } from "@/lib/tools"
 import { sectionTree } from "@content/registry"
+import { toolsHrefFor } from "@content/routes"
 import type { Section } from "@content/types"
 
-import { SectionCrumbs } from "../section-breadcrumb"
+import { BreadcrumbJsonLd, SectionCrumbs, sectionCrumbItems } from "../section-breadcrumb"
 
 export function toolsMetadata(section: Section): Metadata {
   return {
+    alternates: { canonical: toolsHrefFor(sectionTree.path(section.id)) },
     title: `${section.title} tools`,
     description: `Tools built for ${section.title}.`,
   }
@@ -22,6 +24,7 @@ export function ToolsPage({ section }: { section: Section }) {
   return (
     <main className="min-h-svh bg-background">
       <div className="mx-auto max-w-7xl px-5 py-4 sm:px-8 sm:py-6 lg:px-10 lg:py-8">
+        <BreadcrumbJsonLd items={[...sectionCrumbItems(section), { name: "Tools", href: toolsHrefFor(path) }]} />
         <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">
           <ol className="flex flex-wrap items-center gap-2">
             <SectionCrumbs section={section} />

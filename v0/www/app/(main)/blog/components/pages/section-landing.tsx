@@ -11,7 +11,8 @@ import {
 import { blogHrefFor, resourcesHrefFor, sectionHref, toolsHrefFor } from "@content/routes"
 import type { PostPreview, Section } from "@content/types"
 
-import { SectionCrumbs } from "../section-breadcrumb"
+import { BreadcrumbJsonLd, SectionCrumbs, sectionCrumbItems } from "../section-breadcrumb"
+import { siteName } from "@/lib/site"
 
 const kindLabel: Record<Section["kind"], string> = {
   root: "Home",
@@ -32,7 +33,11 @@ function byNewest<T extends { created: string }>(items: readonly T[]) {
 }
 
 export function sectionMetadata(section: Section): Metadata {
-  return { title: section.title, description: section.description }
+  return {
+    title: section.kind === "root" ? { absolute: siteName } : section.title,
+    description: section.description,
+    alternates: { canonical: sectionHref(sectionTree.path(section.id)) },
+  }
 }
 
 function Card({ href, eyebrow, title, description }: { href: string; eyebrow: string; title: string; description?: string }) {
@@ -88,6 +93,7 @@ export function SectionLanding({ section }: { section: Section }) {
   return (
     <main className="min-h-svh bg-background">
       <div className="mx-auto max-w-7xl px-5 py-4 sm:px-8 sm:py-6 lg:px-10 lg:py-8">
+        <BreadcrumbJsonLd items={sectionCrumbItems(section)} />
         <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">
           <ol className="flex flex-wrap items-center gap-2">
             <SectionCrumbs section={section} current />

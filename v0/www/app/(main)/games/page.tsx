@@ -8,6 +8,7 @@ import { sectionHref } from "@content/routes"
 export const metadata: Metadata = {
   title: "Games",
   description: "Every game on this site, with what each one carries.",
+  alternates: { canonical: "/games" },
 }
 
 /**

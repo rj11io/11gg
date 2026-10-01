@@ -14,6 +14,13 @@
 export const siteOrigin = "https://gg.rj11.io"
 
 /**
+ * The site's name, as page titles and structured data say it. The header
+ * wordmark is written in its own file on purpose: it is a visual, this is a
+ * string that search results show.
+ */
+export const siteName = "11gg"
+
+/**
  * Turns a root-relative path into a full address.
  *
  * Pass the result of a helper from content/routes.ts. Never assemble a path

@@ -37,7 +37,7 @@ With no published posts or publications, production remains valid: the landing p
 
 - Address: v0/www/lib/site.ts holds siteOrigin, the one place the site's own domain is written. Set it to yours first. Every share link and link preview builds from it; a copy still pointing at blog.rj11.io sends your readers here.
 - Link-preview fallback: the site-wide Open Graph image (shown when a page with no cover is shared) lives under v0/www/public/static/og/. Replace it, or coverless pages preview with this blog's branding.
-- Name: the header wordmark, page titles, and footer carry the site's name in the website's own files. Search v0/www for the old name, replace what you find.
+- Name: siteName in v0/www/lib/site.ts drives every page title and the breadcrumb data. The header wordmark and the footer carry it in their own files; search v0/www for the old name, replace what you find.
 
 ## Deploy and release
 

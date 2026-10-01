@@ -7,7 +7,7 @@ import {
   getSectionPublications,
   sectionTree,
 } from "@content/registry"
-import { browseContentTypes, type BrowseContentType } from "@content/routes"
+import { browseContentHref, browseContentTypes, type BrowseContentType } from "@content/routes"
 import type { Section } from "@content/types"
 
 import { Browse } from "../browse"
@@ -27,6 +27,7 @@ export function browseMetadata(section: Section, content: BrowseContentType): Me
   return {
     title: `Browse ${content}`,
     description: descriptions[content],
+    alternates: { canonical: browseContentHref(content, sectionTree.path(section.id)) },
   }
 }
 

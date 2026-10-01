@@ -40,6 +40,7 @@ export async function generateMetadata({
 
   return {
     title: author.name,
+    alternates: { canonical: authorHref(author.id) },
     description: author.bio,
   }
 }

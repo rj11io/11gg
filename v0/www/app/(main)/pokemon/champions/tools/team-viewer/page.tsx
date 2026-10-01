@@ -4,15 +4,17 @@ import Link from "next/link"
 import { sectionTree } from "@content/registry"
 import { toolsHrefFor } from "@content/routes"
 
-import { SectionCrumbs } from "@/app/(main)/blog/components/section-breadcrumb"
+import { BreadcrumbJsonLd, SectionCrumbs, sectionCrumbItems } from "@/app/(main)/blog/components/section-breadcrumb"
 
 import { TeamViewer } from "./components/team-viewer"
 
 const section = sectionTree.get("pokemon-champions")
+const href = "/pokemon/champions/tools/team-viewer"
 
 export const metadata: Metadata = {
   title: "Team viewer",
   description: "Paste a Pokémon Champions team in the Showdown export format and see it as cards.",
+  alternates: { canonical: href },
 }
 
 /** The first tool on the site: a route folder under its section, registered in lib/tools.ts. */
@@ -20,6 +22,13 @@ export default function TeamViewerPage() {
   return (
     <main className="min-h-svh bg-background">
       <div className="mx-auto max-w-7xl px-5 py-4 sm:px-8 sm:py-6 lg:px-10 lg:py-8">
+        <BreadcrumbJsonLd
+          items={[
+            ...sectionCrumbItems(section),
+            { name: "Tools", href: toolsHrefFor(sectionTree.path(section.id)) },
+            { name: "Team viewer", href },
+          ]}
+        />
         <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">
           <ol className="flex flex-wrap items-center gap-2">
             <SectionCrumbs section={section} />

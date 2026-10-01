@@ -1,11 +1,14 @@
 import type { Metadata } from "next"
 
 import { rootSection } from "@content/registry"
+import { blogHref } from "@content/routes"
+import { siteName } from "@/lib/site"
 
 import { BlogLanding } from "./components/pages/blog-landing"
 
 export const metadata: Metadata = {
-  title: "11gg",
+  title: { absolute: siteName },
+  alternates: { canonical: blogHref },
   description:
     "Gaming and esports: release calendars, game news and the sites under the gg vertical of rj11.io.",
 }
