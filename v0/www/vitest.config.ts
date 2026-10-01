@@ -14,7 +14,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "@content": path.resolve(here, "../../content"),
+      "@content": path.resolve(here, "../content"),
       "@": path.resolve(here),
     },
   },

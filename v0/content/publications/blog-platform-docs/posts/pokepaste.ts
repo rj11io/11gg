@@ -128,7 +128,7 @@ One set is a block of lines, sets are separated by a blank line, at most six to 
 | Moves | - Brave Bird | Up to four. A tilde works too |
 | Ignored | Happiness, Pokeball, Hidden Power, Dynamax Level, Gigantamax | Valid export lines the cards do not show |
 
-Any other line fails the build. The parser is content/blocks/pokepaste.ts; the rules above are the whole of it.
+Any other line fails the build. The parser is v0/content/blocks/pokepaste.ts; the rules above are the whole of it.
 
 ## Where the pictures come from
 

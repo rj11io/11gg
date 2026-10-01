@@ -8,7 +8,7 @@ How to add a publication or post to the blog's internal content system. Markdown
 Content lives in the repository-level content directory, outside the Next.js application:
 
 ~~~text
-content/
+v0/content/
 ├── authors.ts
 ├── drafts.ts
 ├── markdown.d.ts
@@ -50,7 +50,7 @@ TypeScript resolves posts/first-post.ts or posts/first-post/index.ts, whichever 
 
 ## Publication format
 
-Create a publication module at content/publications/publication-id/index.ts. Directory name and pubId: lowercase kebab-case.
+Create a publication module at v0/content/publications/publication-id/index.ts. Directory name and pubId: lowercase kebab-case.
 
 ~~~ts
 import type { Publication } from "../../types"
@@ -82,9 +82,9 @@ Required publication fields: relId, pubId, title, description, created, isNSFW, 
 - pubId: URL-safe, unique within its section. Two sections may each have a publication called updates; the section path tells them apart.
 - Dates: YYYY-MM-DD. updated cannot be earlier than created.
 - isDraft: true while unfinished (see Drafts below).
-- sectionId: optional, the section whose blog this is, from content/sections.ts. Left out, the root. See [Sections and modules](/blog/blog-platform-docs/sections-and-modules).
+- sectionId: optional, the section whose blog this is, from v0/content/sections.ts. Left out, the root. See [Sections and modules](/blog/blog-platform-docs/sections-and-modules).
 
-Add the publication to the authoredPublications array in content/registry.ts, in editorial listing position:
+Add the publication to the authoredPublications array in v0/content/registry.ts, in editorial listing position:
 
 ~~~ts
 import { publicationName } from "./publications/publication-id"
@@ -100,7 +100,7 @@ const authoredPublications: Publication[] = [
 
 ### Modular post format
 
-Recommended format for a resource-backed post: a directory at content/publications/publication-id/posts/post-slug. Directory, Markdown filename, and slug: lowercase kebab-case.
+Recommended format for a resource-backed post: a directory at v0/content/publications/publication-id/posts/post-slug. Directory, Markdown filename, and slug: lowercase kebab-case.
 
 The directory's index.ts is the post entry point. It owns the metadata and explicitly imports every resource the post uses:
 
@@ -131,7 +131,7 @@ export const firstPost = {
 } satisfies Post
 ~~~
 
-Both satisfies Post and a plain Post annotation type-check; the Markdown reference post uses the annotation. The .md file contains only the raw Markdown body, leading H1 included. Raw Markdown imports: typed by content/markdown.d.ts, converted to strings by the application's Markdown loader.
+Both satisfies Post and a plain Post annotation type-check; the Markdown reference post uses the annotation. The .md file contains only the raw Markdown body, leading H1 included. Raw Markdown imports: typed by v0/content/markdown.d.ts, converted to strings by the application's Markdown loader.
 
 Optional first-post.images.ts holds the post's named single images and multi-image list configurations. Local files: statically imported from the sibling assets directory. The build assigns hashed URLs; the content contract stays independent of the rendering application.
 
@@ -206,7 +206,7 @@ No configured images or multi-image lists: omit images, imageLists, and the .ima
 
 ### Legacy single-file format
 
-Existing posts can keep their body at content/publications/publication-id/posts/post-slug.ts, exporting the Markdown body as a TypeScript template string, leading H1 included:
+Existing posts can keep their body at v0/content/publications/publication-id/posts/post-slug.ts, exporting the Markdown body as a TypeScript template string, leading H1 included:
 
 ~~~ts
 export const firstPost = \`
@@ -242,7 +242,7 @@ Required post fields: postId, title, created, authorIds, isNSFW, isNew, isFeatur
 
 - Use a slug whenever possible; it becomes the public URL.
 - postId: unique positive integer within the publication.
-- Every author ID must exist in content/authors.ts. Every post needs at least one author.
+- Every author ID must exist in v0/content/authors.ts. Every post needs at least one author.
 
 Two required flags are easy to set and forget:
 
@@ -253,7 +253,7 @@ Two required flags are easy to set and forget:
 
 Set isDraft to true on a post or publication not ready to be read. The live site leaves it out entirely: gone from the home page, browse indexes, every count, and previous and next links; its address returns 404, not an empty page.
 
-The filter runs once, in content/registry.ts, immediately after validation. Both levels are filtered; a draft publication takes its posts with it regardless of their own flags. Nothing else in the site knows drafts exist, so nothing else changes to keep one hidden.
+The filter runs once, in v0/content/registry.ts, immediately after validation. Both levels are filtered; a draft publication takes its posts with it regardless of their own flags. Nothing else in the site knows drafts exist, so nothing else changes to keep one hidden.
 
 Validation runs before the filter: a draft is checked by the same rules as a published post. That is the point of the flag over the older habit of leaving a publication out of the registry: an unfinished post cannot quietly rot, and its postId and slug stay reserved against collision with something live.
 
@@ -263,7 +263,7 @@ Drafts are served on the dev server and left out of a production build: npm run 
 
 A post inside a draft publication carries the badge too, even with its own isDraft set to false: the registry marks it, since it is not published either. So leave a draft publication's posts alone; one edit on the publication reveals the whole thing when ready.
 
-To share one: set SHOW_DRAFTS=1 on a Vercel preview environment. Drafts then publish at the preview address, enough for someone else to read the post without it appearing on the live site. Never set it on production. The flag lives in content/drafts.ts.
+To share one: set SHOW_DRAFTS=1 on a Vercel preview environment. Drafts then publish at the preview address, enough for someone else to read the post without it appearing on the live site. Never set it on production. The flag lives in v0/content/drafts.ts.
 
 ### Two rules the validator enforces
 
@@ -349,7 +349,7 @@ export const publicationName: Publication = {
 }
 ~~~
 
-**The site's public directory**, at v0/www/public/static/. For files belonging to the site, not any publication: author photographs and anything else referenced from content/authors.ts, plus the site-wide link-preview fallback under static/og/. Addressed root-relative, public part of the path dropped, one directory per purpose:
+**The site's public directory**, at v0/www/public/static/. For files belonging to the site, not any publication: author photographs and anything else referenced from v0/content/authors.ts, plus the site-wide link-preview fallback under static/og/. Addressed root-relative, public part of the path dropped, one directory per purpose:
 
 ~~~text
 v0/www/public/
@@ -406,7 +406,7 @@ No YAML frontmatter, MDX, or raw HTML in posts: the application enables none of 
 
 ## Publishing checklists
 
-Adding a post and adding a publication are different jobs. Use the matching checklist. Adding a post never touches content/registry.ts; adding a publication always does.
+Adding a post and adding a publication are different jobs. Use the matching checklist. Adding a post never touches v0/content/registry.ts; adding a publication always does.
 
 ### Adding a post
 
@@ -425,12 +425,12 @@ Adding a post and adding a publication are different jobs. Use the matching chec
 
 ### Adding a publication
 
-1. Create content/publications/publication-id/index.ts: lowercase kebab-case directory name, matching pubId.
+1. Create v0/content/publications/publication-id/index.ts: lowercase kebab-case directory name, matching pubId.
 2. Use an unused positive relId, a pubId that is not authors, browse, or publications, and valid ISO dates.
 3. Write the title, description, and tags. Add the optional synopsis and editorNotes if the publication needs them.
 4. Add a coverImage imported from the publication's assets directory, with a SOURCES.md recording where it came from. The 11blog-generate-covers and 11blog-verify-covers skills under v0/skills/ produce and check one.
 5. Add at least one post, following the post checklist above. Validation rejects a published publication with no posts.
-6. Import the publication in content/registry.ts and add it to the authoredPublications array.
+6. Import the publication in v0/content/registry.ts and add it to the authoredPublications array.
 7. Set isDraft to true if the publication is not ready. Same if every post in it is still a draft; validation requires this rather than suggests it.
 8. Run typecheck, lint, and build from v0/www.
 

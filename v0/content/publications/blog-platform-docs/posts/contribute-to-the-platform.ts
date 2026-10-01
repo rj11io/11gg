@@ -31,7 +31,7 @@ Each fails for different reasons, none covers another. Only the build runs the c
 
 Four steps.
 
-- **Add yourself as an author.** Bylines resolve against content/authors.ts. Checklist in [Authors and bylines](/blog/blog-platform-docs/authors-and-bylines): lowercase id, two-or-three character displayName, plain-text bio, optional photograph. Check the photo by opening your author page: nothing validates the path.
+- **Add yourself as an author.** Bylines resolve against v0/content/authors.ts. Checklist in [Authors and bylines](/blog/blog-platform-docs/authors-and-bylines): lowercase id, two-or-three character displayName, plain-text bio, optional photograph. Check the photo by opening your author page: nothing validates the path.
 - **Write the post.** Format guide: [Adding a publication or post](/blog/blog-platform-docs/adding-content). Every supported form: [Markdown reference](/blog/blog-platform-docs/markdown-reference). Put the post in the right publication, right position in its posts array: array order is reading order.
 - **Check what search will see.** Post bodies are invisible to search here. Title, excerpt, tags carry all discoverability. [Search, tags, and discovery](/blog/blog-platform-docs/search-and-discovery) changes how you write all three.
 - **Click every link you wrote.** Nothing validates links in prose. A link to a missing page builds fine, returns a 404 to the reader.

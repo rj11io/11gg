@@ -116,7 +116,7 @@ When the automatic layout is not what you mean, give every node x and y in pixel
   "height": 240,
   "minimap": true,
   "nodes": [
-    { "id": "content", "label": "content/", "description": "the writing", "x": 0, "y": 80 },
+    { "id": "content", "label": "v0/content/", "description": "the writing", "x": 0, "y": 80 },
     { "id": "www", "label": "v0/www/", "description": "the website", "x": 320, "y": 80 },
     { "id": "reader", "label": "Reader", "kind": "output", "x": 640, "y": 80 }
   ],
@@ -132,7 +132,7 @@ When the automatic layout is not what you mean, give every node x and y in pixel
   "height": 240,
   "minimap": true,
   "nodes": [
-    { "id": "content", "label": "content/", "x": 0, "y": 80 },
+    { "id": "content", "label": "v0/content/", "x": 0, "y": 80 },
     { "id": "www", "label": "v0/www/", "x": 320, "y": 80 }
   ],
   "edges": [{ "from": "www", "to": "content", "label": "imports" }]
@@ -171,5 +171,5 @@ Same policy as every block: the build stops and names the post and the block, th
 
 ## Under the hood
 
-The parser is content/blocks/flow.ts. The drawing is v0/www/app/(main)/blog/components/blocks/flow-canvas.tsx, loaded through flow-block.tsx so it never runs on the server. Layout without positions comes from dagre, a small graph layout library; it places nodes by rank and the component centres them. The block mechanism itself is in [Extending the renderer](/blog/blog-platform-docs/extending-the-renderer).
+The parser is v0/content/blocks/flow.ts. The drawing is v0/www/app/(main)/blog/components/blocks/flow-canvas.tsx, loaded through flow-block.tsx so it never runs on the server. Layout without positions comes from dagre, a small graph layout library; it places nodes by rank and the component centres them. The block mechanism itself is in [Extending the renderer](/blog/blog-platform-docs/extending-the-renderer).
 `

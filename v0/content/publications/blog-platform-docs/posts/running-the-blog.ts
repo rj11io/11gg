@@ -50,7 +50,7 @@ SHOW_DRAFTS=1 overrides the production behaviour:
 SHOW_DRAFTS=1 npm run build
 ~~~
 
-Use case: a Vercel preview environment. Set the variable there, drafts publish at the preview address, an unfinished post can be handed out for a read without touching blog.rj11.io. **Never set it on the production environment.** Flag defined in content/drafts.ts. Filter behaviour: [Adding a publication or post](/blog/blog-platform-docs/adding-content).
+Use case: a Vercel preview environment. Set the variable there, drafts publish at the preview address, an unfinished post can be handed out for a read without touching blog.rj11.io. **Never set it on the production environment.** Flag defined in v0/content/drafts.ts. Filter behaviour: [Adding a publication or post](/blog/blog-platform-docs/adding-content).
 
 ## The checks
 
@@ -84,10 +84,10 @@ First, the compiler. v0/www/tsconfig.json maps an alias and adds the content dir
 ~~~json
 "paths": {
   "@/*": ["./*"],
-  "@content/*": ["../../content/*"],
+  "@content/*": ["../content/*"],
   "@root/package.json": ["../../package.json"]
 },
-"include": ["**/*.ts", "**/*.tsx", "../../content/**/*.ts"]
+"include": ["**/*.ts", "**/*.tsx", "../content/**/*.ts"]
 ~~~
 
 Include shown trimmed to the relevant entry. The real file also lists Next.js's own declaration files and generated types.

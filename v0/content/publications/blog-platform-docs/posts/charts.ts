@@ -301,5 +301,5 @@ In the dev server the same message shows as a red box in place of the chart. A p
 
 ## Adding another chart type
 
-The parser lives in content/blocks/chart.ts, the drawing in v0/www/app/(main)/blog/components/blocks/chart-block.tsx. A new type is a new entry in chartTypes, a branch in the component, and an example on this page. The mechanism for blocks in general is in [Extending the renderer](/blog/blog-platform-docs/extending-the-renderer).
+The parser lives in v0/content/blocks/chart.ts, the drawing in v0/www/app/(main)/blog/components/blocks/chart-block.tsx. A new type is a new entry in chartTypes, a branch in the component, and an example on this page. The mechanism for blocks in general is in [Extending the renderer](/blog/blog-platform-docs/extending-the-renderer).
 `

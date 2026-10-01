@@ -15,7 +15,7 @@ Two halves:
 
 ~~~text
 11blog/
-├── content/          the writing, its types, and its validator
+├── v0/content/          the writing, its types, and its validator
 └── v0/www/           the website that renders it
 ~~~
 

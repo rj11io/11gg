@@ -11,7 +11,7 @@
 Copies the platform without node_modules, builds and env files, then makes it
 the named site: addresses, names, feed, landing copy, an empty redirect list,
 the platform manual kept as a draft and every other publication removed, no
-fallback preview image. The section tree stays the root alone; edit content/sections.ts afterwards. Run
+fallback preview image. The section tree stays the root alone; edit v0/content/sections.ts afterwards. Run
 npm ci, typecheck, lint and build in v0/www when it is done.
 """
 import argparse
@@ -33,8 +33,9 @@ dest = os.path.abspath(args.dest)
 os.makedirs(os.path.join(dest, "v0"), exist_ok=True)
 
 ex = [a for e in EXCLUDES for a in ("--exclude", e)]
-subprocess.run(["rsync", "-a", *ex, *[os.path.join(SRC, p) for p in [".github", ".gitignore", ".releaserc.js", "LICENSE", "package.json", "AGENTS.md", ".claude", "content"]], dest + "/"], check=True)
+subprocess.run(["rsync", "-a", *ex, *[os.path.join(SRC, p) for p in [".github", ".gitignore", ".releaserc.js", "LICENSE", "package.json", "AGENTS.md", ".claude"]], dest + "/"], check=True)
 subprocess.run(["rsync", "-a", *ex, os.path.join(SRC, "v0", "www"), os.path.join(dest, "v0") + "/"], check=True)
+subprocess.run(["rsync", "-a", *ex, os.path.join(SRC, "v0", "content"), os.path.join(dest, "v0") + "/"], check=True)
 subprocess.run(["rsync", "-a", os.path.join(SRC, "v0", "scripts"), os.path.join(dest, "v0") + "/"], check=True)
 
 apply_identity(dest, args.code, args.domain, args.feed, args.landing, {"eyebrow": args.eyebrow, "title": args.title, "description": args.hero})
@@ -47,7 +48,7 @@ open(p, "w", encoding="utf-8").write(s)
 open(os.path.join(dest, "CHANGELOG.md"), "w", encoding="utf-8").write("# Changelog\n\nWritten by the release workflow from commit messages. Nothing released yet.\n")
 open(os.path.join(dest, "README.md"), "w", encoding="utf-8").write(f"""# {args.code}
 
-{args.about} Built on the 11blog platform: the writing lives in TypeScript under `content/`, a Next.js app in `v0/www/` imports it and builds every page ahead of time. No database, no CMS. Publishing is a commit and a build.
+{args.about} Built on the 11blog platform: the writing lives in TypeScript under `v0/content/`, a Next.js app in `v0/www/` imports it and builds every page ahead of time. No database, no CMS. Publishing is a commit and a build.
 
 The platform manual it carries is a draft, shown in development and preview builds only.
 
@@ -64,10 +65,10 @@ Checks, all from `v0/www`: `npm run lint`, `npm run typecheck`, `npm run build`.
 Working in this repo as a person or an agent: read [AGENTS.md](./AGENTS.md) first.
 """)
 p = os.path.join(dest, "AGENTS.md")
-s = open(p, encoding="utf-8").read().replace("11blog is a personal blog. The writing lives in TypeScript under `content/`.", f"{args.code} is {args.about[0].lower() + args.about[1:]} Built on the 11blog platform. The writing lives in TypeScript under `content/`.", 1)
+s = open(p, encoding="utf-8").read().replace("11blog is a personal blog. The writing lives in TypeScript under `v0/content/`.", f"{args.code} is {args.about[0].lower() + args.about[1:]} Built on the 11blog platform. The writing lives in TypeScript under `v0/content/`.", 1)
 open(p, "w", encoding="utf-8").write(s)
 
-pubs = os.path.join(dest, "content", "publications")
+pubs = os.path.join(dest, "v0", "content", "publications")
 for d in os.listdir(pubs):
     if d != "blog-platform-docs" and os.path.isdir(os.path.join(pubs, d)):
         shutil.rmtree(os.path.join(pubs, d))

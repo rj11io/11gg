@@ -148,5 +148,5 @@ Dark mode inverts the tile layer with a filter and nothing else, so pins, routes
 blog-platform-docs/421: map block 1 markers[2] lat must be a number from -90 to 90
 ~~~
 
-The parser is content/blocks/map.ts, the drawing is v0/www/app/(main)/blog/components/blocks/map-canvas.tsx. The block mechanism is in [Extending the renderer](/blog/blog-platform-docs/extending-the-renderer).
+The parser is v0/content/blocks/map.ts, the drawing is v0/www/app/(main)/blog/components/blocks/map-canvas.tsx. The block mechanism is in [Extending the renderer](/blog/blog-platform-docs/extending-the-renderer).
 `

@@ -5,7 +5,7 @@ A site built on this platform is a tree of sections, and every section can carry
 
 ## The tree
 
-content/sections.ts is a list. Every entry has an id, a kind, one path segment, a title, and a parent, plus an optional description for cards and an optional body, Markdown shown on the landing under the title. Exactly one entry is the root: kind root, an empty segment, no parent.
+v0/content/sections.ts is a list. Every entry has an id, a kind, one path segment, a title, and a parent, plus an optional description for cards and an optional body, Markdown shown on the landing under the title. Exactly one entry is the root: kind root, an empty segment, no parent.
 
 ~~~ts
 export const sections: Section[] = [
@@ -60,7 +60,7 @@ Everything a section's blog shows comes from publications that name it: the land
 
 ## The resources module
 
-content/resources.ts is a list of curated links and files, each naming a section:
+v0/content/resources.ts is a list of curated links and files, each naming a section:
 
 ~~~ts
 export const resources: Resource[] = [
@@ -105,7 +105,7 @@ The root layout holds only the shell: fonts, theme, analytics, the metadata base
 
 ## Making a copy multi-section
 
-1. Add the sections to content/sections.ts, root first.
+1. Add the sections to v0/content/sections.ts, root first.
 2. Give each publication its sectionId. Publications without one stay at the root.
 3. Add resources and tools as the sections earn them.
 4. Build. Every section's addresses appear, the landing cards follow what exists, the sitemap lists it all.

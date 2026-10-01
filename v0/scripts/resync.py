@@ -4,8 +4,9 @@
     python3 v0/scripts/resync.py --dest ../11gg --code 11gg --domain gg.rj11.io \\
         --feed "..." --landing "..." --eyebrow "..." --title "..." --hero "..."
 
-Replaces v0/www and the content core (blocks, types, validation, routes,
-section-tree, markdown.d.ts, drafts, scripts) with this platform's, refreshes
+Moves a copy's root content/ under v0/ the first time, then replaces v0/www
+and the content core (blocks, types, validation, routes, section-tree,
+markdown.d.ts, drafts, scripts) with this platform's, refreshes
 the platform manual as a draft, then re-applies the site's identity. Keeps
 the copy's publications, sections, resources, authors, redirects, tools
 registry, every tool folder and its public/static/og folder. The fallback
@@ -30,6 +31,14 @@ parser.add_argument("--og", help="root-relative path of the copy's own fallback 
 args = parser.parse_args()
 dest = os.path.abspath(args.dest)
 www = os.path.join(dest, "v0", "www")
+content = os.path.join(dest, "v0", "content")
+
+# Content moved under the version on 2026-10-01. A copy made before that still
+# has it at the root; move it once, before anything below reads the new path.
+old_content = os.path.join(dest, "content")
+if os.path.isdir(old_content) and not os.path.exists(content):
+    shutil.move(old_content, content)
+    print(f"moved {old_content} to {content}")
 
 kept = {}
 for rel in KEEP_IN_WWW:
@@ -50,10 +59,10 @@ for d in tool_dirs:
 
 ex = [a for e in EXCLUDES for a in ("--exclude", e)]
 subprocess.run(["rsync", "-a", "--delete", *ex, os.path.join(SRC, "v0", "www") + "/", www + "/"], check=True)
-subprocess.run(["rsync", "-a", "--delete", os.path.join(SRC, "content", "blocks") + "/", os.path.join(dest, "content", "blocks") + "/"], check=True)
+subprocess.run(["rsync", "-a", "--delete", os.path.join(SRC, "v0", "content", "blocks") + "/", os.path.join(content, "blocks") + "/"], check=True)
 for f in CORE:
-    shutil.copy(os.path.join(SRC, "content", f), os.path.join(dest, "content", f))
-subprocess.run(["rsync", "-a", "--delete", os.path.join(SRC, "content", "publications", "blog-platform-docs") + "/", os.path.join(dest, "content", "publications", "blog-platform-docs") + "/"], check=True)
+    shutil.copy(os.path.join(SRC, "v0", "content", f), os.path.join(content, f))
+subprocess.run(["rsync", "-a", "--delete", os.path.join(SRC, "v0", "content", "publications", "blog-platform-docs") + "/", os.path.join(content, "publications", "blog-platform-docs") + "/"], check=True)
 subprocess.run(["rsync", "-a", "--delete", os.path.join(SRC, "v0", "scripts") + "/", os.path.join(dest, "v0", "scripts") + "/"], check=True)
 shutil.copy(os.path.join(SRC, "AGENTS.md"), os.path.join(dest, "AGENTS.md"))
 
@@ -69,6 +78,6 @@ p = os.path.join(dest, "AGENTS.md")
 s = open(p, encoding="utf-8").read()
 line = [l for l in s.splitlines() if l.startswith("11blog is a personal blog.")]
 if line:
-    s = s.replace(line[0], f"{args.code} is built on the 11blog platform. The writing lives in TypeScript under `content/`." + line[0].split("under `content/`.", 1)[1], 1)
+    s = s.replace(line[0], f"{args.code} is built on the 11blog platform. The writing lives in TypeScript under `v0/content/`." + line[0].split("under `v0/content/`.", 1)[1], 1)
 open(p, "w", encoding="utf-8").write(s)
 print(f"{args.code} resynced at {dest}. Next: cd v0/www && npm ci && npm run typecheck && npm run lint && npm run build")

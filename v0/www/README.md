@@ -1,6 +1,6 @@
 # 11gg web app
 
-The Next.js front end for 11gg. Renders the TypeScript content stored in the repository-level `content/` directory. Version zero of a presentation layer, expected to be replaceable: hence `v0`.
+The Next.js front end for 11gg. Renders the TypeScript content stored in the version's `v0/content/` directory. Version zero of a presentation layer, expected to be replaceable: hence `v0`.
 
 Read [AGENTS.md](./AGENTS.md) in this directory before writing framework code. This Next.js version differs from what you may expect.
 
@@ -37,8 +37,8 @@ The four content routes list their addresses with `generateStaticParams` and set
 
 ## Content
 
-Content lives outside this app, in `../../content`. The `@content/*` alias in `tsconfig.json` exposes it. Add authors, publications, and posts there, never here.
+Content lives outside this app, in `../content`. The `@content/*` alias in `tsconfig.json` exposes it. Add authors, publications, and posts there, never here.
 
-Pages import from `content/registry.ts` only. Never import a publication file directly. If a page needs something the registry does not expose, add a derived export there.
+Pages import from `v0/content/registry.ts` only. Never import a publication file directly. If a page needs something the registry does not expose, add a derived export there.
 
 Local UI components sit in `components/ui/`, shared helpers in `lib/`.

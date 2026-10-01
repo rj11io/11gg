@@ -95,7 +95,7 @@ def apply_identity(dest, code, domain, feed, landing_description, hero, keep_red
 
 def draft_docs_publication(dest):
     """The platform manual travels with every copy as a draft."""
-    p = os.path.join(dest, "content", "publications", "blog-platform-docs", "index.ts")
+    p = os.path.join(dest, "v0", "content", "publications", "blog-platform-docs", "index.ts")
     s = rd(p)
     marker = "  isDraft: true,\n  tags: [\"Blog\", \"Technology\", \"Publishing\", \"Documentation\"],"
     if marker in s:
@@ -107,7 +107,7 @@ def draft_docs_publication(dest):
 
 def set_registry(dest, publications):
     """Keep only the named publications in the registry, in order. Each is (export name, directory)."""
-    p = os.path.join(dest, "content", "registry.ts")
+    p = os.path.join(dest, "v0", "content", "registry.ts")
     s = rd(p)
     s = re.sub(r'import \{ \w+ \} from "\./publications/[^"]+"\n', "", s)
     imports = "".join(f'import {{ {name} }} from "./publications/{directory}"\n' for name, directory in publications)

@@ -3,13 +3,13 @@ export const contentValidation = `
 
 Every publication, post, author, and image is checked against a set of rules before the site builds. A failing rule stops the build with a message naming the exact field.
 
-This post lists every rule, its failure message, and the fix. The checks live in content/validation.ts.
+This post lists every rule, its failure message, and the fix. The checks live in v0/content/validation.ts.
 
 ## When the check runs
 
 Not an optional test. Runs while content loads.
 
-content/registry.ts imports every publication and the author list, then calls the checker immediately:
+v0/content/registry.ts imports every publication and the author list, then calls the checker immediately:
 
 ~~~ts
 const authoredPublications: Publication[] = [
@@ -114,7 +114,7 @@ Passes: /static/blog-authors/rj-pic.png, https://images.example.com/photo.webp. 
 
 ## Author rules
 
-Authors live in content/authors.ts. Per author:
+Authors live in v0/content/authors.ts. Per author:
 
 - ID must be a valid identifier (shape above).
 - No two authors share an ID.
@@ -152,13 +152,13 @@ Per post inside a publication:
 - created must be a real date. updated, if present, not before created.
 - At least one author.
 - No author listed twice on one post.
-- Every listed author must exist in content/authors.ts.
+- Every listed author must exist in v0/content/authors.ts.
 - Tags must pass the three tag checks.
 - coverImage, if present, must pass the image source rule.
 - content must have text. An empty body fails the build.
 - isDraft and isFeatured must not both be true, same reason as the publication rule above.
 
-Second, later check on authors: the registry resolves each post's authors into display details. A missing author throws a message naming the post by title, not by ID. That form means the post passed the first check and the author disappeared afterwards, normally an author deleted from content/authors.ts while a post still referenced them.
+Second, later check on authors: the registry resolves each post's authors into display details. A missing author throws a message naming the post by title, not by ID. That form means the post passed the first check and the author disappeared afterwards, normally an author deleted from v0/content/authors.ts while a post still referenced them.
 
 ## Image rules
 

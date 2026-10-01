@@ -5,7 +5,7 @@ One file builds every address. Every address that ever worked keeps working. Thi
 
 ## One file owns every URL shape
 
-content/routes.ts is the only place that knows the site's address shapes:
+v0/content/routes.ts is the only place that knows the site's address shapes:
 
 ~~~ts
 export function sectionHref(path: SectionPath = []) {
@@ -98,9 +98,9 @@ publications
 
 A publication using one would be shadowed by the same-name route and unreachable. The validator rejects it with "browse: pubId conflicts with a reserved route" before the site builds.
 
-New route directly under /blog: add its name to reservedPublicationIds in content/validation.ts in the same change. Forgotten, it surfaces much later as a publication that will not open.
+New route directly under /blog: add its name to reservedPublicationIds in v0/content/validation.ts in the same change. Forgotten, it surfaces much later as a publication that will not open.
 
-Section segments have a reserved list of their own, in content/section-tree.ts: blog, resources, tools, games, authors, browse, publications and the site's files. A section cannot take a name a module or a site route owns.
+Section segments have a reserved list of their own, in v0/content/section-tree.ts: blog, resources, tools, games, authors, browse, publications and the site's files. A section cannot take a name a module or a site route owns.
 
 ## Only known addresses exist
 
@@ -268,7 +268,7 @@ Setting isDraft on something already published removes its address the same way.
 
 ## When a path is not enough
 
-Every helper in content/routes.ts returns a path starting with a slash: enough for links inside the site. Two things need the whole address, host and all: link previews social networks read, and the share links on post and publication pages.
+Every helper in v0/content/routes.ts returns a path starting with a slash: enough for links inside the site. Two things need the whole address, host and all: link previews social networks read, and the share links on post and publication pages.
 
 The host lives in v0/www/lib/site.ts, once, as siteOrigin, with absoluteUrl beside it to join the two halves:
 
@@ -285,6 +285,6 @@ Constant, not a runtime setting: pages are built ahead of time, so the value mus
 - Choose the slug carefully at the start. It is the address; changing it costs a redirect forever.
 - Never delete a redirect. The file only grows, and that is correct. Old links live in bookmarks, feeds, and search results.
 - Specific rules above general ones.
-- Build paths by calling the helpers in content/routes.ts, never by writing a string. Full address needed: wrap the call in absoluteUrl.
+- Build paths by calling the helpers in v0/content/routes.ts, never by writing a string. Full address needed: wrap the call in absoluteUrl.
 - After any rename, check the old address by hand. A redirect that does not fire looks exactly like a working site until someone follows an old link.
 `

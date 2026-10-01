@@ -22,14 +22,14 @@ Working notes for agents and new contributors. Find your task in the routing tab
 
 ## What this repository is
 
-11gg is built on the 11blog platform. The writing lives in TypeScript under `content/`. A Next.js app in `v0/www/` imports it and builds every page ahead of time. No database, no CMS. Publishing is a commit and a build. Hosted on Vercel. The repository is public, under the Apache License 2.0.
+11gg is built on the 11blog platform. The writing lives in TypeScript under `v0/content/`. A Next.js app in `v0/www/` imports it and builds every page ahead of time. No database, no CMS. Publishing is a commit and a build. Hosted on Vercel. The repository is public, under the Apache License 2.0.
 
 Two directories matter:
 
-- `content/`: the writing, its types, its validator. Depends on nothing in the website.
-- `v0/www/`: the website. Imports `content/` through the `@content/*` alias.
+- `v0/content/`: the writing, its types, its validator. Depends on nothing in the website.
+- `v0/www/`: the website. Imports `v0/content/` through the `@content/*` alias.
 
-The dependency runs one way. **Never import from `v0/www` inside `content/`.**
+The dependency runs one way. **Never import from `v0/www` inside `v0/content/`.**
 
 Pages live under `v0/www/app/(main)/`, the route group that carries the header and footer; the root layout is the shell. A second, unrelated `AGENTS.md` sits at `v0/www/AGENTS.md`. It warns that this Next.js version differs from your training data and tells you to check `node_modules/next/dist/docs/` before writing framework code. Heed it.
 
@@ -37,7 +37,7 @@ Pages live under `v0/www/app/(main)/`, the route group that carries the header a
 
 The Blog platform docs publication documents this platform. It is the source of truth, written for whoever maintains the repo. Read the post covering a thing before changing that thing.
 
-All twenty-two live in `content/publications/blog-platform-docs/posts/`. New here: start with Working with the platform. The table puts that entry post first, then follows editorial order.
+All twenty-two live in `v0/content/publications/blog-platform-docs/posts/`. New here: start with Working with the platform. The table puts that entry post first, then follows editorial order.
 
 | If you are… | Read | Published at |
 | --- | --- | --- |
@@ -96,9 +96,9 @@ npm --prefix v0/www run dev
 
 ## Hard rules
 
-- **The registry is the only door.** Pages import from `content/registry.ts`. Never import a publication file directly. Page needs something the registry does not expose: add a derived export there.
+- **The registry is the only door.** Pages import from `v0/content/registry.ts`. Never import a publication file directly. Page needs something the registry does not expose: add a derived export there.
 - **Drafts are filtered once, in the registry.** `isDraft` on a post or publication hides it, and every derived export follows. Never add a second draft check in a page or component. Dev server shows drafts, a production build never does.
-- **`content/routes.ts` owns every URL shape.** Call its helpers. Never write a path as a string.
+- **`v0/content/routes.ts` owns every URL shape.** Call its helpers. Never write a path as a string.
 - **Renaming anything with a URL needs a redirect** in `v0/www/next.config.ts`, same change. Publication ID, post slug, and author ID are all public addresses.
 - **One post, one address.** A post is reachable at its slug, or at its numeric ID when it has no slug. Never both. Numeric IDs are not a fallback address.
 - **No YAML frontmatter, no MDX, no raw HTML in posts.** None is enabled. New syntax means a new renderer component: see `extending-the-renderer.ts`.
@@ -132,7 +132,7 @@ Meaningful means it alters what someone else would need to know:
 | A route, slug, or redirect | `urls-and-redirects.ts` |
 | The section tree, a module, or the (main) route group | `sections-and-modules.ts`, and `urls-and-redirects.ts` for addresses |
 | Markdown syntax or a renderer component | `markdown-reference/` **and** `extending-the-renderer.ts` |
-| A block component or its JSON shape (`content/blocks/`) | that block's own post, plus `markdown-reference/` and `content-validation.ts` |
+| A block component or its JSON shape (`v0/content/blocks/`) | that block's own post, plus `markdown-reference/` and `content-validation.ts` |
 | A design token, or theming behaviour | `design-tokens.ts` |
 | An accessibility guarantee, or a new interactive element | `accessibility-contract.ts` |
 | Search fields, tag behaviour, or sorting | `search-and-discovery.ts` |

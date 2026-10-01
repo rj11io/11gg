@@ -31,8 +31,8 @@ Open the printed address and click around before changing anything. A working ba
 
 Three replacements make the content yours.
 
-- Authors: replace the entries in content/authors.ts with yourself, put your photograph in v0/www/public/static/blog-authors/. Field checklist: [Authors and bylines](/blog/blog-platform-docs/authors-and-bylines). One thing nothing validates: open an author page afterwards, check the photograph loaded.
-- Publications: remove the publication directories under content/publications, write your first one following [Adding a publication or post](/blog/blog-platform-docs/adding-content). The registry imports every publication by name: removing one means removing its import too. One decision to make deliberately: keep blog-platform-docs if you want the manual published on your own site, drop it if you would rather read it here.
+- Authors: replace the entries in v0/content/authors.ts with yourself, put your photograph in v0/www/public/static/blog-authors/. Field checklist: [Authors and bylines](/blog/blog-platform-docs/authors-and-bylines). One thing nothing validates: open an author page afterwards, check the photograph loaded.
+- Publications: remove the publication directories under v0/content/publications, write your first one following [Adding a publication or post](/blog/blog-platform-docs/adding-content). The registry imports every publication by name: removing one means removing its import too. One decision to make deliberately: keep blog-platform-docs if you want the manual published on your own site, drop it if you would rather read it here.
 - Redirects: the list in v0/www/next.config.ts is this site's address history, none of it yours. Empty it, let your own history accumulate. Why the file only grows after that: [URLs, slugs, and redirects](/blog/blog-platform-docs/urls-and-redirects).
 
 With no published posts or publications, production remains valid: the landing page shows a neutral pre-publication state instead of empty content sections. Browse distinguishes that state from an empty search result. Development and SHOW_DRAFTS=1 previews still show drafts.
@@ -49,13 +49,13 @@ Deploys as a standard Next.js application. This blog runs on Vercel; the analyti
 
 Releases: cut by the workflow in .github/workflows/release.yml, driven entirely by commit messages. The version in the site footer comes from the root package.json the pipeline writes. The workflow runs in a GitHub environment named release: create that environment in your repository settings. If a release still fails: [Running and releasing the blog](/blog/blog-platform-docs/running-the-blog) covers where to look.
 
-One environment variable matters: SHOW_DRAFTS=1 publishes drafts on a deployment. Preview environments only, never production. The flag lives in content/drafts.ts.
+One environment variable matters: SHOW_DRAFTS=1 publishes drafts on a deployment. Preview environments only, never production. The flag lives in v0/content/drafts.ts.
 
 ## What to leave alone
 
 - The registry and the validator: they make a broken post a failed build instead of a broken page.
-- content/sections.ts: one root is a plain blog. Add sections to host several games or topics on one site, each with its own blog, resources and tools; see [Sections and modules](/blog/blog-platform-docs/sections-and-modules).
-- content/routes.ts: change only for different URL shapes, and read [URLs, slugs, and redirects](/blog/blog-platform-docs/urls-and-redirects) first.
+- v0/content/sections.ts: one root is a plain blog. Add sections to host several games or topics on one site, each with its own blog, resources and tools; see [Sections and modules](/blog/blog-platform-docs/sections-and-modules).
+- v0/content/routes.ts: change only for different URL shapes, and read [URLs, slugs, and redirects](/blog/blog-platform-docs/urls-and-redirects) first.
 - The plugin order in .releaserc.js and in the Markdown renderer: both load-bearing, both commented where they live.
 
 ## Keep the manual

@@ -224,10 +224,10 @@ A shortcode carries one short argument. A directive wraps Markdown. Neither carr
 
 Markdown already parses it as a code block with the language chart. No new parser rule. Two places decide what happens next:
 
-- **content/blocks/**: one parser per language, pure TypeScript, no React. It turns the string into a typed spec or throws a message. blocks/index.ts lists the languages. The content validator runs every parser over every post at build time, so bad data fails the build with the post and the block number, the same message the dev server shows in a red box.
+- **v0/content/blocks/**: one parser per language, pure TypeScript, no React. It turns the string into a typed spec or throws a message. blocks/index.ts lists the languages. The content validator runs every parser over every post at build time, so bad data fails the build with the post and the block number, the same message the dev server shows in a red box.
 - **v0/www/app/(main)/blog/components/blocks/**: fenced-block.tsx routes a language to its component; the pre element handler in markdown.tsx hands it any code block whose language is in that list. The component that draws is a client component when the library needs the browser, wrapped in block-frame.tsx, a server-rendered figure with the caption.
 
-Adding a block: a parser file in content/blocks with its entry in blocks/index.ts, a component in the blocks folder with its case in fenced-block.tsx, a reference post like [Charts](/blog/blog-platform-docs/charts), and a line in the Markdown reference. The parser is the contract: keep it strict, keep the data JSON, and let the build do the checking.
+Adding a block: a parser file in v0/content/blocks with its entry in blocks/index.ts, a component in the blocks folder with its case in fenced-block.tsx, a reference post like [Charts](/blog/blog-platform-docs/charts), and a line in the Markdown reference. The parser is the contract: keep it strict, keep the data JSON, and let the build do the checking.
 
 Why not a shortcode with a key into a data file, like images? Images are files that need a build-time import for hashed URLs. Chart data is plain JSON that belongs next to the prose it illustrates, and a fence keeps it there, readable in the source and copyable from the reference page.
 
@@ -241,7 +241,7 @@ The image and image list components need data the Markdown does not contain: the
 ),
 ~~~
 
-For post-level configuration: add a field to the Post type in content/types.ts, a validation rule for it, a parameter on Markdown, and a wrapper like the one above. That is the full path from content file to rendered element.
+For post-level configuration: add a field to the Post type in v0/content/types.ts, a validation rule for it, a parameter on Markdown, and a wrapper like the one above. That is the full path from content file to rendered element.
 
 ## What not to do
 

@@ -7,7 +7,7 @@ The writing does not live inside the website. It lives in a directory next to it
 
 ~~~text
 11blog/
-├── content/          the writing and its rules
+├── v0/content/          the writing and its rules
 └── v0/www/           the website that renders it
 ~~~
 
@@ -25,9 +25,9 @@ Two settings in v0/www/tsconfig.json do the work (trimmed here to the boundary e
 
 ~~~json
 "paths": {
-  "@content/*": ["../../content/*"]
+  "@content/*": ["../content/*"]
 },
-"include": ["**/*.ts", "**/*.tsx", "../../content/**/*.ts"]
+"include": ["**/*.ts", "**/*.tsx", "../content/**/*.ts"]
 ~~~
 
 - Alias: the website writes @content/registry, not a chain of parent directories.
@@ -37,7 +37,7 @@ Two settings in v0/www/tsconfig.json do the work (trimmed here to the boundary e
 
 ## The registry is the only door
 
-content/registry.ts is the entry point. Pages import from it. Nothing in the website imports a publication file directly.
+v0/content/registry.ts is the entry point. Pages import from it. Nothing in the website imports a publication file directly.
 
 Five jobs, in order:
 
@@ -69,7 +69,7 @@ Everything routes through this file because derivation runs once, at module load
 
 A post carries its whole body and possibly a dozen configured images. A card on the browse page needs the title, the excerpt, the date, and a link.
 
-content/types.ts defines narrower shapes derived from the full ones:
+v0/content/types.ts defines narrower shapes derived from the full ones:
 
 ~~~ts
 export type PostPreview = Omit<
@@ -130,9 +130,9 @@ export function stripLeadingH1(markdown: string) {
 
 The one-way dependency makes a different front end bounded work, not a rewrite. It must provide:
 
-- **A way to import a .md file as a string.** content/markdown.d.ts already declares the shape; the bundler needs a loader that produces it. The current one is three lines.
+- **A way to import a .md file as a string.** v0/content/markdown.d.ts already declares the shape; the bundler needs a loader that produces it. The current one is three lines.
 - **A way to import an image file and read its source, width, and height.** Post image modules rely on this; it is the only other build-time capability the content assumes. Caveat: the type declaration that makes those image imports check today comes from Next.js, through the global reference in v0/www/next-env.d.ts, not from the content directory. A replacement front end must supply its own equivalent declaration.
-- **The five routes, per section.** Landing, browse, publication, post, author, under every section of the tree in content/sections.ts, plus a section landing, a resources list and a tools index. A plain blog is the root section alone. content/routes.ts owns their addresses through its link builders; the shape of each page is the front end's to design.
+- **The five routes, per section.** Landing, browse, publication, post, author, under every section of the tree in v0/content/sections.ts, plus a section landing, a resources list and a tools index. A plain blog is the root section alone. v0/content/routes.ts owns their addresses through its link builders; the shape of each page is the front end's to design.
 - **A Markdown renderer** handling standard Markdown, the GitHub extensions, the three custom shortcodes, the accordion container, and the bare YouTube URL form. See [Extending the renderer](/blog/blog-platform-docs/extending-the-renderer).
 
 Everything else, including all validation, comes with the content.

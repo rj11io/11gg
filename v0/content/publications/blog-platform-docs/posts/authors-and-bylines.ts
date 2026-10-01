@@ -3,7 +3,7 @@ export const authorsAndBylines = `
 
 Every post names at least one author. Every author gets a page listing their work. Authors are shared across publications, so one mistake in the authors file shows up everywhere.
 
-All authors live in one file: content/authors.ts.
+All authors live in one file: v0/content/authors.ts.
 
 ## What an author is
 
@@ -120,7 +120,7 @@ Publication cards phrase it briefly, matching post cards: "By" plus the names.
 
 - Every post: at least one author.
 - No author twice on the same post.
-- Every id in authorIds must exist in content/authors.ts.
+- Every id in authorIds must exist in v0/content/authors.ts.
 - Author id: valid slug, unique.
 - name, displayName, and bio: non-empty.
 - Tags: no blanks, no surrounding spaces, no duplicates within one list.
@@ -144,7 +144,7 @@ The second form means the first check passed. In practice: an author was removed
 
 ## Adding, renaming, and removing
 
-**Adding**: one entry in content/authors.ts. The page is generated on the next build, posts or not.
+**Adding**: one entry in v0/content/authors.ts. The page is generated on the next build, posts or not.
 
 An author with no published posts still gets a page: details, a count of zero, and an explicit no-published-posts message. The landing page omits them; the author browse index retains them so the profile remains discoverable.
 
@@ -158,7 +158,7 @@ name, displayName, bio, and avatar are not in the address. Changing them costs n
 
 **Removing** an author who has posts fails the build, with one of the two messages above. Intentional: forces a decision on the writing instead of leaving posts pointing at nobody. Reassign the posts to another author or remove them too.
 
-Worked example: the 11ai author, an AI assistant credited on the documentation posts, was removed on 2026-10-01. Three things in one change: its id dropped from every authorIds list, its entry deleted from content/authors.ts, and a redirect from /blog/authors/11ai to /blog/authors/rj11io, because the author page was a public address. The avatar file went with it.
+Worked example: the 11ai author, an AI assistant credited on the documentation posts, was removed on 2026-10-01. Three things in one change: its id dropped from every authorIds list, its entry deleted from v0/content/authors.ts, and a redirect from /blog/authors/11ai to /blog/authors/rj11io, because the author page was a public address. The avatar file went with it.
 
 ## Checklist for a new author
 
