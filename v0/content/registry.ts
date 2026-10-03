@@ -6,6 +6,7 @@ import { createSectionTree, rootSectionId } from "./section-tree"
 import { blogPlatformDocs } from "./publications/blog-platform-docs"
 import { fncs2026 } from "./publications/2026-fncs-and-majors-coverage"
 import { monthlyReleases } from "./publications/2026-monthly-gaming-releases"
+import { chapter8News } from "./publications/chapter-8-news-and-updates"
 import { chapter7Season4 } from "./publications/chapter-7-season-4-news-and-updates"
 import { wowForever } from "./publications/wow-forever-pre-release-news-and-updates"
 import { pokemonChampionsUpdates } from "./publications/2026-pokemon-champions-news-and-updates"
@@ -31,6 +32,7 @@ const authoredPublications: Publication[] = [
   blogPlatformDocs,
   monthlyReleases,
   chapter7Season4,
+  chapter8News,
   fncs2026,
   wowForever,
   pokemonChampionsUpdates,

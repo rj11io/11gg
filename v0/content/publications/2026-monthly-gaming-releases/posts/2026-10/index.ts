@@ -7,8 +7,9 @@ export const releases202610 = {
   slug: "2026-10",
   title: "Gaming releases: October 2026",
   excerpt:
-    "September, October and November 2026: Gears, Call of Duty and Final Fantasy in three weeks, then a November cleared for Grand Theft Auto VI.",
+    "October, November and September 2026: the current release calendar, what is coming next, and what came out last month.",
   created: "2026-10-02",
+  updated: "2026-10-03",
   authorIds: ["rj11io"],
   isNSFW: false,
   isNew: true,

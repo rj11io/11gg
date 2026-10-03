@@ -9,8 +9,9 @@ export const releases202609 = {
   slug: "2026-09",
   title: "Gaming releases: September 2026",
   excerpt:
-    "August, September and October 2026: what came out, what is coming, and the six dates that moved out of September.",
+    "September, October and August 2026: the current release calendar, what is coming next, and what came out last month.",
   created: "2026-09-02",
+  updated: "2026-10-03",
   authorIds: ["rj11io"],
   isNSFW: false,
   isNew: false,
