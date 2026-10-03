@@ -9,11 +9,12 @@ export const v4210 = {
   excerpt:
     "The first mid-season update on 3 September: four Sprites, four Match Overrides, six Loot Hacks, Fortnite OG Season X and the Batman event in LEGO Fortnite.",
   created: "2026-09-03",
+  updated: "2026-10-03",
   authorIds: ["rj11io"],
   isNSFW: false,
   isNew: false,
   isFeatured: false,
   isDraft: false,
-  tags: ["Update", "v42.10"],
+  tags: ["Battle Royale", "Reload", "Update", "v42.10"],
   content,
 } satisfies Post

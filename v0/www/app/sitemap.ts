@@ -4,6 +4,7 @@ import { getSectionTools, tools } from "@/lib/tools"
 import {
   allPosts,
   blogAuthors,
+  getSectionPublications,
   getSectionResources,
   publicationPreviews,
   rootSection,
@@ -25,7 +26,7 @@ import { absoluteUrl } from "@/lib/site"
  * already gone, and every address comes from the same route helpers the pages
  * use. A post's lastModified is its updated date when it has one, otherwise
  * created; the blog landing page takes the newest date on the site. The site
- * root is not listed: it redirects to the blog until a landing page exists.
+ * root is listed when it has children, otherwise it redirects to the blog.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const postEntries = allPosts.map((post) => ({
@@ -39,8 +40,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .at(-1)
 
   return [
-    // Every section: its landing (not the root, which redirects), its blog
-    // and its browse indexes. A single-section site lists only the root blog.
+    // Section landings and available modules. The root blog and browse routes
+    // always exist; a child section needs a publication for those routes.
     ...sectionTree.all.flatMap((section) => {
       const path = sectionTree.path(section.id)
       return [
@@ -51,11 +52,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
           : [{ url: absoluteUrl(sectionHref(path)), lastModified: newest }]),
         ...(getSectionResources(section.id).length ? [{ url: absoluteUrl(resourcesHrefFor(path)), lastModified: newest }] : []),
         ...(getSectionTools(section.id).length ? [{ url: absoluteUrl(toolsHrefFor(path)), lastModified: newest }] : []),
-        { url: absoluteUrl(blogHrefFor(path)), lastModified: newest },
-        ...browseContentTypes.map((contentType) => ({
-          url: absoluteUrl(browseContentHref(contentType, path)),
-          lastModified: newest,
-        })),
+        ...(section.id === rootSection.id || getSectionPublications(section.id).length > 0
+          ? [
+              { url: absoluteUrl(blogHrefFor(path)), lastModified: newest },
+              ...browseContentTypes.map((contentType) => ({
+                url: absoluteUrl(browseContentHref(contentType, path)),
+                lastModified: newest,
+              })),
+            ]
+          : []),
       ]
     }),
     ...publicationPreviews.map((publication) => ({

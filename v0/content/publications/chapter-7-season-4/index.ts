@@ -16,7 +16,7 @@ export const chapter7Season4: Publication = {
   description:
     "Fortnite's Override season, one post per major update: the map, the Sprites, the collaborations, and what each patch changed.",
   created: "2026-08-20",
-  updated: "2026-10-02",
+  updated: "2026-10-03",
   isNSFW: false,
   isNew: true,
   isFeatured: true,
@@ -24,6 +24,6 @@ export const chapter7Season4: Publication = {
   tags: ["Fortnite", "Chapter 7", "Season 4", "Updates"],
   synopsis:
     "Chapter 7 Season 4 ran from 20 August 2026 under the name Override. This publication follows it update by update: the launch, the two Override Week updates, and Fortnitemares, with the weapons, Sprites, Overrides and collaborations each one brought. Every post links the official update notes it was written from.",
-  sectionId: "fortnite-br",
+  sectionId: "fortnite",
   posts: [v4200, v4210, v4220, v4230],
 }

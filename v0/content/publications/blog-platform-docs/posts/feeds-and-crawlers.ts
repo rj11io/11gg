@@ -43,7 +43,7 @@ The site name lives in v0/www/lib/site.ts beside the origin. Change it there onc
 
 Both use the framework's file conventions: v0/www/app/sitemap.ts and v0/www/app/robots.ts export a description, the build turns each into the file crawlers expect.
 
-Sitemap lists: every section's landing, its blog landing and three browse indexes, its resources and tools pages when it has them, every publication, every post, every tool, every author page. A single-section site lists the blog at /blog with its indexes. Posts and publications carry a last-modified date: the updated field when set, created otherwise. One more reason to set updated when revising a post.
+Sitemap lists: every section landing, available blog and browse pages, resources and tools pages when present, every publication, every post, every tool and every author page. Non-root blog and browse pages appear only when their section has a visible publication, matching the route builder. The root blog and browse pages always exist, including on an empty site. A single-section site lists the blog at /blog with its indexes. Posts and publications carry a last-modified date: the updated field when set, created otherwise. One more reason to set updated when revising a post.
 
 Robots file: allows everything, points at the sitemap. Nothing to hide, a draft has no address at all. Stronger guarantee than asking crawlers to stay away.
 

@@ -1,7 +1,7 @@
 import type { Section } from "./types"
 
 /**
- * The gg funnel: the site, then categories, then games, then editions. Paths
+ * The gg funnel: the site, then categories, games and dedicated child sections. Paths
  * use the games' full official names as references; the site's own name is
  * 11gg. body is the hub's own words, Markdown, shown on its landing. See the
  * Sections and modules post in the platform docs.
@@ -42,20 +42,20 @@ export const sections: Section[] = [
     segment: "fortnite",
     parentId: "root",
     title: "Fortnite",
-    description: "Epic's battle royale and everything built around it.",
+    description: "Fortnite news, updates, guides and the competitive scene.",
     categories: ["gaming", "esports"],
     body:
-      "Epic's battle royale, followed update by update. Each season gets its own publication with one post per major patch: the map, the weapons, the collaborations, what changed and what it means for a match.",
+      "Season news and updates live here, with tags for the modes each post covers. The Competitive section is the home for tournaments, event coverage and getting started in competition.",
   },
   {
-    id: "fortnite-br",
+    id: "fortnite-competitive",
     kind: "edition",
-    segment: "br",
+    segment: "competitive",
     parentId: "fortnite",
-    title: "Battle Royale",
-    description: "The main mode, season by season.",
+    title: "Competitive",
+    description: "Fortnite tournaments, event coverage and guides to getting started.",
     body:
-      "The main Fortnite mode, one publication per season, one post per major update.",
+      "A place for Fortnite's competitive scene: tournament formats, qualification, event coverage and guides for your first competition. No articles are published yet.",
   },
   {
     id: "world-of-warcraft",

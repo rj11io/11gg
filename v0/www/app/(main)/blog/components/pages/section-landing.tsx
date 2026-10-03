@@ -22,6 +22,12 @@ const kindLabel: Record<Section["kind"], string> = {
   edition: "Edition",
 }
 
+function sectionEyebrow(section: Section) {
+  return section.kind === "edition" && section.parentId
+    ? sectionTree.get(section.parentId).title
+    : kindLabel[section.kind]
+}
+
 const dateFormatter = new Intl.DateTimeFormat("en", {
   day: "numeric",
   month: "short",
@@ -77,7 +83,7 @@ function PostRow({ post }: { post: PostPreview }) {
 /**
  * The landing page of a section: what is below it, which modules it has, and
  * the latest posts from it and everything under it. A category lists the games
- * tagged with it; a game lists its editions; an edition lists its modules.
+ * tagged with it; a game lists its child sections; a child lists its modules.
  */
 export function SectionLanding({ section }: { section: Section }) {
   const path = sectionTree.path(section.id)
@@ -102,7 +108,7 @@ export function SectionLanding({ section }: { section: Section }) {
         </nav>
 
         <header className="mt-8 border-b border-border pb-10">
-          <p className="text-xs font-semibold tracking-[0.18em] text-primary uppercase">{kindLabel[section.kind]}</p>
+          <p className="text-xs font-semibold tracking-[0.18em] text-primary uppercase">{sectionEyebrow(section)}</p>
           <h1 className="mt-4 text-4xl font-semibold tracking-[-0.04em] sm:text-6xl">{section.title}</h1>
           {section.description ? (
             <p className="mt-5 max-w-3xl text-lg leading-8 text-muted-foreground sm:text-xl sm:leading-9">{section.description}</p>
@@ -118,14 +124,14 @@ export function SectionLanding({ section }: { section: Section }) {
         {children.length > 0 ? (
           <section aria-labelledby="sections-heading" className="mt-12">
             <h2 id="sections-heading" className="text-2xl font-semibold tracking-tight">
-              {section.kind === "category" ? "Games" : section.kind === "game" ? "Editions" : section.kind === "root" ? "Explore" : "Sections"}
+              {section.kind === "category" ? "Games" : section.kind === "root" ? "Explore" : "Sections"}
             </h2>
             <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {children.map((child) => (
                 <Card
                   key={child.id}
                   href={sectionHref(sectionTree.path(child.id))}
-                  eyebrow={kindLabel[child.kind]}
+                  eyebrow={sectionEyebrow(child)}
                   title={child.title}
                   description={child.description}
                 />

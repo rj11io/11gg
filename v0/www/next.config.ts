@@ -4,6 +4,17 @@ import type { NextConfig } from "next"
 const nextConfig: NextConfig = {
   async redirects() {
     return [
+      // Battle Royale content moved into the Fortnite game hub (11gg-011).
+      {
+        source: "/fortnite/br",
+        destination: "/fortnite",
+        permanent: true,
+      },
+      {
+        source: "/fortnite/br/blog/:path*",
+        destination: "/fortnite/blog/:path*",
+        permanent: true,
+      },
       // The site root is app/(main)/page.tsx, the root landing of the gg
       // funnel, so no rule for / lives here. Every address this site ever
       // serves is added below when it moves, and nothing is ever removed.

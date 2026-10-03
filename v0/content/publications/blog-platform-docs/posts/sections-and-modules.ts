@@ -21,8 +21,10 @@ Three kinds besides the root:
 | Kind | What it is | Landing page shows |
 | --- | --- | --- |
 | category | A theme games are tagged with, like gaming or esports | The games tagged with it |
-| game | A game, listed on the games browse page | Its editions |
-| edition | A version, mode or era of a game | Its modules |
+| game | A game, listed on the games browse page | Its child sections |
+| edition | A product branch or dedicated competitive scene within a game | Its modules |
+
+Child sections show their parent game's title above the heading and on landing cards: Fortnite above Competitive, World of Warcraft above Forever, and Pokémon above Champions. The games browse lists those child titles instead of an edition count. Modes such as Battle Royale and Zero Build can be post tags within the game's own blog; they do not each need a section.
 
 A section's address is its ancestors' segments joined: /pokemon/champions. The root is the site root. The validator refuses a tree with two roots, a missing parent, a cycle, two siblings with one segment, an edition outside a game, or a segment that a module or a site route owns: blog, resources, tools, games, authors, browse and a few more. Messages are in [Content validation rules](/blog/blog-platform-docs/content-validation).
 
@@ -38,7 +40,7 @@ A section's address is its ancestors' segments joined: /pokemon/champions. The r
 | /{section}/resources | Its curated resources |
 | /{section}/tools | Its tools index |
 | /{section}/tools/{tool} | One tool |
-| /games | Every game section, with its categories, editions and post count. A 404 on a site with no games |
+| /games | Every game section, with its categories, child-section titles and post count. A 404 on a site with no games |
 
 The root section drops the prefix: /blog, /resources, /tools, the last two only when the root has resources or tools. The site root itself is the root section's landing when the tree has more than the root, and a redirect to /blog when it does not. The root browse is the site's search: it lists every post, publication and author below the root, while a section's browse lists that section alone. Authors are site-wide, at /blog/authors/{authorId}. The feed, the sitemap and the robots file stay at the site root and cover every section.
 
@@ -56,7 +58,7 @@ export const champions: Publication = {
 }
 ~~~
 
-Everything a section's blog shows comes from publications that name it: the landing, the browse indexes, the counts. A game's landing also lists the latest posts of its editions, so a parent is never empty when its children have writing. A pubId is unique within its section, so two sections may each have a publication called updates; the section path tells them apart, and the bookmark keys carry it too.
+Everything a section's blog shows comes from publications that name it: the landing, the browse indexes, the counts. A game's landing also lists the latest posts of its child sections, so a parent is never empty when its children have writing. A pubId is unique within its section, so two sections may each have a publication called updates; the section path tells them apart, and the bookmark keys carry it too.
 
 ## The resources module
 
@@ -102,6 +104,10 @@ Two route trees under v0/www/app/(main), the group that carries the header and f
 - [...path]/: one dynamic route for every page of every other section. It walks the tree as far as the segments go, reads the rest as a module address, and renders the same shared components with that section. Its list of addresses is built from the tree at build time; anything off the list is a 404.
 
 The root layout holds only the shell: fonts, theme, analytics, the metadata base. (main)/layout.tsx is the first custom point. A page that needs a different frame goes in another group beside it.
+
+## A dedicated competitive section
+
+On 11gg, /fortnite carries the game's news and updates. Its child /fortnite/competitive is a dedicated competitive scene, stored with kind edition and the title Competitive. It shows Fortnite above its heading. Its landing works before articles exist; the blog card and /fortnite/competitive/blog appear only after its first publication is registered. This keeps navigation limited to available content.
 
 ## Making a copy multi-section
 

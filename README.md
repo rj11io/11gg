@@ -11,7 +11,9 @@ The repository is public, under the Apache License 2.0. The platform manual it c
 
 The dependency runs one way. Never import from `v0/www` inside `v0/content/`.
 
-`v0/content/registry.ts` holds five publications: Monthly gaming releases under gaming, Chapter 7: Season 4 under fortnite/br, World of Warcraft: Forever under world-of-warcraft/forever, Pokémon Champions updates under pokemon/champions, and Blog platform docs, a draft shown in development only.
+`v0/content/registry.ts` holds five publications: Monthly gaming releases under gaming, Chapter 7: Season 4 under fortnite, World of Warcraft: Forever under world-of-warcraft/forever, Pokémon Champions updates under pokemon/champions, and Blog platform docs, a draft shown in development only.
+
+The Fortnite Competitive hub is at `/fortnite/competitive`. Its blog will appear when its first publication is added.
 
 ## Run the site
 
