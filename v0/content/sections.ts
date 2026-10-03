@@ -55,7 +55,7 @@ export const sections: Section[] = [
     title: "Competitive",
     description: "Fortnite tournaments, event coverage and guides to getting started.",
     body:
-      "A place for Fortnite's competitive scene: tournament formats, qualification, event coverage and guides for your first competition. No articles are published yet.",
+      "A place for Fortnite's competitive scene: tournament formats, qualification, event coverage and guides for your first competition. Start with the 2026 FNCS event guide and coverage index.",
   },
   {
     id: "world-of-warcraft",

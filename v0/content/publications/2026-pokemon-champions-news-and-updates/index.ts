@@ -11,19 +11,19 @@ import { update120 } from "./posts/update-1-2-0"
  */
 export const pokemonChampionsUpdates: Publication = {
   relId: 5,
-  pubId: "updates",
-  title: "Pokémon Champions updates",
+  pubId: "2026-pokemon-champions-news-and-updates",
+  title: "2026 Pokémon Champions news and updates",
   description:
-    "Every version update of Pokémon Champions since launch: what changed, what it fixed, which regulation it opened.",
+    "Pokémon Champions news and updates in 2026: version changes, fixes and the regulations each update introduced.",
   created: "2026-04-08",
-  updated: "2026-10-02",
+  updated: "2026-10-03",
   isNSFW: false,
   isNew: true,
   isFeatured: true,
   isDraft: false,
   tags: ["Pokémon Champions", "Updates", "Patch notes"],
   synopsis:
-    "The patch history of Pokémon Champions, one post per version. Each post lists what was added, what changed in balance, which Regulation and Ranked seasons it opened, and the sources behind every line. Written from official notes where they exist and from the community trackers that fill the gaps, and it says which is which.",
+    "The 2026 news and update record. The patch history of Pokémon Champions, one post per version. Each post lists what was added, what changed in balance, which Regulation and Ranked seasons it opened, and the sources behind every line. Written from official notes where they exist and from the community trackers that fill the gaps, and it says which is which.",
   sectionId: "pokemon-champions",
   posts: [launch102, update103, update110, update120],
 }

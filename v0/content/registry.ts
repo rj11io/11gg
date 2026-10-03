@@ -4,10 +4,11 @@ import { resources } from "./resources"
 import { sections } from "./sections"
 import { createSectionTree, rootSectionId } from "./section-tree"
 import { blogPlatformDocs } from "./publications/blog-platform-docs"
-import { monthlyReleases } from "./publications/monthly-releases"
-import { chapter7Season4 } from "./publications/chapter-7-season-4"
-import { wowForever } from "./publications/news"
-import { pokemonChampionsUpdates } from "./publications/updates"
+import { fncs2026 } from "./publications/2026-fncs-and-majors-coverage"
+import { monthlyReleases } from "./publications/2026-monthly-gaming-releases"
+import { chapter7Season4 } from "./publications/chapter-7-season-4-news-and-updates"
+import { wowForever } from "./publications/wow-forever-pre-release-news-and-updates"
+import { pokemonChampionsUpdates } from "./publications/2026-pokemon-champions-news-and-updates"
 import { authorHref, postHref, publicationHref } from "./routes"
 import type {
   Author,
@@ -30,6 +31,7 @@ const authoredPublications: Publication[] = [
   blogPlatformDocs,
   monthlyReleases,
   chapter7Season4,
+  fncs2026,
   wowForever,
   pokemonChampionsUpdates,
 ]
