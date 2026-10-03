@@ -1,3 +1,11 @@
+# [1.4.0](https://github.com/rj11io/11gg/compare/v1.3.0...v1.4.0) (2026-10-03)
+
+
+### Features
+
+* **11gg-011:** consolidate Fortnite and add Competitive hub ([de7d575](https://github.com/rj11io/11gg/commit/de7d5754c47ac9fe05ebcde1c8b737e39ebfaff5))
+* **11gg-013:** add FNCS coverage and rename publications ([459b5c1](https://github.com/rj11io/11gg/commit/459b5c1d24fe7cbe46c5303911b5e7e39572aaed))
+
 # [1.3.0](https://github.com/rj11io/11gg/compare/v1.2.0...v1.3.0) (2026-10-02)
 
 
