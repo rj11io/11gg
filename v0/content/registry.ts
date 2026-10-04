@@ -1,3 +1,4 @@
+import { gettingStartedInCompetitive } from "./publications/getting-started-in-competitive"
 import { saveTheWorldLore } from "./publications/fortnite-save-the-world-lore-story-and-timeline"
 import { fortniteLore } from "./publications/fortnite-lore-story-and-timeline"
 import { authors } from "./authors"
@@ -38,6 +39,7 @@ const authoredPublications: Publication[] = [
   chapter7Season4,
   chapter8News,
   fncs2026,
+  gettingStartedInCompetitive,
   wowForever,
   pokemonChampionsUpdates,
 ]
