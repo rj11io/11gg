@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/rj11io/11gg/compare/v1.4.0...v1.5.0) (2026-10-03)
+
+
+### Features
+
+* **11gg-018:** reorder monthly coverage and add Chapter 8 publication ([5aea731](https://github.com/rj11io/11gg/commit/5aea7314595672a4db32db240fb2a58cc93fa06e))
+
 # [1.4.0](https://github.com/rj11io/11gg/compare/v1.3.0...v1.4.0) (2026-10-03)
 
 
