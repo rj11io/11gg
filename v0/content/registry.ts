@@ -1,3 +1,4 @@
+import { fortniteLore } from "./publications/fortnite-lore-story-and-timeline"
 import { authors } from "./authors"
 import { includeDrafts } from "./drafts"
 import { resources } from "./resources"
@@ -29,6 +30,7 @@ import { validatePublications, validateResources } from "./validation"
  * below.
  */
 const authoredPublications: Publication[] = [
+  fortniteLore,
   blogPlatformDocs,
   monthlyReleases,
   chapter7Season4,
