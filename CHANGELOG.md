@@ -1,3 +1,12 @@
+# [1.6.0](https://github.com/rj11io/11gg/compare/v1.5.0...v1.6.0) (2026-10-04)
+
+
+### Features
+
+* **11gg-022:** add living publication guides and correct dates ([07d2f21](https://github.com/rj11io/11gg/commit/07d2f2154f0d118b99c69870ccd18d42c549c3eb))
+* **11gg-034:** add draft Fortnite lore publication and reading guide ([a235e4c](https://github.com/rj11io/11gg/commit/a235e4c8761e92da614f7879034b9bdaa316dfa1))
+* **11gg-045:** add draft Save the World lore guide ([7ceb94a](https://github.com/rj11io/11gg/commit/7ceb94a7e02ac02c5ea554f2a645f4846a309d38))
+
 # [1.5.0](https://github.com/rj11io/11gg/compare/v1.4.0...v1.5.0) (2026-10-03)
 
 
