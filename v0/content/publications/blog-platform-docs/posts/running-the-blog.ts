@@ -1,6 +1,8 @@
 export const runningTheBlog = `
 # Running and releasing the blog
 
+Documentation reading guide: [Working with the platform](/blog/blog-platform-docs/working-with-the-platform).
+
 Operator mechanics: start the site locally, check before committing, know what a push to main does. For writing content, see [Adding a publication or post](/blog/blog-platform-docs/adding-content).
 
 ## Two package manifests, two jobs

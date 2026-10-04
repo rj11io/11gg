@@ -9,6 +9,7 @@ export const upgrades = {
   excerpt:
     "The game comes with a subscription. What Blizzard sells on top: two Skyborne packs, the Warcraft Forever Collection, and a physical Collector's Edition.",
   created: "2026-09-12",
+  updated: "2026-10-04",
   authorIds: ["rj11io"],
   isNSFW: false,
   isNew: false,

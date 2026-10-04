@@ -1,6 +1,8 @@
 export const authorsAndBylines = `
 # Authors and bylines
 
+Documentation reading guide: [Working with the platform](/blog/blog-platform-docs/working-with-the-platform).
+
 Every post names at least one author. Every author gets a page listing their work. Authors are shared across publications, so one mistake in the authors file shows up everywhere.
 
 All authors live in one file: v0/content/authors.ts.

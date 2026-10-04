@@ -266,25 +266,6 @@ Deleting content leaves its address returning 404 (the styled page covered in [F
 
 Setting isDraft on something already published removes its address the same way. Same treatment: add a redirect if the address was public for any length of time, and check whether another post links to it in prose (nothing validates those links).
 
-## Moving a section's blog into its game
-
-On 11gg, Battle Royale coverage lives directly in Fortnite's blog. The old /fortnite/br landing redirects permanently to /fortnite, and /fortnite/br/blog/:path* redirects to /fortnite/blog/:path*. The wildcard includes the blog landing, browse indexes, publications and posts. Post slugs and reading order stay the same. Canonicals, breadcrumbs, sitemap entries and feed links follow the publication's new sectionId. Existing bookmark keys and feed item GUIDs change once because they include the section path.
-
-Battle Royale, Zero Build and Reload are mode tags, applied to posts that cover them. A product branch or dedicated competitive scene can still have a child section.
-
-## 2026 publication renames on 11gg
-
-These renames preserve every historical source and send it directly to the final publication or matching post with a permanent 308 redirect. Specific publication rules precede the broader Battle Royale redirect. Post slugs stay unchanged.
-
-| Previous publication paths | Final publication path |
-| --- | --- |
-| /gaming/blog/monthly-releases; /blog/monthly-releases | /gaming/blog/2026-monthly-gaming-releases |
-| /fortnite/blog/chapter-7-season-4; /fortnite/br/blog/chapter-7-season-4 | /fortnite/blog/chapter-7-season-4-news-and-updates |
-| /world-of-warcraft/forever/blog/news | /world-of-warcraft/forever/blog/wow-forever-pre-release-news-and-updates |
-| /pokemon/champions/blog/updates | /pokemon/champions/blog/2026-pokemon-champions-news-and-updates |
-
-Publication and post URLs change once, including bookmark keys and feed item GUIDs that contain the publication ID. Existing external links resolve through redirects. Internal navigation, canonicals, sitemap and feeds use the final paths.
-
 ## When a path is not enough
 
 Every helper in v0/content/routes.ts returns a path starting with a slash: enough for links inside the site. Two things need the whole address, host and all: link previews social networks read, and the share links on post and publication pages.

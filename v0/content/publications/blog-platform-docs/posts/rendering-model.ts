@@ -1,6 +1,8 @@
 export const renderingModel = `
 # How pages are rendered
 
+Documentation reading guide: [Working with the platform](/blog/blog-platform-docs/working-with-the-platform).
+
 Every page is built before anyone visits. No per-request assembly, no database queries, almost none of the page-producing code sent to the browser. This post covers the mechanism, the exceptions, and the costs.
 
 ## Everything is built ahead of time

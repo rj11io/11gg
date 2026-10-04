@@ -1,6 +1,8 @@
 export const designTokens = `
 # Design tokens and theming
 
+Documentation reading guide: [Working with the platform](/blog/blog-platform-docs/working-with-the-platform).
+
 Appearance is controlled by named values in one stylesheet, v0/www/app/globals.css. Components name a token, not a colour or radius. Each token holds a light and a dark value. This post covers the tokens, the two with real reasoning behind them, and what to do when adding a component.
 
 ## Square corners, one lever

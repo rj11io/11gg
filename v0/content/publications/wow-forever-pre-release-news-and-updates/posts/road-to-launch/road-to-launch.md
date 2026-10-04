@@ -1,5 +1,7 @@
 # The road to 4 November
 
+Historical coverage revised October 4, 2026. The reference date is September 12, 2026, for [Blizzard’s BlizzCon announcement](https://news.blizzard.com/en-us/article/24302093/carve-a-new-path-with-world-of-warcraft-forever); the overview incorporates later sources linked below. This date identifies the event being covered, not this site’s original publication day. Start with the [pre-release guide](/world-of-warcraft/forever/blog/wow-forever-pre-release-news-and-updates/start-here).
+
 Every date Blizzard has given for World of Warcraft: Forever, in order. Updated as they are announced.
 
 ## Dates

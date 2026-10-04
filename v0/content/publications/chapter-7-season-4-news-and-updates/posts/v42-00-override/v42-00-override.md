@@ -1,5 +1,7 @@
 # v42.00: Override, the season begins
 
+Historical coverage revised October 4, 2026. The reference is [Epic's August 20, 2026 announcement or release note](https://www.fortnite.com/news/fortnite-override-break-the-rules-change-the-game). It dates the update, not this site's original publication day. Read the [season guide](/fortnite/blog/chapter-7-season-4-news-and-updates/start-here).
+
 Chapter 7 Season 4 went live on 20 August 2026 with update v42.00. Its name is Override, its tagline "Break the Rules. Change the Game." The island has merged with retro game worlds, a villain called Geno threatens system collapse, and players hack the island back one match at a time.
 
 ## The map

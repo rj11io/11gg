@@ -105,10 +105,6 @@ Two route trees under v0/www/app/(main), the group that carries the header and f
 
 The root layout holds only the shell: fonts, theme, analytics, the metadata base. (main)/layout.tsx is the first custom point. A page that needs a different frame goes in another group beside it.
 
-## A dedicated competitive section
-
-On 11gg, /fortnite carries the game's news and updates. Its child /fortnite/competitive is a dedicated competitive scene, stored with kind edition and the title Competitive. It shows Fortnite above its heading. Its landing works before articles exist; the blog card and /fortnite/competitive/blog appear only after its first publication is registered. This keeps navigation limited to available content.
-
 ## Making a copy multi-section
 
 1. Add the sections to v0/content/sections.ts, root first.

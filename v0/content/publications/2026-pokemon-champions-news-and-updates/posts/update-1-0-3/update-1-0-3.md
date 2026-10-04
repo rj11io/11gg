@@ -1,5 +1,7 @@
 # Update 1.0.3, 23 April 2026
 
+Historical coverage revised October 4, 2026. The reference is the April 23, 2026 [launch or update date](https://www.nintendo.com/it-it/Assistenza/Acquisti-e-iscrizioni/Giochi/Come-aggiornare-Pokemon-Champions-3079895.html), rather than this site’s original publication day. Read the [2026 update guide](/pokemon/champions/blog/2026-pokemon-champions-news-and-updates/start-here).
+
 The first patch, two weeks after launch, fixed the bugs the developers had listed on day two. Required for online play.
 
 ## Fixed

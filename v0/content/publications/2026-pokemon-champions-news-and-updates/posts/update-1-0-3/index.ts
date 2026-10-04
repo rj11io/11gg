@@ -9,6 +9,7 @@ export const update103 = {
   excerpt:
     "The first patch, two weeks after launch: the day-two bug list fixed, no balance changes, required for online play.",
   created: "2026-04-23",
+  updated: "2026-10-04",
   authorIds: ["rj11io"],
   isNSFW: false,
   isNew: false,

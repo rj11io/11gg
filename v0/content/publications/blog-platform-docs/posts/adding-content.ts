@@ -96,6 +96,24 @@ const authoredPublications: Publication[] = [
 ]
 ~~~
 
+## Living publication indexes
+
+A substantial or growing series needs a starting point. Create a living index with the series, or reuse a suitable About post or reading guide. Backfill a missing guide in an existing substantial series. A standalone article or a small publication can skip a separate index; record the reason in editorNotes or the work log.
+
+Keep the guide first in the publication's posts array. Follow it with articles in the intended reading sequence, ordinarily chronological where that fits the series. The guide is an exception to chronological article order: keep its actual creation date rather than changing dates to position it. Array order controls previous and next links; date sorting on cards is separate.
+
+Explain the scope and where to start. Link available articles with short summaries. Planned coverage stays unlinked until those pages exist. Name the guide in the publication synopsis and link it from the articles. Working with the platform is this manual's guide.
+
+When an article is added or materially revised, update the guide's links, summaries, roadmap and actual updated date in the same change. Check production availability: a published guide must not link draft pages. These are editorial checks, not rules the validator enforces.
+
+## Reference dates for news and updates
+
+For news or update coverage, created records the original announcement, update or other reference being covered. Identify its source and date in the body. For several references, identify the earliest and explain the covered range. Do not guess a missing date or replace a historical reference with the date of a rewrite.
+
+Set a news/update publication's created date two days before its earliest article reference. Exclude a newer navigation index from that anchor, and recalculate when an earlier article is backfilled. Evergreen publications do not acquire this date offset merely because they have a reading guide.
+
+Use updated for actual revisions and preserve the index's actual creation date. Disclose historical backfills to readers: state the reference date and when the coverage was written or revised, distinguishing the reference from this site's publication day. A source date does not confirm a reported claim; keep uncertainty explicit.
+
 ## Post format
 
 ### Modular post format
@@ -419,9 +437,9 @@ Adding a post and adding a publication are different jobs. Use the matching chec
 7. Give configured images dimensions, useful alt text, and separate thumbnail and lightbox sources where practical.
 8. Add a coverImage, imported rather than written as a path. It doubles as the post's link preview.
 9. Check component syntax against the [Markdown reference](/blog/blog-platform-docs/markdown-reference).
-10. Add the post to its publication's posts array, in reading position.
+10. Add the post after the living index, in its intended reading position. Preserve actual dates and apply the reference-date policy above to news or updates. Update the guide's available links, summaries, roadmap and actual updated date; update the publication's revision date too. Link the guide from the article.
 11. Set isDraft to true if the post is not ready to be read; the build then leaves it out. Set isFeatured to false while it is a draft; the two together fail validation.
-12. Run typecheck, lint, and build, all from v0/www (the root package.json has none of these scripts). The build runs the content validator and generates the new route; a passing typecheck alone proves nothing about the content.
+12. Open every internal prose link, including the guide and its article links, against production availability. Run typecheck, lint, tests, and build, all from v0/www (the root package.json has none of these scripts). The build runs the content validator and generates the new route; a passing typecheck alone proves nothing about the content.
 
 ### Adding a publication
 
@@ -429,10 +447,10 @@ Adding a post and adding a publication are different jobs. Use the matching chec
 2. Use an unused positive relId, a pubId that is not authors, browse, or publications, and valid ISO dates.
 3. Write the title, description, and tags. Add the optional synopsis and editorNotes if the publication needs them.
 4. Add a coverImage imported from the publication's assets directory, with a SOURCES.md recording where it came from. The 11blog-generate-covers and 11blog-verify-covers skills under v0/skills/ produce and check one.
-5. Add at least one post, following the post checklist above. Validation rejects a published publication with no posts.
+5. Add at least one post, following the post checklist above. A substantial or growing series also starts with a living index; reuse a suitable About post and keep it first. Record a small-publication exception when a separate guide adds no value. Validation rejects a published publication with no posts.
 6. Import the publication in v0/content/registry.ts and add it to the authoredPublications array.
 7. Set isDraft to true if the publication is not ready. Same if every post in it is still a draft; validation requires this rather than suggests it.
-8. Run typecheck, lint, and build from v0/www.
+8. Check the guide and article links against production availability. Run typecheck, lint, tests, and build from v0/www.
 
 Rules behind each step, and the exact message thrown when one fails: [Content validation rules](/blog/blog-platform-docs/content-validation).
 `

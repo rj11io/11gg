@@ -1,5 +1,7 @@
 # WoW Forever announced at BlizzCon 2026
 
+Historical coverage revised October 4, 2026. The reference date is September 12, 2026, for [Blizzard’s BlizzCon announcement](https://news.blizzard.com/en-us/article/24302093/carve-a-new-path-with-world-of-warcraft-forever); the overview incorporates later sources linked below. This date identifies the event being covered, not this site’s original publication day. Start with the [pre-release guide](/world-of-warcraft/forever/blog/wow-forever-pre-release-news-and-updates/start-here).
+
 Blizzard opened BlizzCon 2026 on 12 September with a third branch of World of Warcraft. World of Warcraft: Forever sits next to modern WoW and WoW Classic as a permanent version of the original 2004 Azeroth that grows sideways instead of up.
 
 ## What it is

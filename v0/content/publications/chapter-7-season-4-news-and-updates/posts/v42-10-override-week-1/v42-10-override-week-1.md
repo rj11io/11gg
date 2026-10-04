@@ -1,5 +1,7 @@
 # v42.10: Override Week, day one
 
+Historical coverage revised October 4, 2026. The reference is [Epic's September 3, 2026 announcement or release note](https://dev.epicgames.com/documentation/fortnite/42-10-fortnite-ecosystem-updates-and-release-notes). It dates the update, not this site's original publication day. Read the [season guide](/fortnite/blog/chapter-7-season-4-news-and-updates/start-here).
+
 The first mid-season update landed on 3 September 2026. Epic called it Override Week Update Day #1, the first of two.
 
 ## New Sprites

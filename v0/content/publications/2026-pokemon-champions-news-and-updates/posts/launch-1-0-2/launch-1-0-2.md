@@ -1,5 +1,7 @@
 # Launch: version 1.0.2, 8 April 2026
 
+Historical coverage revised October 4, 2026. The reference is the April 8, 2026 [launch or update date](https://asia-press.portal-pokemon.com/press-release/pokemon-champions_20260324/), rather than this site’s original publication day. Read the [2026 update guide](/pokemon/champions/blog/2026-pokemon-champions-news-and-updates/start-here).
+
 Pokémon Champions launched on Nintendo Switch and Switch 2 on 8 April 2026, the evening of 7 April in North America, as a free-to-start battle game. Version 1.0.2 was the launch build; no official notes exist for it, so the number comes from community trackers.
 
 ## What the launch had

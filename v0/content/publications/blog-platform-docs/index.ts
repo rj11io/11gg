@@ -52,6 +52,7 @@ export const blogPlatformDocs: Publication = {
   description:
     "Complete documentation for 11blog: writing posts, the content contract, extending the renderer, running the site.",
   created: "2026-07-01",
+  updated: "2026-10-03",
   isNSFW: false,
   isNew: false,
   isFeatured: false,
@@ -63,17 +64,26 @@ export const blogPlatformDocs: Publication = {
     "Twenty-two posts, the platform end to end: adding content, every Markdown form the renderer supports, the rules the build enforces, why the writing lives outside the web application, how pages render, and how to extend, theme, operate, copy, and contribute. Start with Working with the platform: it maps the rest by task. The 11blog repository is public, so everything here applies to a copy you fork and run yourself.",
   editorNotes:
     "Written inside the system it describes: every post renders on the platform it documents, so a broken claim is a broken page. Read the post covering a thing before changing that thing. Update it in the same commit.",
-  // Editorial order, which is what the previous and next links follow. It runs
-  // oldest to newest and low level to high level: the platform's shape first,
-  // then extending, operating, writing, and community, with the map post dated
-  // last, alone at the end of the month. The listing sorts by created date
-  // newest-first, so it reads as the exact reverse of this array, and the map
-  // post is the top card, which is the point: it is the entry point.
-  //
-  // Keep created dates ascending with array position, or the two orders drift
-  // apart. To add a post, place it in its group and renumber the dates around
-  // it rather than appending it at the end.
+  // The living guide is first; article order follows the authored sequence.
+  // Keep original dates. Sorted cards and previous/next links are separate.
   posts: [
+    {
+      postId: 413,
+      slug: "working-with-the-platform",
+      title: "Working with the platform",
+      excerpt:
+        "What the platform is, what it deliberately is not, and which post to read for each job.",
+      created: "2026-07-31",
+      updated: "2026-10-03",
+      authorIds: ["rj11io"],
+      isNSFW: false,
+      isNew: false,
+      isFeatured: false,
+      isDraft: false,
+      tags: ["Documentation", "Blog", "Publishing"],
+      content: workingWithThePlatform,
+      coverImage: workingWithThePlatformCover.src,
+    },
     {
       postId: 404,
       slug: "content-contract",
@@ -81,6 +91,7 @@ export const blogPlatformDocs: Publication = {
       excerpt:
         "Why the writing lives outside the web application, what the boundary guarantees, and what a replacement front end must provide.",
       created: "2026-07-01",
+      updated: "2026-10-03",
       authorIds: ["rj11io"],
       isNSFW: false,
       isNew: false,
@@ -97,6 +108,7 @@ export const blogPlatformDocs: Publication = {
       excerpt:
         "Static pages, server components, the few interactive islands, and why content images are plain image elements.",
       created: "2026-07-02",
+      updated: "2026-10-03",
       authorIds: ["rj11io"],
       isNSFW: false,
       isNew: false,
@@ -105,6 +117,23 @@ export const blogPlatformDocs: Publication = {
       tags: ["Rendering", "Performance", "Architecture", "Documentation"],
       content: renderingModel,
       coverImage: renderingModelCover.src,
+    },
+    {
+      postId: 422,
+      slug: "sections-and-modules",
+      title: "Sections and modules",
+      excerpt:
+        "The section tree a site is built on, the addresses it produces, and the blog, resources and tools modules every section can carry.",
+      created: "2026-07-15",
+      updated: "2026-10-03",
+      authorIds: ["rj11io"],
+      isNSFW: false,
+      isNew: false,
+      isFeatured: false,
+      isDraft: false,
+      tags: ["Architecture", "Routing", "Documentation"],
+      content: sectionsAndModules,
+      coverImage: sectionsAndModulesCover.src,
     },
     {
       postId: 406,
@@ -129,6 +158,7 @@ export const blogPlatformDocs: Publication = {
       excerpt:
         "Named values behind the interface, the two carrying measured contrast reasoning, and what to do when you add a component.",
       created: "2026-07-04",
+      updated: "2026-10-03",
       authorIds: ["rj11io"],
       isNSFW: false,
       isNew: false,
@@ -145,6 +175,7 @@ export const blogPlatformDocs: Publication = {
       excerpt:
         "What the blog guarantees for keyboard, screen reader, contrast, and reduced-motion readers, plus the gaps that remain.",
       created: "2026-07-05",
+      updated: "2026-10-03",
       authorIds: ["rj11io"],
       isNSFW: false,
       isNew: false,
@@ -177,6 +208,7 @@ export const blogPlatformDocs: Publication = {
       excerpt:
         "Starting the site, the checks to run before committing, and how a commit message becomes a release.",
       created: "2026-07-07",
+      updated: "2026-10-03",
       authorIds: ["rj11io"],
       isNSFW: false,
       isNew: false,
@@ -193,6 +225,7 @@ export const blogPlatformDocs: Publication = {
       excerpt:
         "RSS feed, sitemap, robots file, 404 page: what serves the site's machine readers, and why none of it needs maintaining.",
       created: "2026-07-08",
+      updated: "2026-10-03",
       authorIds: ["rj11io"],
       isNSFW: false,
       isNew: false,
@@ -209,6 +242,7 @@ export const blogPlatformDocs: Publication = {
       excerpt:
         "Every rule the content checker enforces, the exact message it throws, and what to change when a build fails.",
       created: "2026-07-09",
+      updated: "2026-10-03",
       authorIds: ["rj11io"],
       isNSFW: false,
       isNew: false,
@@ -284,28 +318,13 @@ export const blogPlatformDocs: Publication = {
       coverImage: mapsCover.src,
     },
     {
-      postId: 422,
-      slug: "sections-and-modules",
-      title: "Sections and modules",
-      excerpt:
-        "The section tree a site is built on, the addresses it produces, and the blog, resources and tools modules every section can carry.",
-      created: "2026-07-15",
-      authorIds: ["rj11io"],
-      isNSFW: false,
-      isNew: false,
-      isFeatured: false,
-      isDraft: false,
-      tags: ["Architecture", "Routing", "Documentation"],
-      content: sectionsAndModules,
-      coverImage: sectionsAndModulesCover.src,
-    },
-    {
       postId: 402,
       slug: "adding-content",
       title: "Adding a publication or post",
       excerpt:
         "Adding a publication or post in the blog's content format. Both post layouts, every required field, a checklist for each.",
       created: "2026-07-16",
+      updated: "2026-10-03",
       authorIds: ["rj11io"],
       isNSFW: false,
       isNew: false,
@@ -322,6 +341,7 @@ export const blogPlatformDocs: Publication = {
       excerpt:
         "The author record, the two jobs displayName does, and what happens when you rename or remove one.",
       created: "2026-07-17",
+      updated: "2026-10-03",
       authorIds: ["rj11io"],
       isNSFW: false,
       isNew: false,
@@ -338,6 +358,7 @@ export const blogPlatformDocs: Publication = {
       excerpt:
         "What the blog's searches actually match, why post bodies are not among them, and how tags behave.",
       created: "2026-07-18",
+      updated: "2026-10-03",
       authorIds: ["rj11io"],
       isNSFW: false,
       isNew: false,
@@ -354,6 +375,7 @@ export const blogPlatformDocs: Publication = {
       excerpt:
         "Forking the public 11blog repository and making it yours: what to replace, what to configure, what to leave alone.",
       created: "2026-07-19",
+      updated: "2026-10-03",
       authorIds: ["rj11io"],
       isNSFW: false,
       isNew: false,
@@ -386,6 +408,7 @@ export const blogPlatformDocs: Publication = {
       excerpt:
         "Three ways to help this blog keep going: pass a post on, sponsor one, or support the work directly.",
       created: "2026-07-30",
+      updated: "2026-10-03",
       authorIds: ["rj11io"],
       isNSFW: false,
       isNew: false,
@@ -394,22 +417,6 @@ export const blogPlatformDocs: Publication = {
       tags: ["Support", "Community", "Documentation"],
       content: supportingThePlatform,
       coverImage: supportingThePlatformCover.src,
-    },
-    {
-      postId: 413,
-      slug: "working-with-the-platform",
-      title: "Working with the platform",
-      excerpt:
-        "What the platform is, what it deliberately is not, and which post to read for each job.",
-      created: "2026-07-31",
-      authorIds: ["rj11io"],
-      isNSFW: false,
-      isNew: false,
-      isFeatured: false,
-      isDraft: false,
-      tags: ["Documentation", "Blog", "Publishing"],
-      content: workingWithThePlatform,
-      coverImage: workingWithThePlatformCover.src,
     },
   ],
   coverImage: publicationCover.src,

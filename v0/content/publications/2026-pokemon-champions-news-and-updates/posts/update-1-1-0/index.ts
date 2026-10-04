@@ -9,6 +9,7 @@ export const update110 = {
   excerpt:
     "Version 1.1.0 came with the iOS and Android launch on 17 June 2026: 38 Pokémon and 22 Mega forms, two abilities, Rage Fist nerfed, and Regulation M-B.",
   created: "2026-06-17",
+  updated: "2026-10-04",
   authorIds: ["rj11io"],
   isNSFW: false,
   isNew: false,

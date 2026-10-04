@@ -1,5 +1,7 @@
 # v42.30: Fortnitemares 2026, The Game Is Cursed
 
+Historical coverage revised October 4, 2026. The reference is [Epic's October 1, 2026 announcement or release note](https://www.fortnite.com/news/the-corruption-spreads-in-fortnitemares-2026). It dates the update, not this site's original publication day. Read the [season guide](/fortnite/blog/chapter-7-season-4-news-and-updates/start-here).
+
 Fortnitemares started on 1 October 2026 with update v42.30 and runs to 1 November, the earliest start the event has had in years.
 
 ## Five Nights at Freddy's

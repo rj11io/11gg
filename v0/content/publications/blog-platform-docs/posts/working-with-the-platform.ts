@@ -3,7 +3,7 @@ export const workingWithThePlatform = `
 
 This publication documents 11blog, the platform this site runs on. Twenty-two posts. This one is the map: what the platform is, what it is not, which post to read for each job.
 
-Want your own blog rather than to work on this one: start with [Build your own blog](/blog/online-presence/build-your-own-blog).
+Want your own blog rather than to work on this one: start with [Run your own copy](/blog/blog-platform-docs/run-your-own-copy).
 
 ## What 11blog is
 
@@ -37,7 +37,7 @@ In exchange: pages that are files, content that outlives the renderer, a build t
 
 ## Where to start
 
-Five groups, each building on the last: the platform's shape, extending it, operating it, writing on it, joining in. Every post links onward to what it depends on. Previous and next links follow this same order; this post is the last stop. To walk the groups in order, start from [The content contract](/blog/blog-platform-docs/content-contract).
+Five groups, each building on the last: the platform's shape, extending it, operating it, writing on it, joining in. Every post links onward to what it depends on. This guide is the first post in the reading sequence. Previous and next links then follow the authored article order. To begin the first group, read [The content contract](/blog/blog-platform-docs/content-contract).
 
 ### Understanding
 
@@ -105,11 +105,11 @@ For what changed and when, read the changelog in the repository, not any post he
 
 This blog's own repository is public, at [github.com/rj11io/11blog](https://github.com/rj11io/11blog), under the Apache License 2.0. Fork it and everything in this publication applies to your copy: same platform, same code. [Run your own copy](/blog/blog-platform-docs/run-your-own-copy) is the checklist.
 
-For the argument that running your own is worth the trouble: [Own your platform](/blog/online-presence/own-your-platform).
-
 ## How these posts are maintained
 
 One rule, and the reason this publication is worth trusting: **a meaningful change to the platform updates the documentation in the same commit.** These posts are published; a stale one is a public false statement.
+
+This is the living index. When an article is added or materially revised, update its link, summary and this guide's actual revision date in the same change. Keep the five groups useful for readers, and describe future coverage without linking pages that do not yet exist or are hidden as drafts. The guide stays first without changing its original creation date. The published articles above are the available roadmap; no additional posts are promised here. The workflow and news/reference-date policy are in [Adding a publication or post](/blog/blog-platform-docs/adding-content).
 
 Three habits hold that up:
 

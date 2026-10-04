@@ -104,7 +104,9 @@ npm --prefix v0/www run dev
 - **No YAML frontmatter, no MDX, no raw HTML in posts.** None is enabled. New syntax means a new renderer component: see `extending-the-renderer.ts`.
 - **Never create both `posts/name.ts` and `posts/name/index.ts` for one slug.** The single file silently wins, the directory is ignored.
 - **Editorial order is array order.** A publication's `posts` array sets the reading sequence and the previous/next links. Nothing sorts it.
-- **Keep `created` dates ascending with array position** in `blog-platform-docs`. The listing sorts newest-first, so it reads as the reverse of the array. Adding a post means renumbering the dates around it, not appending at the end.
+- **A substantial or growing series starts with a living index.** Reuse a suitable About or reading guide; backfill one when missing. Keep it first in the posts array, followed by the intended article reading order. Preserve real dates: index-first is an exception to ordinary chronological article order. Never renumber dates to position a post. Link the guide from articles and name it in the publication synopsis.
+- **Maintain the index in the same change as its articles.** Update available links, short summaries, planned coverage and the actual updated date. Link only production-visible pages from a published guide; future coverage stays unlinked. Record why a standalone article or small publication needs no separate index.
+- **News and update dates follow their references.** Identify the original source date in the body; created tracks that reference, updated tracks actual revisions. A news/update publication starts two days before its earliest article reference, excluding its navigation index. Recalculate for earlier backfills. Preserve the index's actual creation date and disclose when historical coverage was written. Missing reference dates stay unknown.
 - **Server components by default.** Add `"use client"` only for state or event handlers, and keep it at the leaves.
 - **Name a design token; never write a colour or a corner radius.**
 - **Covers come from 11brands, never drawn here.** Use the `11blog-generate-covers` skill under `v0/skills/`, then `11blog-verify-covers`. Copy assets byte-for-byte, never resize or re-encode, and record the run stamp in the nearest `SOURCES.md`.
@@ -145,7 +147,7 @@ Meaningful means it alters what someone else would need to know:
 | The contribution workflow, or what a review checks | `contribute-to-the-platform.ts` |
 | How readers can support the blog | `supporting-the-platform.ts` |
 
-**No existing post covers what you changed: write one.** Follow `adding-content.ts`, take the next unused `postId` in the 4xx range, place it in the `posts` array where it belongs in the reading order, date it to keep the array ascending, and link it from related posts. Then add it to the routing table above, to the group lists in `working-with-the-platform.ts` (the reader-facing map), and bump the post-count sentences there, in the publication synopsis, and in `online-presence/posts/build-your-own-blog.ts`.
+**No existing post covers what you changed: write one.** Follow `adding-content.ts`, take the next unused `postId` in the 4xx range, place it in the `posts` array where it belongs in the reading order, preserve its actual dates, and link it from related posts. Keep Working with the platform first and update its links, summaries and revision date in the same change. Then add it to the routing table above, to the group lists in `working-with-the-platform.ts` (the reader-facing map), and bump the post-count sentences there, in the publication synopsis, and in `online-presence/posts/build-your-own-blog.ts`.
 
 Three habits that keep the documentation honest:
 

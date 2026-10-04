@@ -9,7 +9,7 @@ export const releases202610 = {
   excerpt:
     "October, November and September 2026: the current release calendar, what is coming next, and what came out last month.",
   created: "2026-10-02",
-  updated: "2026-10-03",
+  updated: "2026-10-04",
   authorIds: ["rj11io"],
   isNSFW: false,
   isNew: true,

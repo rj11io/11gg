@@ -1,6 +1,8 @@
 export const feedsAndCrawlers = `
 # Feeds, crawlers, and the 404 page
 
+Documentation reading guide: [Working with the platform](/blog/blog-platform-docs/working-with-the-platform).
+
 Readers arrive through pages. Three other consumers arrive through machine-readable addresses: feed readers, search crawlers, whoever follows a dead link. Four pieces serve them: the RSS feed, the sitemap, the robots file, the 404 page. None needs maintaining when content changes.
 
 ## The three addresses

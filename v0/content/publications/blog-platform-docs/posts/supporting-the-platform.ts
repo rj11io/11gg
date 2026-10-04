@@ -1,6 +1,8 @@
 export const supportingThePlatform = `
 # Supporting the platform
 
+Documentation reading guide: [Working with the platform](/blog/blog-platform-docs/working-with-the-platform).
+
 No ads, no paywall, no signup. No newsletter, no comments. Only metric: page opens. Files built ahead of time, served as-is. Cheap to run, quiet to read.
 
 Consequence: the blog cannot pay for itself. Three ways to help, cheapest first. The free one matters most.

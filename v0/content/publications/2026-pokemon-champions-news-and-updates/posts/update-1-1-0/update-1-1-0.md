@@ -1,5 +1,7 @@
 # Update 1.1.0, 17 June 2026: mobile and Regulation M-B
 
+Historical coverage revised October 4, 2026. The reference is the June 17, 2026 [launch or update date](https://www.nintendo.com/it-it/Assistenza/Acquisti-e-iscrizioni/Giochi/Come-aggiornare-Pokemon-Champions-3079895.html), rather than this site’s original publication day. Read the [2026 update guide](/pokemon/champions/blog/2026-pokemon-champions-news-and-updates/start-here).
+
 Version 1.1.0 arrived with the iOS and Android launch on 17 June 2026. One Nintendo Account carries the save across every platform. The same day, Regulation M-B replaced M-A.
 
 ## What was added

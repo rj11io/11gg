@@ -9,7 +9,7 @@ export const v4220 = {
   excerpt:
     "The second Override Week update on 17 September: Kingdom Hearts, Rebecca's Guns, Ironmouse, the Tetris Tower, and merged North American servers.",
   created: "2026-09-17",
-  updated: "2026-10-03",
+  updated: "2026-10-04",
   authorIds: ["rj11io"],
   isNSFW: false,
   isNew: false,

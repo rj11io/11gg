@@ -8,7 +8,8 @@ export const roadToLaunch = {
   title: "The road to 4 November",
   excerpt:
     "Every date Blizzard has given for World of Warcraft: Forever, from the announcement to launch, and what is still unknown.",
-  created: "2026-09-29",
+  created: "2026-09-12",
+  updated: "2026-10-04",
   authorIds: ["rj11io"],
   isNSFW: false,
   isNew: true,

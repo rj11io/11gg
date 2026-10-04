@@ -9,6 +9,7 @@ export const announced = {
   excerpt:
     "Blizzard opened BlizzCon 2026 with a permanent third branch of World of Warcraft: the original Azeroth, level cap 60, growing sideways. Launch 4 November.",
   created: "2026-09-12",
+  updated: "2026-10-04",
   authorIds: ["rj11io"],
   isNSFW: false,
   isNew: false,

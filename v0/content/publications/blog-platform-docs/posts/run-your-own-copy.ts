@@ -1,7 +1,7 @@
 export const runYourOwnCopy = `
 # Run your own copy
 
-This blog's own repository is public. Fork it, replace the writing, own the result. This post is the checklist: what to replace, what to configure, what to leave alone. Why run your own platform at all: [Own your platform](/blog/online-presence/own-your-platform).
+This blog's own repository is public. Fork it, replace the writing, own the result. This post is the checklist: what to replace, what to configure, what to leave alone.
 
 ## What you are copying
 
@@ -36,6 +36,8 @@ Three replacements make the content yours.
 - Redirects: the list in v0/www/next.config.ts is this site's address history, none of it yours. Empty it, let your own history accumulate. Why the file only grows after that: [URLs, slugs, and redirects](/blog/blog-platform-docs/urls-and-redirects).
 
 With no published posts or publications, production remains valid: the landing page shows a neutral pre-publication state instead of empty content sections. Browse distinguishes that state from an empty search result. Development and SHOW_DRAFTS=1 previews still show drafts.
+
+When a publication becomes a substantial or growing series, create its living index or reuse an About post. Keep the guide first, with available links and short summaries; leave planned coverage unlinked. Maintain it whenever an article is added or materially revised. A standalone article can omit a separate guide if you record why. Preserve real dates: news/update articles use identified reference dates, while the index keeps its actual creation date. News/update publication dates start two days before their earliest article reference; disclose historical backfills. Full workflow: [Adding a publication or post](/blog/blog-platform-docs/adding-content).
 
 ## Configure the site's identity
 

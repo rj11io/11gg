@@ -1,6 +1,8 @@
 export const searchAndDiscovery = `
 # Search, tags, and discovery
 
+Documentation reading guide: [Working with the platform](/blog/blog-platform-docs/working-with-the-platform).
+
 Three ways readers find things: the browse page, the search box inside a publication, a link from elsewhere. This post covers what those searches look at, because that determines how to write a post's metadata.
 
 Headline fact, everything follows from it: **post bodies are not searched.** Nothing indexes the writing itself. A word missing from a post's title, excerpt, tags, publication name, and author name is invisible to every search on this blog.
@@ -89,8 +91,10 @@ Two option sets, because the three content types do not sort on the same things.
 Five options. Newest first is the default.
 
 - **Newest first** and **Oldest first**: created date.
-- **Last updated**: updated date, most recently revised first. Most posts have never been revised and carry no updated date; those fall back to created date. Practical effect: on unedited content this option matches Newest first, rather than pushing unrevised posts to the bottom or dropping them.
+- **Last updated**: updated date, most recently revised first. Posts without an updated date fall back to their created date. Practical effect: on unedited content this option matches Newest first, rather than pushing unrevised posts to the bottom or dropping them.
 - **A-Z** and **Z-A**: title.
+
+A publication's reading sequence is different from its sorted cards. Its posts array starts with a living index for a substantial series, then follows the intended article order; previous and next links use that array. Newest first still uses created dates and does not pin the guide. Do not invent a date to move a card. Name the guide in the publication synopsis and link it from articles so readers can find it regardless of their sorting preference. See [Adding a publication or post](/blog/blog-platform-docs/adding-content) for guide maintenance and news/reference dates.
 
 One remembered choice, shared between the browse page and a publication's own post list. Sort a publication's posts A-Z and the browse page is A-Z on arrival.
 

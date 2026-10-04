@@ -1,6 +1,8 @@
 export const contentValidation = `
 # Content validation rules
 
+Documentation reading guide: [Working with the platform](/blog/blog-platform-docs/working-with-the-platform).
+
 Every publication, post, author, and image is checked against a set of rules before the site builds. A failing rule stops the build with a message naming the exact field.
 
 This post lists every rule, its failure message, and the fix. The checks live in v0/content/validation.ts.

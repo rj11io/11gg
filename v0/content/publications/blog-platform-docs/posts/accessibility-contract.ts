@@ -1,6 +1,8 @@
 export const accessibilityContract = `
 # Accessibility contract
 
+Documentation reading guide: [Working with the platform](/blog/blog-platform-docs/working-with-the-platform).
+
 What the blog guarantees for readers on a screen reader, a keyboard, a high-contrast setting, or a reduced-motion setting. Most of it is already true in the code. Written down so it stays true: an unstated guarantee disappears in the next redesign. Known gaps listed at the end.
 
 ## What an author must provide

@@ -105,6 +105,8 @@ const next = publication.posts[postIndex + 1]
 
 The previous and next links at the foot of a post follow the array, not the dates. Reorder the array, reorder the reading sequence. Intentional: a publication is a series, and a series has an order its author chose.
 
+A substantial series keeps its living index first, then its articles in the intended reading sequence. This manual starts with [Working with the platform](/blog/blog-platform-docs/working-with-the-platform). The index can be newer than the articles it introduces: do not change created dates to make the array chronological. Article references and actual revisions retain their meaning. The writing workflow, index maintenance and news/reference dating policy are in [Adding a publication or post](/blog/blog-platform-docs/adding-content). They are editorial responsibilities, not extra sorting or validation in the registry.
+
 Those two lines are also why the draft filter rebuilds the posts array rather than only filtering the derived lists. They read positions straight off the publication; a draft left in the array would become a dead link out of a live post. Removing it closes the gap: the chain runs from the post before it to the post after.
 
 Dates are used explicitly where used: the landing page sorts by created date for its "latest" lists, the browse page offers newest and oldest as sort options. Presentation choices layered on top of the editorial order, not replacements for it.

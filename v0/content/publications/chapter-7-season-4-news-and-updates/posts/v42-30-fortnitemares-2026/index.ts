@@ -9,7 +9,7 @@ export const v4230 = {
   excerpt:
     "Fortnitemares started on 1 October with Five Nights at Freddy's, Freddy Krueger, new weapons and Overrides, and a season end expected around 31 October.",
   created: "2026-10-01",
-  updated: "2026-10-03",
+  updated: "2026-10-04",
   authorIds: ["rj11io"],
   isNSFW: false,
   isNew: true,

@@ -1,5 +1,7 @@
 # Update 1.2.0, 9 September 2026: Regulation M-C and Z Mega Evolutions
 
+Historical coverage revised October 4, 2026. The reference is the September 9, 2026 [launch or update date](https://www.nintendo.com/it-it/Assistenza/Acquisti-e-iscrizioni/Giochi/Come-aggiornare-Pokemon-Champions-3079895.html), rather than this site’s original publication day. Read the [2026 update guide](/pokemon/champions/blog/2026-pokemon-champions-news-and-updates/start-here).
+
 Announced at the Worlds 2026 closing ceremony on 30 August and released on 9 September (the evening of 8 September Pacific), version 1.2.0 brought Regulation M-C, 24 Pokémon, and the first Z Mega Evolutions. Required for online play.
 
 ## New Pokémon

@@ -1,5 +1,7 @@
 # The beta is live
 
+Historical coverage revised October 4, 2026. The reference date is September 17, 2026, for [Blizzard’s beta opening](https://news.blizzard.com/en-us/article/24304160/the-world-of-warcraft-forever-beta-now-live); the overview incorporates later sources linked below. This date identifies the event being covered, not this site’s original publication day. Start with the [pre-release guide](/world-of-warcraft/forever/blog/wow-forever-pre-release-news-and-updates/start-here).
+
 Five days after the announcement, on 17 September 2026, the World of Warcraft: Forever beta opened. It runs until 21 October.
 
 ## Who is in

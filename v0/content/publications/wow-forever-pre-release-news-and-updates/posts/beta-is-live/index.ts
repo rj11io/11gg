@@ -9,6 +9,7 @@ export const beta = {
   excerpt:
     "The World of Warcraft: Forever beta opened on 17 September and runs to 21 October: who is in, what is testable, and the Server Slam still to be dated.",
   created: "2026-09-17",
+  updated: "2026-10-04",
   authorIds: ["rj11io"],
   isNSFW: false,
   isNew: false,

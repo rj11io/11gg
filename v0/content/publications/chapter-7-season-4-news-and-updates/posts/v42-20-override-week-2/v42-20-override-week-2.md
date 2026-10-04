@@ -1,5 +1,7 @@
 # v42.20: Override Week, day two
 
+Historical coverage revised October 4, 2026. The reference is [Epic's September 17, 2026 announcement or release note](https://dev.epicgames.com/documentation/fortnite/42-20-fortnite-ecosystem-updates-and-release-notes). It dates the update, not this site's original publication day. Read the [season guide](/fortnite/blog/chapter-7-season-4-news-and-updates/start-here).
+
 The second Override Week update arrived on 17 September 2026 and brought the season's biggest collaboration.
 
 ## Kingdom Hearts

@@ -9,6 +9,7 @@ export const update120 = {
   excerpt:
     "Version 1.2.0 on 9 September 2026: 24 Pokémon, the first Z Mega Evolutions, Battle Log, Selection Support, and Regulation M-C.",
   created: "2026-09-09",
+  updated: "2026-10-04",
   authorIds: ["rj11io"],
   isNSFW: false,
   isNew: true,

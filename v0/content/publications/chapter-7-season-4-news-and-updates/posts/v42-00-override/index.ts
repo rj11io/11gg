@@ -9,7 +9,7 @@ export const v4200 = {
   excerpt:
     "Chapter 7 Season 4 went live on 20 August 2026: three new points of interest, Sprites, Cheat Codes, Override Consoles, and Sonic in the battle pass.",
   created: "2026-08-20",
-  updated: "2026-10-03",
+  updated: "2026-10-04",
   authorIds: ["rj11io"],
   isNSFW: false,
   isNew: false,

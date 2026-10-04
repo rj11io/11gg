@@ -1,5 +1,7 @@
 # Markdown reference
 
+Documentation reading guide: [Working with the platform](/blog/blog-platform-docs/working-with-the-platform).
+
 ## Prose and inline formatting
 
 This paragraph demonstrates **bold text**, _italic text_, ~~strikethrough text~~, `inline code`, an [internal blog link](/blog/browse/posts), and an [external reference](https://example.com).
