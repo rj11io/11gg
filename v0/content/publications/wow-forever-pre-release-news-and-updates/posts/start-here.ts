@@ -37,6 +37,8 @@ Further beta or launch coverage will be linked when available.
 - Paladin comparison: a draft covers Holy Strike, Seals and Judgment, taunting and Consecration, with specialization options and retained toolkit gaps. A link will follow when the article is published.
 - Priest comparison: a draft covers universal Fear Ward and Devouring Plague, baseline spells and race-specific Priest abilities, separated from general racial traits. A link will follow when the article is published.
 - Warrior comparison: a draft covers the Rage model, Tactical Mastery, Victory Rush and cooldown separation, with beta Rage bugs and planned critical-hit changes kept explicit. A link will follow when the article is published.
-- Further race choices, class updates, Skyborne and story context remain planned coverage.
+- Skyborne: a draft covers Windshaper and High Order classes, announced racial abilities, starting context and faction lore. A link will follow when the article is published.
+- Forsaken Kingdom: a draft covers the announced Lordaeron-to-Undercity bridge, new viewpoints and the Paladin thread into Forever. A link will follow when the article is published.
+- Additional racial, class and story comparisons remain planned coverage.
 `,
 } satisfies Post

@@ -11,6 +11,8 @@ import { hunterChanges } from "./posts/hunter-changes-from-classic"
 import { paladinChanges } from "./posts/paladin-changes-from-classic"
 import { priestChanges } from "./posts/priest-changes-from-classic"
 import { warriorChanges } from "./posts/warrior-changes-from-classic"
+import { skyborneOverview } from "./posts/skyborne-factions-and-racials"
+import { forsakenBridge } from "./posts/forsaken-kingdom-story-bridge"
 
 /** The living guide comes first; articles retain their reference dates and reading order. */
 export const wowForever: Publication = {
@@ -42,5 +44,7 @@ export const wowForever: Publication = {
     paladinChanges,
     priestChanges,
     warriorChanges,
+    skyborneOverview,
+    forsakenBridge,
   ],
 }
