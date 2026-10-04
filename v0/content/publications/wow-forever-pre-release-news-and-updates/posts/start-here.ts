@@ -4,7 +4,8 @@ export const foreverIndex = {
   postId: 305,
   slug: "start-here",
   title: "WoW Forever: start here",
-  excerpt: "The reading guide to this publication, with available articles and planned coverage.",
+  excerpt:
+    "The reading guide to this publication, with available articles and planned coverage.",
   created: "2026-10-04",
   updated: "2026-10-04",
   authorIds: ["rj11io"],
@@ -32,6 +33,10 @@ Further beta or launch coverage will be linked when available.
 - Dwarf comparison: a draft covers Shaman access, Stoneform and tracking changes, and the announced racial toolkit. A link will follow when the article is published.
 - Undead comparison: a draft covers Paladin access, Will of the Forsaken, Cannibalize and the remaining racial traits. A link will follow when the article is published.
 - Druid comparison: a draft covers shapeshifting, equipment, resurrection and baseline abilities, with future beta talents kept separate. A link will follow when the article is published.
+- Hunter comparison: a draft covers Aimed Shot, combat traps, pet scaling and families, with retained range and role limits. A link will follow when the article is published.
+- Paladin comparison: a draft covers Holy Strike, Seals and Judgment, taunting and Consecration, with specialization options and retained toolkit gaps. A link will follow when the article is published.
+- Priest comparison: a draft covers universal Fear Ward and Devouring Plague, baseline spells and race-specific Priest abilities, separated from general racial traits. A link will follow when the article is published.
+- Warrior comparison: a draft covers the Rage model, Tactical Mastery, Victory Rush and cooldown separation, with beta Rage bugs and planned critical-hit changes kept explicit. A link will follow when the article is published.
 - Further race choices, class updates, Skyborne and story context remain planned coverage.
 `,
 } satisfies Post
