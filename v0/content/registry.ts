@@ -1,3 +1,4 @@
+import { saveTheWorldLore } from "./publications/fortnite-save-the-world-lore-story-and-timeline"
 import { fortniteLore } from "./publications/fortnite-lore-story-and-timeline"
 import { authors } from "./authors"
 import { includeDrafts } from "./drafts"
@@ -31,6 +32,7 @@ import { validatePublications, validateResources } from "./validation"
  */
 const authoredPublications: Publication[] = [
   fortniteLore,
+  saveTheWorldLore,
   blogPlatformDocs,
   monthlyReleases,
   chapter7Season4,
