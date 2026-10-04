@@ -27,6 +27,11 @@ The pre-release record of World of Warcraft: Forever, from the announcement thro
 
 ## What comes next
 
-Further beta or launch coverage will be linked when available. Race, class and lore comparisons are planned research, without article links yet.
+Further beta or launch coverage will be linked when available.
+
+- Dwarf comparison: a draft covers Shaman access, Stoneform and tracking changes, and the announced racial toolkit. A link will follow when the article is published.
+- Undead comparison: a draft covers Paladin access, Will of the Forsaken, Cannibalize and the remaining racial traits. A link will follow when the article is published.
+- Druid comparison: a draft covers shapeshifting, equipment, resurrection and baseline abilities, with future beta talents kept separate. A link will follow when the article is published.
+- Further race choices, class updates, Skyborne and story context remain planned coverage.
 `,
 } satisfies Post
